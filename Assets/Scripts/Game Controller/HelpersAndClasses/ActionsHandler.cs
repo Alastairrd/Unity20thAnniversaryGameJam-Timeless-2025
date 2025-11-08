@@ -8,24 +8,28 @@ namespace Assets.Scripts.Game_Controller.HelpersAndClasses
 {
     public class ActionsHandler
     {
-        public Dictionary<int, string> Actions = new Dictionary<int, string>(); //instead of string, action
+        public Dictionary<int, Action> Actions = new Dictionary<int, Action>(); //instead of string, action
 
-        public Outcome SimulateAction(int actionId)
-        {
-            //simulate action
-            // ... 
-            // ...
-            //chance at random events?
-            //return Actions[actionId].Simulate();
-
-            return new Outcome();
+        public ActionsHandler() { 
+  
         }
 
-        public Outcome SimulateScavenge()
-        {
-            //ScavengeHandler.SimulateScavenge(stats);
-            return new Outcome();
-        }
+        //public OldOutcome SimulateAction(int actionId)
+        //{
+        //    //simulate action
+        //    // ... 
+        //    // ...
+        //    //chance at random events?
+        //    //return Actions[actionId].Simulate();
+
+        //    return new OldOutcome();
+        //}
+
+        //public OldOutcome SimulateScavenge()
+        //{
+        //    //ScavengeHandler.SimulateScavenge(stats);
+        //    return new OldOutcome();
+        //}
     }
 }
 

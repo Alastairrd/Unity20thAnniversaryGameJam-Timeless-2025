@@ -3,41 +3,88 @@ using Assets.Scripts.Game_Controller.HelpersAndClasses;
 
 public class GameController : MonoBehaviour
 {
-    #region Player Properties
+    //#region Player Properties
+    //[SerializeField]
+    //public float health = 100f;
+    //[SerializeField]
+    //public int hours = 24;
+    //[SerializeField]
+    //public PlayerResources baseResources;
+    //#endregion
+
+    //#region GameLoop Properties
+    //[SerializeField]
+    //public int wave = 0; //waveHandler?
+    //#endregion
+
+    ////Aggregate and control random events and actions scripts for calling
+    //#region EventsHandler
+    ////public EventsHandler eventsHandler;
+    //#endregion
+
+    ////Store base actions and statistics??
+    //#region ActionsHandler
+    //// public ActionsHandler actionsHandler;
+    //#endregion
+
+    ////Handle simulation of zombie wave attacks at end of the day
+    //#region WaveHandler
+    //// public WaveHandler waveHandler
+    //#endregion
+
+    #region temp fields
     [SerializeField]
-    public float health = 100f;
+    int wallCount = 0;
     [SerializeField]
-    public int hours = 24;
+    int trapCount = 0;
     [SerializeField]
-    public PlayerResources baseResources;
-    #endregion
-
-    #region GameLoop Properties
+    int playerHealth = 10;
     [SerializeField]
-    public int wave = 0; //waveHandler?
+    int baseHealth = 10;
+    [SerializeField]
+    int wood = 10;
+    [SerializeField]
+    int metal = 5;
+    [SerializeField]
+    int medicine = 1;
+    [SerializeField]
+    int food = 10;
     #endregion
 
-    //Aggregate and control random events and actions scripts for calling
-    #region EventsHandler
-    //public EventsHandler eventsHandler;
-    #endregion
+    [ContextMenu("Add Trap")]
+    void AddTrap()
+    {
+        trapCount++;
+    }
+    [ContextMenu("Add Wall")]
+    void AddWall()
+    {
+        wallCount++;
+    }
 
-    //Store base actions and statistics??
-    #region ActionsHandler
-    // public ActionsHandler actionsHandler;
-    #endregion
+    [ContextMenu("Add Health")]
+    void AddHealth()
+    {
+        playerHealth+= 10;
+    }
 
-    //Handle simulation of zombie wave attacks at end of the day
-    #region WaveHandler
-    // public WaveHandler waveHandler
-    #endregion
+    [ContextMenu("Add BaseHealth")]
+    void AddBaseHealth()
+    {
+        baseHealth+= 10;
+    }
 
-
+    [ContextMenu("Wave Simulate")]
+    void DebugSimulateWave()
+    {
+        //WaveHandler.Simulate()
+        Debug.Log("Simulate Wave Test");
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        baseResources = new PlayerResources();  
+        //baseResources = new PlayerResources();  
     }
 
     // Update is called once per frame
@@ -45,6 +92,7 @@ public class GameController : MonoBehaviour
     {
         //look for player input on ui
         //handle displaying of ui based on game state, display right options
+
     }
 
     void SimulateWave()

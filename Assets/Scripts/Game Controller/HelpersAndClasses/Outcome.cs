@@ -1,29 +1,58 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Scripts.Game_Controller.HelpersAndClasses
+[CreateAssetMenu(fileName = "Outcome", menuName = "Scriptable Objects/Outcome")]
+public class Outcome : ScriptableObject
 {
-    public class Outcome
-    {
-        public List<string> outcomeMessages;
-        public float playerDamageTaken;
-        public float baseDamageTaken;
+    [SerializeField]
+    public string outcomeName;
 
-        public Outcome()
-        {
+    [Header("Outcome Messages")]
+    [field: SerializeField]
+    public List<string> messages { get; set; }
 
-            playerDamageTaken = 0;
-            baseDamageTaken = 0;
-            outcomeMessages = new List<string>();
+    #region Resource Changes
+    [Header("Resource Changes")]
+    [SerializeField]
+    int woodChange;
+    [SerializeField]
+    int metalChange;
+    [SerializeField]
+    int medicineChange;
+    [SerializeField]
+    int foodChange;
+    #endregion
 
-            //getting an item
+    [Header("Time Cost")]
+    #region Time Cost
+    [SerializeField]
+    int timeCost;
+    #endregion
 
+    #region Health Changes
+    [Header("Health Changes")]
+    [SerializeField]
+    int playerHealthChange;
+    [SerializeField]
+    int baseHealthChange;
+    #endregion
 
+    #region Base Changes
+    [Header("Base Changes")]
+    [SerializeField] private List<Building> buildingsChange = new();
+    [SerializeField] private List<int> buildingsChangeAmount = new();
 
+    public List<Building> BuildingsChange => buildingsChange;
+    public List<int> BuildingsChangeAmount => buildingsChangeAmount;
+    #endregion
 
-        }
-    }
+    #region Item Changes
+    [Header("Item Changes")]
+    [SerializeField] private List<PlayerItem> itemsChange = new();
+    [SerializeField] private List<int> itemsChangeAmount = new();
+
+    public List<PlayerItem> ItemsChange => itemsChange;
+    public List<int> ItemsChangeAmount => itemsChangeAmount;
+    #endregion
+
 }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
+  m_Name: BuildTrap_Normal
+  m_EditorClassIdentifier: 
+  outcomeName: normal
+  <messages>k__BackingField:
+  - You begin to build a simple metal spike trap at a choice spot.
+  - You deftly piece together your makeshift contraption, things are going well.
+  - You successfully build a simple trap.
+  woodChange: 0
+  metalChange: 3
+  medicineChange: 0
+  foodChange: 0
+  timeCost: 3
+  playerHealthChange: 0
+  baseHealthChange: 0
+  buildingsChange:
+  - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
+  buildingsChangeAmount: 01000000
+  itemsChange: []
+  itemsChangeAmount: 
