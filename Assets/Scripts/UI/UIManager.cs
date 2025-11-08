@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] string startMessage = " ";
     [SerializeField] string currentText = string.Empty;
     [SerializeField] string newMessage = string.Empty;
-    [SerializeField] Queue<string> currentQueue = new Queue<string>();
+    [SerializeField] public Queue<string> currentQueue = new Queue<string>();
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
 
@@ -29,7 +29,17 @@ public class UIManager : MonoBehaviour
         PrintMessage(startMessage);
         currentText = ConsoleText.text;
     }
-
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -83,19 +93,26 @@ public class UIManager : MonoBehaviour
             PrintMessage(queue.Dequeue());
         }
     }
-
-    void PrintMessage(string text) 
+    public IEnumerator PrintCurrentQueue() 
     {
-        StartCoroutine(MeessageAnimation(text));
+        while (currentQueue.Count > 0)
+        {
+            yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
+        }
+    }
+    public void PrintMessage(string text) 
+    {
+        StartCoroutine(MessageAnimation(text));
     }
 
-    IEnumerator MeessageAnimation(string text)
+    IEnumerator MessageAnimation(string text)
     {
-        newMessage = "\n \n" + text;
-        while (newMessage != string.Empty) 
+        newMessage = "\n" + text;
+        while (newMessage.Length > 0) 
         {
+            Debug.Log(newMessage);
             float textSpeed = TextSpeed(newMessage);
-            currentText = currentText + newMessage[0];
+            currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
             OnTextChange();
             yield return new WaitForSeconds(textSpeed);

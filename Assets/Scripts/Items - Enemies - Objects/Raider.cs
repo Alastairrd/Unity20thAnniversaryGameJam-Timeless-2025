@@ -20,19 +20,19 @@ public class Raider : IEnemy
         {
             stole = Math.Min(10, GameController.Instance.wood);
             GameController.Instance.wood -= stole;
-            Debug.Log($"{Name} stole {stole} wood");
+            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} wood");
         }
         if(GameController.Instance.metal > 0) 
         {
             stole = Math.Min(10, GameController.Instance.metal);
             GameController.Instance.metal -= stole;
-            Debug.Log($"{Name} stole {stole} metal");
+            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} metal");
         }
         if(GameController.Instance.food > 0) 
         {
             stole = Math.Min(10, GameController.Instance.food);
             GameController.Instance.food -= stole;
-            Debug.Log($"{Name} stole {stole} food");
+            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} food");
         }
     }
 }
