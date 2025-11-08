@@ -78,13 +78,13 @@ public class GameController : MonoBehaviour
     [ContextMenu("Wave Simulate")]
     void DebugSimulateWave()
     {
-        WaveHandler.Instance.Simulate();
+        WaveHandler.Instance.Simulate(wallCount, trapCount, playerHealth, baseHealth);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //baseResources = new PlayerResources();  
+        
     }
 
     // Update is called once per frame
