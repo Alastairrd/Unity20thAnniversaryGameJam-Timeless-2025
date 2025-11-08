@@ -3,6 +3,7 @@ using Assets.Scripts.Game_Controller.HelpersAndClasses;
 
 public class GameController : MonoBehaviour
 {
+    
     //#region Player Properties
     //[SerializeField]
     //public float health = 100f;
@@ -28,28 +29,24 @@ public class GameController : MonoBehaviour
     //#endregion
 
     //Handle simulation of zombie wave attacks at end of the day
-    [Header("Wave Handler")]
-    #region WaveHandler
-    public WaveHandler waveHandler;
-    #endregion
 
     #region temp fields
+    [SerializeField]  
+    public int wallCount = 0;
     [SerializeField]
-    int wallCount = 0;
+    public int trapCount = 0;
     [SerializeField]
-    int trapCount = 0;
+    public int playerHealth = 10;
     [SerializeField]
-    int playerHealth = 10;
+    public int baseHealth = 10;
     [SerializeField]
-    int baseHealth = 10;
+    public int wood = 10;
     [SerializeField]
-    int wood = 10;
+    public int metal = 5;
     [SerializeField]
-    int metal = 5;
+    public int medicine = 1;
     [SerializeField]
-    int medicine = 1;
-    [SerializeField]
-    int food = 10;
+    public int food = 10;
     #endregion
 
     [ContextMenu("Add Trap")]
@@ -78,7 +75,7 @@ public class GameController : MonoBehaviour
     [ContextMenu("Wave Simulate")]
     void DebugSimulateWave()
     {
-        WaveHandler.Instance.Simulate(wallCount, trapCount, playerHealth, baseHealth);
+        WaveHandler.Instance.Simulate();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,7 +91,21 @@ public class GameController : MonoBehaviour
         //handle displaying of ui based on game state, display right options
 
     }
+    [SerializeField] private GameObject actionDatabase; // assign in Inspector
 
+    public static GameController Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        ActionsHandler.Initialize(actionDatabase);
+    }
     void SimulateWave()
     {
         //based on wave

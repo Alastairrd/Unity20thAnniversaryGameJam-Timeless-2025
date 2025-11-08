@@ -15,10 +15,10 @@ public class WaveHandler : MonoBehaviour
             Instance = this;
         }
     }
-
-    public void Simulate(int wallCount,int trapCount, int playerHealth, int baseHealth)
+    public void Simulate()
     {
         Debug.Log("Simulate Wave Test");
+        if(GameController.Instance.playerHealth < 0) Debug.Log("Player is Dead"); 
     } 
     
 }

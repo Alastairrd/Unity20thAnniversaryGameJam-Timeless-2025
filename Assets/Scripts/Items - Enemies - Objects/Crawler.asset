@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee2e1bdbf1345f48acab24ef245f8ba, type: 3}
   m_Name: Crawler
   m_EditorClassIdentifier: 
-  itemName: 
-  defensiveValue: 0
-  offensiveValue: 0
+  itemName: Crawler
+  defensiveValue: 4
+  offensiveValue: 4

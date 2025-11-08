@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162515216}
   - component: {fileID: 1162515215}
+  - component: {fileID: 1162515217}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -148,14 +149,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cdfe096002b2fd418909c3f73ee5c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallCount: 0
-  trapCount: 0
-  playerHealth: 0
-  baseHealth: 0
-  wood: 0
-  metal: 0
-  medicine: 0
-  food: 0
+  wallCount: 10
+  trapCount: 5
+  playerHealth: -37
+  baseHealth: 10
+  wood: 5
+  metal: 5
+  medicine: 5
+  food: 5
 --- !u!4 &1162515216
 Transform:
   m_ObjectHideFlags: 0
@@ -171,6 +172,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162515217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162515214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ecd357c8faaaf4195bb1687ff56c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397540020
 GameObject:
   m_ObjectHideFlags: 0

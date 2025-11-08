@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/PixelCowboy-l7we SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/PixelCowboy-l7we SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Al_testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Al_testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Actions/BuildTrap/BuildTrapOutcomes/BuildTrap_Normal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Actions/BuildTrap/BuildTrapOutcomes/BuildTrap_Normal.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/Crawler.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/Crawler.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,7 @@
       <workItem from="1762611349685" duration="598000" />
       <workItem from="1762611978472" duration="640000" />
       <workItem from="1762612641388" duration="234000" />
-      <workItem from="1762613061585" duration="5411000" />
+      <workItem from="1762613061585" duration="12215000" />
     </task>
     <servers />
   </component>
