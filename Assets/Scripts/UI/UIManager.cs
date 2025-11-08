@@ -1,10 +1,10 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections;   
 
-public class PlayerManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     public string currentText = string.Empty;
     public string newMessage = string.Empty;
@@ -22,42 +22,49 @@ public class PlayerManager : MonoBehaviour
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButton(1))
-        {
-            ReadInput();
-        }
-    }
 
 
-    void ReadInput()
+    public void ReadInput()
     {
         if(!string.IsNullOrEmpty(InputText.text) && canEnterText)
         {
-            StartCoroutine(PrintInput(InputText.text));
             InputText.text = string.Empty;
             canEnterText = false;
-            Debug.Log("Input: " + InputText.text);
+            HandleInputLogic(InputText.text);
         }
+    }
+
+    void HandleInputLogic(string input) 
+    {
+        if (input.ToLower() == "build wall")
+        {
+            StartCoroutine(PrintInput(InputText.text));
+        }
+        else
+        {
+
+        }
+    }
+
+    void HandleQueryLogic(Queue queue) 
+    {
+        
     }
 
     IEnumerator PrintInput(string text)
     {
         newMessage = "\n " + text;
-        Debug.Log("StartCourutine for: " + newMessage);
         while (newMessage != string.Empty) 
         {
             currentText = currentText + newMessage[0];
-            Debug.Log("CurrentText: " + currentText);
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
-            Debug.Log("new message shortened: " + newMessage);
             OnTextChange();
             yield return new WaitForSeconds(textSpeed);
         }
         canEnterText = true;
         yield return null;
     }
+
     public void OnTextChange() 
     {
         ConsoleText.text = currentText;
