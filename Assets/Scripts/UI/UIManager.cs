@@ -13,28 +13,30 @@ public class UIManager : MonoBehaviour
     [SerializeField] string startMessage = " ";
     [SerializeField] string currentText = string.Empty;
     [SerializeField] string newMessage = string.Empty;
-    [SerializeField] Queue<string> currentQueue;
+    [SerializeField] Queue<string> currentQueue = new Queue<string>();
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
-
     
-
     [SerializeField] float minSpeed = .01f;
     [SerializeField] float maxSpeed = .3f;
        
 
     private void Start()
     {
+        PrintMessage(startMessage);
         currentText = ConsoleText.text;
-
-        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
     }
-
-
+    bool CanEnterText()
+    {
+        if (newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0)
+            return true;
+        else
+            return false;
+    }
 
     public void ReadInput()
     {
-        if(!string.IsNullOrEmpty(InputText.text) && CanEnterText())
+        if(CanEnterText())
         {
             HandleInputLogic(InputText.text);
             InputText.text = string.Empty;
@@ -45,35 +47,35 @@ public class UIManager : MonoBehaviour
     {
         if (input.ToLower() == "build wall" || input == "1")
         {
-            StartCoroutine(Print("wall was build hehehhe"));
+            StartCoroutine(PrintMessage("wall was build hehehhe"));
         }
         else
         {
             string concatString = input + " is not a valid option";
-            StartCoroutine(Print(concatString));
+            StartCoroutine(PrintMessage(concatString));
         }
     }
 
     public void HandleQueueLogic(Queue<string> queue) 
     {
         currentQueue = queue;
-        while (queue.Peek() != null)
+        while (!currentQueue.IsUnityNull())
         {
-            StartCoroutine(Print(queue.Peek().ToString()));
+            StartCoroutine(PrintMessage(queue.Peek().ToString()));
             queue.Dequeue();    
         }
-
     }
 
-    IEnumerator Print(string text)
+    IEnumerator PrintMessage(string text)
     {
         newMessage = "\n " + text;
         while (newMessage != string.Empty) 
         {
+            float textSpeed = TextSpeed(newMessage);
             currentText = currentText + newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
             OnTextChange();
-            yield return new WaitForSeconds(TextSpeed(newMessage));
+            yield return new WaitForSeconds(textSpeed);
         }
         yield return null;
     }
@@ -85,15 +87,7 @@ public class UIManager : MonoBehaviour
 
     float TextSpeed(string text)
     {
-
         return  Mathf.Clamp(1 / text.Length, minSpeed, maxSpeed);
     }
 
-    bool CanEnterText()
-    {
-        if (string.IsNullOrEmpty(newMessage) && currentQueue.Peek() == null)
-            return true;
-        else
-            return false;
-    }
 }
