@@ -22,18 +22,33 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
        
+    bool pressingSkip = false;
 
     private void Start()
     {
-        StartCoroutine(PrintMessage(startMessage));
+        PrintMessage(startMessage);
         currentText = ConsoleText.text;
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            pressingSkip = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            pressingSkip = false;
+        }
+    }
+
     bool CanEnterText()
     {
         if (newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0)
             return true;
         else
             return false;
+
     }
 
     public void ReadInput()
@@ -42,19 +57,21 @@ public class UIManager : MonoBehaviour
         {
             HandleInputLogic(InputText.text);
             InputText.text = string.Empty;
+            //play sound for enter
         }
+        //play for error
     }
 
     void HandleInputLogic(string input) 
     {
         if (input.ToLower() == "build wall" || input == "1")
         {
-            StartCoroutine(PrintMessage("wall was build hehehhe"));
+            PrintMessage("wall was build hehehhe");
         }
         else
         {
             string concatString = input + " is not a valid option";
-            StartCoroutine(PrintMessage(concatString));
+            PrintMessage(concatString);
         }
     }
 
@@ -63,14 +80,18 @@ public class UIManager : MonoBehaviour
         currentQueue = queue;
         while (!currentQueue.IsUnityNull())
         {
-            StartCoroutine(PrintMessage(queue.Peek().ToString()));
-            queue.Dequeue();    
+            PrintMessage(queue.Dequeue());
         }
     }
 
-    IEnumerator PrintMessage(string text)
+    void PrintMessage(string text) 
     {
-        newMessage = "\n " + text;
+        StartCoroutine(MeessageAnimation(text));
+    }
+
+    IEnumerator MeessageAnimation(string text)
+    {
+        newMessage = "\n \n" + text;
         while (newMessage != string.Empty) 
         {
             float textSpeed = TextSpeed(newMessage);
@@ -89,7 +110,16 @@ public class UIManager : MonoBehaviour
 
     float TextSpeed(string text)
     {
-        return  Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed , 1 / minSpeed);
+        if (pressingSkip) 
+        {
+            Debug.Log("Skipping text speed");
+            return 0;
+        }
+        else 
+        {
+            return Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed, 1 / minSpeed);
+        }
+            
     }
 
 }
