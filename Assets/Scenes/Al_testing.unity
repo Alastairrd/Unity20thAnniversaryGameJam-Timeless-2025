@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 1162515216}
   - component: {fileID: 1162515215}
   - component: {fileID: 1162515217}
+  - component: {fileID: 1162515218}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -157,7 +158,6 @@ MonoBehaviour:
   metal: 5
   medicine: 5
   food: 5
-  actionDatabase: {fileID: 1548638863}
 --- !u!4 &1162515216
 Transform:
   m_ObjectHideFlags: 0
@@ -186,6 +186,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes: []
+--- !u!114 &1162515218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162515214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9440f2c4a38491468aa3a963f2e26bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionDatabase: {fileID: 1548638863}
 --- !u!1 &1397540020
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildWall
-  outcomes: []
+  outcomes:
+  - {fileID: 11400000, guid: 4a438a91e2a124840ba767f106cf7e16, type: 2}
 --- !u!114 &1548638865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +337,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildTrap
-  outcomes: []
+  outcomes:
+  - {fileID: 11400000, guid: 48fcc2d179447474a8d0e12eee91c526, type: 2}
+  - {fileID: 11400000, guid: ef6e68a36afc9b24fb0fb2254255d31e, type: 2}
+  - {fileID: 11400000, guid: abe9dfa0e41c0cd47a02e143c2df2397, type: 2}
 --- !u!4 &1548638866
 Transform:
   m_ObjectHideFlags: 0

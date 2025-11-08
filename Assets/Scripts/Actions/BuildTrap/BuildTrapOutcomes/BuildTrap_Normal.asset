@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: BuildTrap_Normal
   m_EditorClassIdentifier: 
-  outcomeName: normal
+  outcomeName: Normal
   <messages>k__BackingField:
   - You begin to build a simple metal spike trap at a choice spot.
   - You deftly piece together your makeshift contraption, things are going well.
-  - You successfully build a simple trap.
+  - You skillfully save some of your resources and you think you might be able to
+    make an extra trap.
+  - You successfully build 2 simple traps.
   woodChange: 0
   metalChange: 3
   medicineChange: 0
@@ -26,6 +28,6 @@ MonoBehaviour:
   baseHealthChange: 0
   buildingsChange:
   - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
-  buildingsChangeAmount: 01000000
+  buildingsChangeAmount: 02000000
   itemsChange: []
   itemsChangeAmount: 
