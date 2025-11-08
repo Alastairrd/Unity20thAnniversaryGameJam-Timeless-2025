@@ -27,10 +27,11 @@ public class GameController : MonoBehaviour
     //// public ActionsHandler actionsHandler;
     //#endregion
 
-    ////Handle simulation of zombie wave attacks at end of the day
-    //#region WaveHandler
-    //// public WaveHandler waveHandler
-    //#endregion
+    //Handle simulation of zombie wave attacks at end of the day
+    [Header("Wave Handler")]
+    #region WaveHandler
+    public WaveHandler waveHandler;
+    #endregion
 
     #region temp fields
     [SerializeField]

@@ -16,7 +16,7 @@ public class WaveHandler : MonoBehaviour
         }
     }
 
-    public void Simulate()
+    public void Simulate(int wallCount,int trapCount, int playerHealth, int baseHealth)
     {
         Debug.Log("Simulate Wave Test");
     } 
