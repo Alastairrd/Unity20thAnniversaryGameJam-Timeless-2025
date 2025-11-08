@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: Normal_BuildWall
   m_EditorClassIdentifier: 
-  outcomeName: Bad
+  outcomeName: Normal
   <messages>k__BackingField:
   - You begin to fashion a makeshift wall from wooden planks.
   - You finished building the wall.

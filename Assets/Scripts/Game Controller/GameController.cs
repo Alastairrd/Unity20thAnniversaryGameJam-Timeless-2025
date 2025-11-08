@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
     void DebugSimulateAction()
     {
         Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildWall");
+        //ProcessResult()
 
         while (result.Count > 0) 
         {
@@ -95,6 +96,8 @@ public class GameController : MonoBehaviour
         messages.Enqueue("Test message 2");
         messages.Enqueue("Test message 3");
         messages.Enqueue("Test message 4");
+
+        UIManager.Instance.HandleQueueLogic(messages);
         
     }
 

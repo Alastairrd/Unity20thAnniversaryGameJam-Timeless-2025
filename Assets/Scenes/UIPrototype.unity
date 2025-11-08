@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1255273380}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999961
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.0006713867}
   m_SizeDelta: {x: -0.000015258789, y: -90.882385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137888955
@@ -829,6 +829,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508916421}
   m_CullTransparentMesh: 1
+--- !u!1001 &665621341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3391162229997344737, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_Name
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904248297280756550, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3391162229997344737, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835569151}
+  m_SourcePrefab: {fileID: 100100000, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
 --- !u!1 &726991671
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +898,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726991673}
-  - component: {fileID: 726991672}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -846,32 +905,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &726991672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726991671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startMessage: According to all known laws of aviation, there is no way a bee should
-    be able to fly. Its wings are too small to get its fat little body off the ground.
-    The bee, of course, flies anyway because bees don't care what humans think is
-    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
-    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
-    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
-    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
-  currentText: 
-  newMessage: 
-  ConsoleText: {fileID: 137888956}
-  InputText: {fileID: 2129283116}
-  speedToLengthRatio: 5
-  minSpeed: 20
-  maxSpeed: 40
 --- !u!4 &726991673
 Transform:
   m_ObjectHideFlags: 0
@@ -994,6 +1027,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755236291}
   m_CullTransparentMesh: 1
+--- !u!1 &835569146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3391162229997344737, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+  m_PrefabInstance: {fileID: 665621341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835569151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835569146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMessage: According to all known laws of aviation, there is no way a bee should
+    be able to fly. Its wings are too small to get its fat little body off the ground.
+    The bee, of course, flies anyway because bees don't care what humans think is
+    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
+    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
+    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
+    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
+  currentText: 
+  newMessage: 
+  ConsoleText: {fileID: 137888956}
+  InputText: {fileID: 2129283116}
+  speedToLengthRatio: 5
+  minSpeed: 20
+  maxSpeed: 40
 --- !u!1 &881724823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1944,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 726991672}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ReadInput
         m_Mode: 1
@@ -1981,3 +2045,4 @@ SceneRoots:
   - {fileID: 726991673}
   - {fileID: 925592491}
   - {fileID: 881724824}
+  - {fileID: 665621341}
