@@ -5,10 +5,12 @@ namespace Assets.Scripts.Game_Controller.HelpersAndClasses
 {
     public interface IActionObject
     {
-        // Property to hold ActionDetails
-        ActionDetails Details { get; set; }
+        public string actionName { get; }
+        List<Outcome> Outcomes { get; set; }
 
         // Method every action must implement
         Queue<Outcome> Simulate();
+
+        Outcome GetOutcomeByName(string name);
     }
 }

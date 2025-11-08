@@ -13,33 +13,39 @@ namespace Assets.Scripts.Game_Controller.HelpersAndClasses
         private static Dictionary<string, IActionObject> _actions;
 
         // Lazy-load all actions
-        public static void Initialize()
+        public static void Initialize(GameObject container)
         {
             if (_actions != null) return; // already initialized
 
             _actions = new Dictionary<string, IActionObject>();
 
-            // Load all ScriptableObjects of type IActionObject (i.e., all actions)
-            var loadedActions = Resources.LoadAll<ScriptableObject>("Actions");
+            // Get all IActionObject components attached to the container GameObject
+            var actions = container.GetComponents<IActionObject>();
 
-            foreach (var obj in loadedActions)
+            foreach (var action in actions)
             {
-                if (obj is IActionObject action)
+                // Use the actionName field as the key
+                string key = action.actionName; // make sure IActionObject exposes actionName
+                if (!_actions.ContainsKey(key))
                 {
-                    string key = action.Details != null ? action.Details.name : obj.name;
-                    if (!_actions.ContainsKey(key))
-                    {
-                        _actions.Add(key, action);
-                        Debug.Log($"Registered Action: {key}");
-                    }
+                    _actions.Add(key, action);
+                    Debug.Log($"Registered action: {key}");
+                }
+                else
+                {
+                    Debug.LogWarning($"Action {key} is already registered!");
                 }
             }
         }
 
-        // Get an action by name
         public static IActionObject GetAction(string name)
         {
-            Initialize(); // ensure dictionary is loaded
+            if (_actions == null)
+            {
+                Debug.LogError("ActionsHandler not initialized!");
+                return null;
+            }
+
             return _actions.TryGetValue(name, out var action) ? action : null;
         }
 
@@ -54,13 +60,6 @@ namespace Assets.Scripts.Game_Controller.HelpersAndClasses
 
             Debug.LogWarning($"Action '{name}' not found!");
             return new Queue<Outcome>();
-        }
-
-        // Optional: get all registered actions
-        public static IEnumerable<string> GetAllActionNames()
-        {
-            Initialize();
-            return _actions.Keys;
         }
     }
 }

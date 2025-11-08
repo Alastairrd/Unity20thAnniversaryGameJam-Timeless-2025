@@ -6,47 +6,52 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BuildTrap", menuName = "Scriptable Objects/BuildTrap")]
-public class BuildTrap : ScriptableObject, IActionObject
+namespace Assets.Scripts.Actions.BuildTrap
 {
-    public string actionName = "BuildTrap";
-    // The actual serialized field, visible in the Inspector
-    [SerializeField] private ActionDetails actionDetails;
-
-    // Interface property wraps the serialized field
-    public ActionDetails Details
+    public class BuildTrap : MonoBehaviour, IActionObject
     {
-        get => actionDetails;
-        set => actionDetails = value;
-    }
+        [SerializeField] private string _actionName = "BuildTrap";
+        public string actionName => _actionName;
 
-    public BuildTrap()
-    {
-    }
-
-    public Queue<Outcome> Simulate()
-    {
-        Queue<Outcome> result = new Queue<Outcome>();
-        Outcome badOutcome = actionDetails.GetOutcomeByName("Bad");
-        Outcome normalOutcome = actionDetails.GetOutcomeByName("Normal");
-        Outcome goodOutcome = actionDetails.GetOutcomeByName("Good");
-        //blah blah build trap
-        //blah //blah
-
-        float randomValue = UnityEngine.Random.value;
-
-        if(randomValue < 0.2)
+        [SerializeField] private List<Outcome> outcomes = new();
+        public List<Outcome> Outcomes
         {
-            result.Enqueue(badOutcome);
-            return result;
-        } else if (randomValue < 0.8)
+            get => outcomes;
+            set => outcomes = value;
+        }
+
+        public Outcome GetOutcomeByName(string name)
         {
-            result.Enqueue(normalOutcome);
-            return result;
-        } else
+            return outcomes.Find(o => o.outcomeName == name);
+        }
+
+        public Queue<Outcome> Simulate()
         {
-            result.Enqueue(goodOutcome);
-            return result;
+            Queue<Outcome> result = new Queue<Outcome>();
+            Outcome badOutcome = GetOutcomeByName("Bad");
+            Outcome normalOutcome = GetOutcomeByName("Normal");
+            Outcome goodOutcome = GetOutcomeByName("Good");
+            //blah blah build trap
+            //blah //blah
+
+            float randomValue = UnityEngine.Random.value;
+
+            if (randomValue < 0.2)
+            {
+                result.Enqueue(badOutcome);
+                return result;
+            }
+            else if (randomValue < 0.8)
+            {
+                result.Enqueue(normalOutcome);
+                return result;
+            }
+            else
+            {
+                result.Enqueue(goodOutcome);
+                return result;
+            }
         }
     }
+
 }
