@@ -16,9 +16,7 @@ MonoBehaviour:
   <messages>k__BackingField:
   - You begin to build a simple metal spike trap at a choice spot.
   - You deftly piece together your makeshift contraption, things are going well.
-  - You skillfully save some of your resources and you think you might be able to
-    make an extra trap.
-  - You successfully build 2 simple traps.
+  - You successfully build a simple trap.
   woodChange: 0
   metalChange: 3
   medicineChange: 0
@@ -28,6 +26,6 @@ MonoBehaviour:
   baseHealthChange: 0
   buildingsChange:
   - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
-  buildingsChangeAmount: 02000000
+  buildingsChangeAmount: 01000000
   itemsChange: []
   itemsChangeAmount: 

@@ -74,14 +74,14 @@ public class GameController : MonoBehaviour
     [ContextMenu("Action Simulate")]
     void DebugSimulateAction()
     {
-        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildTrap");
+        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildWall");
 
         while (result.Count > 0) 
         {
             Outcome outcome = result.Dequeue();
             for (int i = 0; i < outcome.messages.Count; i++) 
             {
-                Debug.Log(result.Dequeue().messages);
+                Debug.Log(outcome.messages[i]);
             } 
         }
     }

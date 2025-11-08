@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
-  m_Name: BadBuildWALlOutcome
+  m_Name: Normal_BuildWall
   m_EditorClassIdentifier: 
   outcomeName: Bad
   <messages>k__BackingField:
-  - You hit yourself with a hammer while building the wall.
+  - You begin to fashion a makeshift wall from wooden planks.
   - You finished building the wall.
   woodChange: -3
   metalChange: 0
   medicineChange: 0
   foodChange: 0
   timeCost: 0
-  playerHealthChange: -4
+  playerHealthChange: 0
   baseHealthChange: 0
   buildingsChange:
-  - {fileID: 11400000, guid: f89b5e63e901fcc4e9c14ff5be744411, type: 2}
+  - {fileID: 11400000, guid: e3650e6db481e3240ae7ea3482fed45e, type: 2}
   buildingsChangeAmount: 01000000
   itemsChange: []
   itemsChangeAmount: 

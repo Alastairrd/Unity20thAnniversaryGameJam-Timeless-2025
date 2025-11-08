@@ -31,26 +31,22 @@ namespace Assets.Scripts.Actions.BuildTrap
             Outcome badOutcome = GetOutcomeByName("Bad");
             Outcome normalOutcome = GetOutcomeByName("Normal");
             Outcome goodOutcome = GetOutcomeByName("Good");
-            //blah blah build trap
-            //blah //blah
-            Debug.Log("inside action Simulate");
+
             float randomValue = UnityEngine.Random.value;
 
             if (randomValue < 0.2)
             {
-                Debug.Log("bad outcome block");
                 result.Enqueue(badOutcome);
                 return result;
             }
             else if (randomValue < 0.8)
             {
-                Debug.Log("normal outcome block");
+
                 result.Enqueue(normalOutcome);
                 return result;
             }
             else
             {
-                Debug.Log("good outcome block");
                 result.Enqueue(goodOutcome);
                 return result;
             }
