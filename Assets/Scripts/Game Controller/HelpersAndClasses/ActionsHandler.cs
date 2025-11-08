@@ -7,38 +7,49 @@ using UnityEngine;
 
 namespace Assets.Scripts.Game_Controller.HelpersAndClasses
 {
-    public static class ActionsHandler
+    public class ActionsHandler : MonoBehaviour
     {
+        public static ActionsHandler Instance { get; private set; }
+
+        [SerializeField] private GameObject actionDatabase; // assign in Inspector
         // Dictionary keyed by actionName or class name
-        private static Dictionary<string, IActionObject> _actions;
+        private Dictionary<string, IActionObject> _actions;
 
-        // Lazy-load all actions
-        public static void Initialize(GameObject container)
+        private void Awake()
         {
-            if (_actions != null) return; // already initialized
-
-            _actions = new Dictionary<string, IActionObject>();
-
-            // Get all IActionObject components attached to the container GameObject
-            var actions = container.GetComponents<IActionObject>();
-
-            foreach (var action in actions)
+            if (Instance != null && Instance != this)
             {
-                // Use the actionName field as the key
-                string key = action.actionName; // make sure IActionObject exposes actionName
-                if (!_actions.ContainsKey(key))
+                Destroy(this);
+            }
+            else
+            {
+                Instance = this;
+
+                if (_actions != null) return; // already initialized
+
+                _actions = new Dictionary<string, IActionObject>();
+
+                // Get all IActionObject components attached to the container GameObject
+                var actions = actionDatabase.GetComponents<IActionObject>();
+
+                foreach (var action in actions)
                 {
-                    _actions.Add(key, action);
-                    Debug.Log($"Registered action: {key}");
-                }
-                else
-                {
-                    Debug.LogWarning($"Action {key} is already registered!");
+                    // Use the actionName field as the key
+                    string key = action.actionName; // make sure IActionObject exposes actionName
+                    if (!_actions.ContainsKey(key))
+                    {
+                        _actions.Add(key, action);
+                        Debug.Log($"Registered action: {key}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Action {key} is already registered!");
+                    }
                 }
             }
         }
 
-        public static IActionObject GetAction(string name)
+        public IActionObject GetAction(string name)
         {
             if (_actions == null)
             {
@@ -50,17 +61,44 @@ namespace Assets.Scripts.Game_Controller.HelpersAndClasses
         }
 
         // Simulate an action by name
-        public static Queue<Outcome> SimulateAction(string name)
+        public Queue<Outcome> SimulateAction(string name)
         {
             var action = GetAction(name);
             if (action != null)
             {
+                Debug.Log("calling action simulate");
                 return action.Simulate();
             }
 
             Debug.LogWarning($"Action '{name}' not found!");
             return new Queue<Outcome>();
         }
+
+        //// Lazy-load all actions
+        //public static void Initialize(GameObject container)
+        //{
+        //    if (_actions != null) return; // already initialized
+
+        //    _actions = new Dictionary<string, IActionObject>();
+
+        //    // Get all IActionObject components attached to the container GameObject
+        //    var actions = container.GetComponents<IActionObject>();
+
+        //    foreach (var action in actions)
+        //    {
+        //        // Use the actionName field as the key
+        //        string key = action.actionName; // make sure IActionObject exposes actionName
+        //        if (!_actions.ContainsKey(key))
+        //        {
+        //            _actions.Add(key, action);
+        //            Debug.Log($"Registered action: {key}");
+        //        }
+        //        else
+        //        {
+        //            Debug.LogWarning($"Action {key} is already registered!");
+        //        }
+        //    }
+        //}
     }
 }
 

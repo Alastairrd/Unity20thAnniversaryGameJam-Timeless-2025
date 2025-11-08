@@ -1,11 +1,11 @@
 using UnityEngine;
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
     public static GameController Instance { get; private set; }
 
-    [SerializeField] private GameObject actionDatabase; // assign in Inspector
 
     private void Awake()
     {
@@ -17,9 +17,7 @@ public class GameController : MonoBehaviour
         {
             Instance = this;
         }
-        // ActionsHandler.Initialize(actionDatabase);
     }
-
 
 
     #region temp fields
@@ -71,6 +69,33 @@ public class GameController : MonoBehaviour
     void DebugSimulateWave()
     {
         WaveHandler.Instance.Simulate();
+    }
+
+    [ContextMenu("Action Simulate")]
+    void DebugSimulateAction()
+    {
+        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildTrap");
+
+        while (result.Count > 0) 
+        {
+            Outcome outcome = result.Dequeue();
+            for (int i = 0; i < outcome.messages.Count; i++) 
+            {
+                Debug.Log(result.Dequeue().messages);
+            } 
+        }
+    }
+
+    [ContextMenu("MessageProcessDebug")]
+    void DebugMessageSend()
+    {
+        Queue<string> messages = new Queue<string>();
+
+        messages.Enqueue("Test message 1");
+        messages.Enqueue("Test message 2");
+        messages.Enqueue("Test message 3");
+        messages.Enqueue("Test message 4");
+        
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
