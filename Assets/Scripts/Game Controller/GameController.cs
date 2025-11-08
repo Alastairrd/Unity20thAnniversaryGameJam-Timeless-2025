@@ -77,8 +77,7 @@ public class GameController : MonoBehaviour
     [ContextMenu("Wave Simulate")]
     void DebugSimulateWave()
     {
-        //WaveHandler.Simulate()
-        Debug.Log("Simulate Wave Test");
+        WaveHandler.Instance.Simulate();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
