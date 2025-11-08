@@ -9,5 +9,13 @@ public class EnemyObject : ScriptableObject {
     int defensiveValue;
 
     [SerializeField]
-    int offensiveValue; 
+    int offensiveValue;
+
+    [SerializeField]
+    public int health;
+
+    public void Simulate()
+    {
+        
+    }
 }

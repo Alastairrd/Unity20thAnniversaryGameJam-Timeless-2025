@@ -6,6 +6,7 @@ public class WaveHandler : MonoBehaviour
     public static WaveHandler Instance { get;  private set; }
     [SerializeField]
     public List<EnemyObject> enemyTypes;
+    public Queue<EnemyObject> wave;
     
     private void Awake()
     {
@@ -40,13 +41,12 @@ public class WaveHandler : MonoBehaviour
     {
         Debug.Log("Simulate Wave Test");
         if (!checkHealth()) Debug.Log("Game Over");
-        
-        
-
-
-
+        while (!checkHealth() && wave.Count > 0)
+        {
+            EnemyObject enemy = wave.Dequeue();
+            enemy.Simulate();
+            if(enemy.health > 0) wave.Enqueue(enemy);
+        }
     } 
-    
-    
     
 }
