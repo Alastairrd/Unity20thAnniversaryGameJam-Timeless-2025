@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1255273380}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9994112
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -279,10 +279,10 @@ RectTransform:
   m_Father: {fileID: 1303487223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 19.869995, y: 0}
-  m_SizeDelta: {x: -169.19, y: 526.47}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.23535156}
+  m_SizeDelta: {x: -0.000015258789, y: -90.882385}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137888955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278254858
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -622,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.11999512, y: -0.35998535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489603086
@@ -858,12 +858,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMessage: According to all known laws of aviation, there is no way a bee should
+    be able to fly. Its wings are too small to get its fat little body off the ground.
+    The bee, of course, flies anyway because bees don't care what humans think is
+    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
+    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
+    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
+    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
   currentText: 
   newMessage: 
-  textSpeed: 0.1
   ConsoleText: {fileID: 137888956}
   InputText: {fileID: 2129283116}
-  canEnterText: 1
+  speedToLengthRatio: 5
+  minSpeed: 3
+  maxSpeed: 10
 --- !u!4 &726991673
 Transform:
   m_ObjectHideFlags: 0
@@ -943,10 +951,10 @@ RectTransform:
   - {fileID: 489603085}
   m_Father: {fileID: 1499646347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.06, y: 58.68}
-  m_SizeDelta: {x: 724.12, y: 890.13}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 12.060059, y: 58.67993}
+  m_SizeDelta: {x: -1195.88, y: -309.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755236293
 MonoBehaviour:
@@ -986,6 +994,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755236291}
   m_CullTransparentMesh: 1
+--- !u!1 &881724823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881724824}
+  m_Layer: 0
+  m_Name: ConsoleScenePrefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &881724824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881724823}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &925592488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,3 +1980,4 @@ SceneRoots:
   - {fileID: 750848567}
   - {fileID: 726991673}
   - {fileID: 925592491}
+  - {fileID: 881724824}

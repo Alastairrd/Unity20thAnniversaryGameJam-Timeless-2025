@@ -37,6 +37,9 @@ public class GameController : MonoBehaviour
     public int medicine = 1;
     [SerializeField]
     public int food = 10;
+    [SerializeField]
+    public int damage = 10;
+
     #endregion
 
     [ContextMenu("Add Trap")]
