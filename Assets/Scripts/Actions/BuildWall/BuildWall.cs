@@ -1,15 +1,11 @@
-﻿using Assets.Scripts.Game_Controller.HelpersAndClasses;
-using System;
+using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BuildTrap", menuName = "Scriptable Objects/BuildTrap")]
-public class BuildTrap : ScriptableObject, IActionObject
+[CreateAssetMenu(fileName = "BuildWall", menuName = "Scriptable Objects/BuildWall")]
+public class BuildWall : ScriptableObject, IActionObject
 {
-    public string actionName = "BuildTrap";
+    public string actionName = "BuildWall";
     // The actual serialized field, visible in the Inspector
     [SerializeField] private ActionDetails actionDetails;
 
@@ -20,7 +16,7 @@ public class BuildTrap : ScriptableObject, IActionObject
         set => actionDetails = value;
     }
 
-    public BuildTrap()
+    public BuildWall()
     {
     }
 
@@ -30,23 +26,27 @@ public class BuildTrap : ScriptableObject, IActionObject
         Outcome badOutcome = actionDetails.GetOutcomeByName("Bad");
         Outcome normalOutcome = actionDetails.GetOutcomeByName("Normal");
         Outcome goodOutcome = actionDetails.GetOutcomeByName("Good");
-        //blah blah build trap
-        //blah //blah
 
         float randomValue = UnityEngine.Random.value;
 
-        if(randomValue < 0.2)
+
+
+        ///WRITE CODE HERE
+        if (randomValue < 0.2)
         {
             result.Enqueue(badOutcome);
             return result;
-        } else if (randomValue < 0.8)
+        }
+        else if (randomValue < 0.8)
         {
             result.Enqueue(normalOutcome);
             return result;
-        } else
+        }
+        else
         {
             result.Enqueue(goodOutcome);
             return result;
         }
     }
+
 }
