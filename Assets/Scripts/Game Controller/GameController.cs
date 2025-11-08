@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
         {
             Instance = this;
         }
-        ActionsHandler.Initialize(actionDatabase);
+        // ActionsHandler.Initialize(actionDatabase);
     }
     void SimulateWave()
     {
