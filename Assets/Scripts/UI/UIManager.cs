@@ -16,14 +16,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] Queue<string> currentQueue = new Queue<string>();
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
-    
-    [SerializeField] float minSpeed = .01f;
-    [SerializeField] float maxSpeed = .3f;
+
+
+    [SerializeField] float speedToLengthRatio = 10;
+    [SerializeField] float minSpeed = 1;
+    [SerializeField] float maxSpeed = 3;
        
 
     private void Start()
     {
-        PrintMessage(startMessage);
+        StartCoroutine(PrintMessage(startMessage));
         currentText = ConsoleText.text;
     }
     bool CanEnterText()
@@ -87,7 +89,7 @@ public class UIManager : MonoBehaviour
 
     float TextSpeed(string text)
     {
-        return  Mathf.Clamp(1 / text.Length, minSpeed, maxSpeed);
+        return  Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed , 1 / minSpeed);
     }
 
 }

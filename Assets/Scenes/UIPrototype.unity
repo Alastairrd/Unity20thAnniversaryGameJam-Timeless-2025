@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1255273380}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99991447
+  m_Size: 0.9994112
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.23535156}
   m_SizeDelta: {x: -0.000015258789, y: -90.882385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137888955
@@ -622,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.11999512, y: -0.35998535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489603086
@@ -858,14 +858,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMessage: awdbawjdhba   wjhdba  wkjdbajkwdbhjawvbdhjawbdhabwdjknawkd dawdadawdawdaw
-    awdawdawd
+  startMessage: According to all known laws of aviation, there is no way a bee should
+    be able to fly. Its wings are too small to get its fat little body off the ground.
+    The bee, of course, flies anyway because bees don't care what humans think is
+    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
+    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
+    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
+    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
   currentText: 
   newMessage: 
   ConsoleText: {fileID: 137888956}
   InputText: {fileID: 2129283116}
-  minSpeed: 0.01
-  maxSpeed: 0.3
+  speedToLengthRatio: 5
+  minSpeed: 3
+  maxSpeed: 10
 --- !u!4 &726991673
 Transform:
   m_ObjectHideFlags: 0
@@ -947,7 +953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.059998, y: 58.679993}
+  m_AnchoredPosition: {x: 12.060059, y: 58.67993}
   m_SizeDelta: {x: -1195.88, y: -309.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755236293
