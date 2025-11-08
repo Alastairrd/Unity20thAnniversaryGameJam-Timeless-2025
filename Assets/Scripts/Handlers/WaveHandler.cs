@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveHandler : MonoBehaviour
 {
     public static WaveHandler Instance { get;  private set; }
+    // [SerializeField]
+    // public List<IEnemy> enemyTypes;
     [SerializeField]
-    public List<EnemyObject> enemyTypes;
-    public Queue<EnemyObject> wave;
+    public Queue<IEnemy> wave = new Queue<IEnemy>();
     
     private void Awake()
     {
@@ -40,13 +42,19 @@ public class WaveHandler : MonoBehaviour
     public void Simulate()
     {
         Debug.Log("Simulate Wave Test");
-        if (!checkHealth()) Debug.Log("Game Over");
-        while (!checkHealth() && wave.Count > 0)
-        {
-            EnemyObject enemy = wave.Dequeue();
-            enemy.Simulate();
-            if(enemy.health > 0) wave.Enqueue(enemy);
+        for (int i = 0; i < 10; i++)
+       {
+            wave.Enqueue(new Zombie());
         }
+        
+        while (checkHealth() && wave.Count > 0)
+        {
+            IEnemy enemy = wave.Dequeue();
+            enemy.Simulate();
+            if(enemy.Health > 0) wave.Enqueue(enemy);
+            Debug.Log("Playing");
+        }
+        if (!checkHealth()) Debug.Log("Game Over");
     } 
     
 }

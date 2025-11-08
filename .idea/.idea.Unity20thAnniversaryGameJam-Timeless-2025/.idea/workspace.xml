@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/EnemyObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/EnemyObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/Crawler.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/Crawler.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/EnemyObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/EnemyObject.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,8 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/IEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Items - Enemies - Objects/Zombie.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -121,7 +127,7 @@
       <workItem from="1762611349685" duration="598000" />
       <workItem from="1762611978472" duration="640000" />
       <workItem from="1762612641388" duration="234000" />
-      <workItem from="1762613061585" duration="15677000" />
+      <workItem from="1762613061585" duration="17779000" />
     </task>
     <servers />
   </component>
