@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ae7f1fc3b7c4144bfff301da704826, type: 3}
   m_Name: Building
   m_EditorClassIdentifier: 
-  buildingName: 
-  defensiveValue: 0
+  buildingName: TEST_wall
+  defensiveValue: 5
   offensiveValue: 0

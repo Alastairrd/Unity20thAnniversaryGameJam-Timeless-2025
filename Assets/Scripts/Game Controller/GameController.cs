@@ -3,32 +3,24 @@ using Assets.Scripts.Game_Controller.HelpersAndClasses;
 
 public class GameController : MonoBehaviour
 {
-    
-    //#region Player Properties
-    //[SerializeField]
-    //public float health = 100f;
-    //[SerializeField]
-    //public int hours = 24;
-    //[SerializeField]
-    //public PlayerResources baseResources;
-    //#endregion
+    public static GameController Instance { get; private set; }
 
-    //#region GameLoop Properties
-    //[SerializeField]
-    //public int wave = 0; //waveHandler?
-    //#endregion
+    [SerializeField] private GameObject actionDatabase; // assign in Inspector
 
-    ////Aggregate and control random events and actions scripts for calling
-    //#region EventsHandler
-    ////public EventsHandler eventsHandler;
-    //#endregion
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        // ActionsHandler.Initialize(actionDatabase);
+    }
 
-    ////Store base actions and statistics??
-    //#region ActionsHandler
-    //// public ActionsHandler actionsHandler;
-    //#endregion
 
-    //Handle simulation of zombie wave attacks at end of the day
 
     #region temp fields
     [SerializeField]  
@@ -91,21 +83,10 @@ public class GameController : MonoBehaviour
         //handle displaying of ui based on game state, display right options
 
     }
-    [SerializeField] private GameObject actionDatabase; // assign in Inspector
+    
 
-    public static GameController Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
-        // ActionsHandler.Initialize(actionDatabase);
-    }
+    
+    
     void SimulateWave()
     {
         //based on wave
