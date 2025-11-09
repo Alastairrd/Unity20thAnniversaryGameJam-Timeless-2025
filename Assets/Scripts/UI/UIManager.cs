@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        TakePossibleActions(new List<string> { "BuildWall", "Scavenge",});
+        
     }
     private void Awake()
     {

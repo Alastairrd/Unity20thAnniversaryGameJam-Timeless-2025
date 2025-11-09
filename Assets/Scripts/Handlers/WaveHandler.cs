@@ -31,6 +31,7 @@ public class WaveHandler : MonoBehaviour
     public Queue<Outcome> Simulate()
     {
         int localBaseHealth = GameController.Instance.baseHealth;
+        int localPlayerHealth = GameController.Instance.playerHealth;
         Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
         waveResult.messages = new List<string>();
         waveResult.messages.Add($"\n");
@@ -76,10 +77,12 @@ public class WaveHandler : MonoBehaviour
             if (Random.Range(0f, 1f) < Random.Range(0.5f, 1.0f)) 
             {
                 waveResult = enemy.Simulate(waveResult, localBaseHealth);
-                localBaseHealth -= waveResult.baseHealthChange;
+                localBaseHealth += waveResult.baseHealthChange;
+                localPlayerHealth += waveResult.playerHealthChange;
             } 
             else waveResult.messages.Add($"<align=\"right\">{enemy.Name} Missed</align>");
             if (GameController.Instance.playerHealth <= 0) break;
+            if (localPlayerHealth <= 0) break;
             
             // player move
             if (Random.Range(0f, 1f) < Random.Range(0.5f, 1.0f))
