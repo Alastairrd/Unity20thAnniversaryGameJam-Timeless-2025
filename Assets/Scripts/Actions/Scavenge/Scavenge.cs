@@ -1,5 +1,6 @@
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Actions.Scavenge
@@ -54,10 +55,10 @@ namespace Assets.Scripts.Actions.Scavenge
         public void SetMinResourceCosts()
         {
             // Initialize to zero
-            int outcomeMinWood = 0;
-            int outcomeMinMetal = 0;
-            int outcomeMinMedicine = 0;
-            int outcomeMinFood = 0;
+            int outcomeMinWood = 4;
+            int outcomeMinMetal = 4;
+            int outcomeMinMedicine = 4;
+            //int outcomeMinFood = 0;
 
             foreach (var outcome in outcomes)
             {
@@ -73,15 +74,15 @@ namespace Assets.Scripts.Actions.Scavenge
                 if (outcome.medicineChange < outcomeMinMedicine)
                     outcomeMinMedicine = outcome.medicineChange;
 
-                if (outcome.foodChange < outcomeMinFood)
-                    outcomeMinFood = outcome.foodChange;
+                //if (outcome.foodChange < outcomeMinFood)
+                //    outcomeMinFood = outcome.foodChange;
             }
 
             // Convert to positive values so min* fields represent required amounts
             minWood = Mathf.Abs(outcomeMinWood);
             minMetal = Mathf.Abs(outcomeMinMetal);
             minMedicine = Mathf.Abs(outcomeMinMedicine);
-            minFood = Mathf.Abs(outcomeMinFood);
+            //minFood = Mathf.Abs(outcomeMinFood);
         }
 
         public Queue<Outcome> Simulate()
@@ -89,26 +90,30 @@ namespace Assets.Scripts.Actions.Scavenge
             // THIS STAYS AS IS
             Queue<Outcome> result = new Queue<Outcome>();
 
-            // FIND YOUR OUTCOMES BY NAME
-            Outcome ShotgunOutcome = GetOutcomeByName("ShotgunFound");
+            // FIND OUTCOME RANDOMLY
+            int rand = Random.Range(0, outcomes.Count) - 1;
+            Outcome chosenOutcome = outcomes[rand];
+
+            result.Enqueue(chosenOutcome);
+            return result;
 
             ///WRITE CODE HERE
-            float randomValue = UnityEngine.Random.value;
-            if (randomValue < 0.2)
-            {
-                result.Enqueue(ShotgunOutcome);
-                return result;
-            }
-            else if (randomValue < 0.8)
-            {
-                result.Enqueue(ShotgunOutcome);
-                return result;
-            }
-            else
-            {
-                result.Enqueue(ShotgunOutcome);
-                return result;
-            }
+            //float randomValue = UnityEngine.Random.value;
+            //if (randomValue < 0.2)
+            //{
+            //    result.Enqueue(ShotgunOutcome);
+            //    return result;
+            //}
+            //else if (randomValue < 0.8)
+            //{
+            //    result.Enqueue(ShotgunOutcome);
+            //    return result;
+            //}
+            //else
+            //{
+            //    result.Enqueue(ShotgunOutcome);
+            //    return result;
+            //}
         }
 
     }
