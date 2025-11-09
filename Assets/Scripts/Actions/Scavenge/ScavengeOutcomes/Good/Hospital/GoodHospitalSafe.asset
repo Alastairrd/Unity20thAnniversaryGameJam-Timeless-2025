@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: GoodHospitalSafe
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
-  medicineChange: 0
+  outcomeName: GoodHospitalSafe
+  <messages>k__BackingField:
+  - Exploring the nearby hospital-cum-evac-point is a risky affair. Lots of undead,
+    lots of scavengers, it takes a lot of skill and luck to be able to loot a place
+    like that and come out without a scuffle.
+  - This time you got lucky. You manage to avoid all troubles that come your way
+    and made it out with a respectable haul.
+  - Lucky you.
+  woodChange: 5
+  metalChange: 5
+  medicineChange: 5
   foodChange: 0
   timeChange: 0
   playerHealthChange: 0

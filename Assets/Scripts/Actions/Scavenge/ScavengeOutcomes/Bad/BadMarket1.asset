@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: BadMarket1
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: BadMarket1
+  <messages>k__BackingField:
+  - You try your luck at the High Streets. You put on your backpack and set off in
+    a good mood.
+  - You make it about 30 meters from your outpost before a fellow Scav is trying
+    to press a knife into your throat.
+  - "It\u2019s a struggle that\u2019s not in your favour, given that the Scav had
+    gotten the jump on you. He plunges the knife into your shoulder and you headbutt
+    him to clear some space."
+  - "The trade isn\u2019t fair, but at least you finally had some means of worming
+    from out of his reach. You take to disappearing in a nearby underpass and spend
+    the rest of your time patching yourself up. "
   woodChange: 0
   metalChange: 0
   medicineChange: 0
   foodChange: 0
   timeChange: 0
-  playerHealthChange: 0
+  playerHealthChange: -10
   baseHealthChange: 0
   buildingsChange: []
   buildingsChangeAmount: 

@@ -16,13 +16,13 @@ MonoBehaviour:
   <messages>k__BackingField:
   - You begin to fashion a makeshift wall from wooden planks.
   - You finished building the wall.
-  woodChange: -3
+  woodChange: -2
   metalChange: 0
   medicineChange: 0
   foodChange: 0
-  timeCost: 0
+  timeChange: 0
   playerHealthChange: 0
-  baseHealthChange: 0
+  baseHealthChange: 40
   buildingsChange:
   - {fileID: 11400000, guid: e3650e6db481e3240ae7ea3482fed45e, type: 2}
   buildingsChangeAmount: 01000000

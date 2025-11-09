@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: GoodHighwaySafe2
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
-  medicineChange: 0
+  outcomeName: GoodHighwaySafe2
+  <messages>k__BackingField:
+  - "The highway nearest you is your prey this time. It\u2019s not the best location
+    for scavenging, but sometimes you get lucky."
+  - 'This time, you got very lucky: an overturned semi-truck that seems to have been
+    untouched since the outbreak. You take what you can from the trailer and then
+    leave. Best not to tempt Fate when she seemed in a good mood.'
+  woodChange: 5
+  metalChange: 5
+  medicineChange: 5
   foodChange: 0
   timeChange: 0
   playerHealthChange: 0
