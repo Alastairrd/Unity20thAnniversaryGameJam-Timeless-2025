@@ -1,0 +1,226 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3626960412514555809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5698544945247230942}
+  - component: {fileID: 6930651619833996758}
+  - component: {fileID: 8296674276400206106}
+  - component: {fileID: 7005807441580848923}
+  - component: {fileID: 2184683129883374378}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5698544945247230942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626960412514555809}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3894239292909948425}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6930651619833996758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626960412514555809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdfe096002b2fd418909c3f73ee5c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWaveRunning: 0
+  hoursLeftToday: 16
+  wallCount: 10
+  trapCount: 5
+  playerHealth: 12
+  baseHealth: 10
+  wood: 5
+  metal: 5
+  medicine: 5
+  food: 5
+  damage: 10
+  buildings: []
+  items: []
+--- !u!114 &8296674276400206106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626960412514555809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ecd357c8faaaf4195bb1687ff56c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wave: 1
+--- !u!114 &7005807441580848923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626960412514555809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9440f2c4a38491468aa3a963f2e26bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionDatabase: {fileID: 7164345345464693627}
+--- !u!114 &2184683129883374378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626960412514555809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMessage: According to all known laws of aviation, there is no way a bee should
+    be able to fly. Its wings are too small to get its fat little body off the ground.
+    The bee, of course, flies anyway because bees don't care what humans think is
+    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
+    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
+    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
+    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
+  currentText: 
+  newMessage: 
+  ConsoleText: {fileID: 0}
+  InputText: {fileID: 0}
+  PossibleOutcomes: []
+  speedToLengthRatio: 5
+  minSpeed: 20
+  maxSpeed: 40
+--- !u!1 &7164345345464693627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3894239292909948425}
+  - component: {fileID: 1863468168453671046}
+  - component: {fileID: 8716760289450674716}
+  - component: {fileID: 4549844920138276163}
+  m_Layer: 0
+  m_Name: ActionDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3894239292909948425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164345345464693627}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5698544945247230942}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1863468168453671046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164345345464693627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa46004a65051e40894af769d848572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: BuildTrap
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: 48fcc2d179447474a8d0e12eee91c526, type: 2}
+  - {fileID: 11400000, guid: ef6e68a36afc9b24fb0fb2254255d31e, type: 2}
+  - {fileID: 11400000, guid: abe9dfa0e41c0cd47a02e143c2df2397, type: 2}
+--- !u!114 &8716760289450674716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164345345464693627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d7077439c781344837ee4436c8beea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: BuildWall
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: 4a438a91e2a124840ba767f106cf7e16, type: 2}
+  - {fileID: 11400000, guid: 94803fe3c21fdda4aa4b989debc00a70, type: 2}
+  - {fileID: 11400000, guid: 09bf000ce9c902e4db0e04ed6c331178, type: 2}
+--- !u!114 &4549844920138276163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164345345464693627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c7243e7772e384695fedbe06ebe63e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Scavenge
+  _timeChange: 4
+  outcomes:
+  - {fileID: 11400000, guid: 170ff0139243dc044ba73f97493f220c, type: 2}
+  - {fileID: 11400000, guid: dabebe8e4ea470e468f4009c79313350, type: 2}
+  - {fileID: 11400000, guid: 629a53db07ca0f94d9a5d9a65363d509, type: 2}
+  - {fileID: 11400000, guid: 804f363b898d6b54a82ed4937a3b1214, type: 2}
+  - {fileID: 11400000, guid: 36529a19a39badc4db6fdf979c32f04f, type: 2}
+  - {fileID: 11400000, guid: a717cd8adfdedbb44b89fe28abf345b6, type: 2}
+  - {fileID: 11400000, guid: 8095c1a5cba5bbe469bafd317e424765, type: 2}
+  - {fileID: 11400000, guid: dffcf42d14ddc4542852060fc6e6498a, type: 2}
+  - {fileID: 11400000, guid: bc24ad982b95d264e9f295c9c4d15035, type: 2}
+  - {fileID: 11400000, guid: 1eebbd94b65136449a26603974f3eabb, type: 2}
+  - {fileID: 11400000, guid: 992196c0f73562e46b7c28814296d667, type: 2}
+  - {fileID: 11400000, guid: dc816b59d8528b14885660a5f445f28a, type: 2}
+  - {fileID: 11400000, guid: 98d5d40cd0d9ea34bb3c91473a0918bd, type: 2}
+  - {fileID: 11400000, guid: e6cb6a5d449822846a1a221d46e4f790, type: 2}
+  - {fileID: 11400000, guid: 8ac8bf3c5d468f4488d4230977185fa8, type: 2}
+  - {fileID: 11400000, guid: 6cab7cee611be134482c8fd8bc635146, type: 2}
+  - {fileID: 11400000, guid: 6a549be0f5cbb034184d5b77405f91ab, type: 2}
+  - {fileID: 11400000, guid: d807beaaf3c1d604eadb4f4fc8d35032, type: 2}
+  - {fileID: 11400000, guid: 90eaa2fc3d948e846896bc972e164c8f, type: 2}
+  - {fileID: 11400000, guid: 2e38e56f8865875468fc36f125effb7b, type: 2}
+  - {fileID: 11400000, guid: 4b25ab824652ce64083e9ef4e68ecf50, type: 2}
+  - {fileID: 11400000, guid: 17d31970f16b008468d18480eb421345, type: 2}
+  - {fileID: 11400000, guid: a05fcaf3705999d4fa049862c77e97ae, type: 2}
+  - {fileID: 11400000, guid: 45e353d1423c13a4aa3e176cd80fe33c, type: 2}
+  - {fileID: 11400000, guid: f54de4afbee7855468c880e51d741598, type: 2}
