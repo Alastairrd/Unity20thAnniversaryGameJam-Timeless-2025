@@ -98,6 +98,19 @@ public class UIManager : MonoBehaviour
 
     void HandleInputLogic(string input) 
     {
+        
+        if(input.ToLower() == "reset")
+        {
+            GameController.Instance.Reset();
+            return;
+        }
+
+        if (input.ToLower() == "0" && PossibleOutcomes.Count == 0)
+        {
+            GameController.Instance.Reset();
+            return;
+        }
+
         if (int.TryParse(input, out int number))
         { 
             if(number > 0 && number <= PossibleOutcomes.Count)
@@ -107,7 +120,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        
+
         for (int i = 0; i < PossibleOutcomes.Count; i++)
         {
             if (input.ToLower() == PossibleOutcomes[i].ToLower()) 

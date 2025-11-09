@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1255273380}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999987
+  m_Size: 0.99999857
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -280,8 +280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00079345703}
-  m_SizeDelta: {x: -0.000015258789, y: -90.882385}
+  m_AnchoredPosition: {x: 0, y: 0.00036621094}
+  m_SizeDelta: {x: -1374.11, y: -90.882385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137888955
 MonoBehaviour:
@@ -319,8 +319,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
-  m_sharedMaterial: {fileID: 3123973321437443270, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
+  m_sharedMaterial: {fileID: 4609090534259949680, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 42.724216, y: 52.218567, z: 28.482666, w: 27.241476}
+  m_margin: {x: 664.64935, y: 52.218567, z: 661.9244, w: 27.241476}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -752,8 +752,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
-  m_sharedMaterial: {fileID: 3123973321437443270, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
+  m_sharedMaterial: {fileID: 4609090534259949680, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1068,13 +1068,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMessage: According to all known laws of aviation, there is no way a bee should
-    be able to fly. Its wings are too small to get its fat little body off the ground.
-    The bee, of course, flies anyway because bees don't care what humans think is
-    impossible. Yellow, black. Yellow, black. Yellow, black. Yellow, black. Ooh,
-    black and yellow! Let's shake it up a little. Barry! Breakfast is ready! Coming!
-    Hang on a second. Hello? Barry? Adam? Can you believe this is happening? I can't.
-    I'll pick you up. Looking sharp. Use the stairs, Your father paid good mone
+  startMessage: "You\u2019ve forgotten what year it is at this point. It\u2019s been
+    several winters since you last remembered your apartment, your family, your old
+    life before this city went to the dogs. \\n \\n There was a viral outbreak of
+    some sort of rabies all those years ago, and within 48 hours the situation was
+    deemed uncontrollable by your local provincial administration. Things became
+    a hectic blur and now the only survivors that remain are those who are either
+    naturally immune or very careful. There is no government presence, no military,
+    no hope. \\n \\n Every day might be your last, every hour you spend determines
+    your fate. All you have is your base, your life, and time. \\n \\n"
   currentText: 
   newMessage: 
   ConsoleText: {fileID: 137888956}
@@ -1550,8 +1552,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Input Actions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
-  m_sharedMaterial: {fileID: 3123973321437443270, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
+  m_sharedMaterial: {fileID: 4609090534259949680, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2010,7 +2012,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 0
-  m_GlobalFontAsset: {fileID: 11400000, guid: f980dfe8a69df0c4f83afecd64bf3596, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0
