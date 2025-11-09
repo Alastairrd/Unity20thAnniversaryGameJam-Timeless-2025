@@ -35,7 +35,7 @@ public class WaveHandler : MonoBehaviour
         UIManager.Instance.currentQueue.Enqueue($"Simulate Wave Test {wave}");
         
         
-        for (int i = 0; i < Random.Range(wave, 2*wave); i++)
+        for (int i = 0; i < Random.Range(wave+1, 2*wave); i++)
         {
             enemies.Enqueue(new Zombie(Random.Range(1, wave+1)));
             enemies.Enqueue(new Raider());
@@ -43,7 +43,7 @@ public class WaveHandler : MonoBehaviour
         
         UIManager.Instance.currentQueue.Enqueue($"Watch out!!! {enemies.Count} enemies");
         
-        while (GameController.Instance.checkHealth())
+        while (GameController.Instance.checkHealth() && enemies.Count > 0)
         {
             IEnemy enemy = enemies.Dequeue(); 
             // lucky move
@@ -61,7 +61,7 @@ public class WaveHandler : MonoBehaviour
             
             if(enemy.Health > 0) enemies.Enqueue(enemy);
         }
-        if (GameController.Instance.checkHealth()) waveResult.messages.Add("Game Over");
+        if (!GameController.Instance.checkHealth()) waveResult.messages.Add("Game Over");
         else waveResult.messages.Add($"Wave Survived {wave}");
         wave++;
         waveResults.Enqueue(waveResult);
