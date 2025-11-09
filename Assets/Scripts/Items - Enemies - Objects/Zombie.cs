@@ -12,13 +12,20 @@ public class Zombie : IEnemy
         Health = 100;
         Damage = Random.Range(level*2,level*5);
     }
-    public Outcome Simulate(Outcome waveResult)
+    public Outcome Simulate(Outcome waveResult, int localBaseHealth)
     {
-        waveResult.baseHealthChange -= Damage;
-        waveResult.messages.Add($"<align=\"right\">{Name} attacked Base for {Damage}</align>");
-        
-        waveResult.playerHealthChange -= Damage;
-        waveResult.messages.Add($"<align=\"right\">{Name} attacked Player for {Damage}</align>");
+        if(localBaseHealth > 0)
+        {
+            waveResult.baseHealthChange -= Damage;
+            waveResult.messages.Add($"<align=\"right\">{Name} attacked Base for {Damage}</align>");
+        }
+
+        if (localBaseHealth <= 0)
+        {
+            waveResult.playerHealthChange -= Damage;
+            waveResult.messages.Add($"<align=\"right\">{Name} attacked Player for {Damage}</align>");
+            
+        }
         return waveResult;
     }
 }
