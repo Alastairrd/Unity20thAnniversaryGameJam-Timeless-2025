@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
+  m_Name: ShotgunFound
+  m_EditorClassIdentifier: 
+  outcomeName: ShotgunFound
+  <messages>k__BackingField:
+  - While moving quietly through the wasteland, you stumble across a Shotgun in good
+    condition, along with some shells. It's your lucky day.
+  woodChange: 0
+  metalChange: 0
+  medicineChange: 0
+  foodChange: 0
+  timeCost: 1
+  playerHealthChange: 0
+  baseHealthChange: 0
+  buildingsChange: []
+  buildingsChangeAmount: 
+  itemsChange:
+  - {fileID: 11400000, guid: 9ec95972a0607eb4db90f91c95184db5, type: 2}
+  itemsChangeAmount: 01000000

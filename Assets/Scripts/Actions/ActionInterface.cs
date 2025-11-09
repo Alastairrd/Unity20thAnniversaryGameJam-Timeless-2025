@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace Assets.Scripts.Game_Controller.HelpersAndClasses
+namespace Assets.Scripts.Actions
 {
     public interface IActionObject
     {

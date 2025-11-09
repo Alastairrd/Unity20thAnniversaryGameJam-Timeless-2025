@@ -202,7 +202,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1255273380}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999961
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0006713867}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: -0.000015258789, y: -90.882385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137888955
@@ -829,6 +829,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508916421}
   m_CullTransparentMesh: 1
+--- !u!1 &605894422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4253192022652204188, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+  m_PrefabInstance: {fileID: 665621341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &605894426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605894422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c7243e7772e384695fedbe06ebe63e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Scavenge
+  outcomes:
+  - {fileID: 11400000, guid: 1d313650f5014d340b940a1b8947aa57, type: 2}
 --- !u!1001 &665621341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -888,6 +908,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3391162229997344737, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 835569151}
+    - targetCorrespondingSourceObject: {fileID: 4253192022652204188, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 605894426}
   m_SourcePrefab: {fileID: 100100000, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
 --- !u!1 &726991671
 GameObject:

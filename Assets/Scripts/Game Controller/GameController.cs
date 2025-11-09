@@ -1,6 +1,8 @@
 using UnityEngine;
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
+using Assets.Scripts.Handlers;
+using Assets.Scripts.Actions.BuildTrap;
 
 public class GameController : MonoBehaviour
 {
@@ -90,7 +92,8 @@ public class GameController : MonoBehaviour
     [ContextMenu("Action Simulate")]
     void DebugSimulateAction()
     {
-        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildWall");
+        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("Scavenge");
+        result.Enqueue(ActionsHandler.Instance.SimulateAction("BuildWall").Dequeue());
 
         while (result.Count > 0) 
         {
@@ -122,6 +125,7 @@ public class GameController : MonoBehaviour
             Debug.Log(outcome.messages[i]);
             messages.Enqueue(outcome.messages[i]);
         }
+        UIManager.Instance.InputQueue(messages);
 
         //player health
         playerHealth += outcome.playerHealthChange;
@@ -140,10 +144,6 @@ public class GameController : MonoBehaviour
                 items.Add(itemReturn);
             }
         }
-
-
-        //UIManager.Instance.HandleQueueLogic(messages);
-
 
         //base handling
         baseHealth += outcome.baseHealthChange;

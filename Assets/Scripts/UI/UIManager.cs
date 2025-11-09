@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] float maxSpeed = 3;
        
     bool pressingSkip = false;
+    private Coroutine printRoutine;
 
     private void Start()
     {
@@ -92,6 +93,31 @@ public class UIManager : MonoBehaviour
         {
             PrintMessage(queue.Dequeue());
         }
+    }
+
+    public void InputQueue(Queue<string> queue)
+    {
+        while (queue.Count > 0)
+        {
+            currentQueue.Enqueue(queue.Dequeue());
+        }
+
+        // Only start the coroutine if it's not already running
+        if (printRoutine == null)
+        {
+            printRoutine = StartCoroutine(PrintCurrentQueue_TEST());
+        }
+    }
+
+    private IEnumerator PrintCurrentQueue_TEST()
+    {
+        while (currentQueue.Count > 0)
+        {
+            yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
+        }
+
+        // Finished – mark the coroutine as stopped
+        printRoutine = null;
     }
     public IEnumerator PrintCurrentQueue() 
     {
