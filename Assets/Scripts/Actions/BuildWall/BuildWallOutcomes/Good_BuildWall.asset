@@ -16,7 +16,7 @@ MonoBehaviour:
   <messages>k__BackingField:
   - You begin to fashion a makeshift wall from wooden planks.
   - You work really well, making exact measures and wasting nothing
-  - You finished building a wall with wood to spare.
+  - You finished building a really solid wall with wood to spare.
   woodChange: -1
   metalChange: 0
   medicineChange: 0
@@ -26,6 +26,6 @@ MonoBehaviour:
   baseHealthChange: 60
   buildingsChange:
   - {fileID: 11400000, guid: e3650e6db481e3240ae7ea3482fed45e, type: 2}
-  buildingsChangeAmount: 02000000
+  buildingsChangeAmount: 01000000
   itemsChange: []
   itemsChangeAmount: 
