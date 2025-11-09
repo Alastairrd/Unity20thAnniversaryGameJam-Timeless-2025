@@ -32,8 +32,10 @@ public class WaveHandler : MonoBehaviour
     {
         Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
         waveResult.messages = new List<string>();
-        UIManager.Instance.currentQueue.Enqueue($"Simulate Wave Test {wave}");
-        
+        waveResult.messages.Add($"\n");
+        waveResult.messages.Add('<align="justified">=== Wave ===</center>');
+        waveResult.messages.Add($"\n");
+         
         
         for (int i = 0; i < Random.Range(wave+1, 2*wave); i++)
         {
@@ -41,7 +43,7 @@ public class WaveHandler : MonoBehaviour
             enemies.Enqueue(new Raider());
         }
         
-        UIManager.Instance.currentQueue.Enqueue($"Watch out!!! {enemies.Count} enemies");
+        waveResult.messages.Add($"Watch out!!! {enemies.Count} enemies");
         
         while (GameController.Instance.checkHealth() && enemies.Count > 0)
         {

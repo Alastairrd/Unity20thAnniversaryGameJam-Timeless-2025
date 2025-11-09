@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +140,7 @@
       <workItem from="1762611349685" duration="598000" />
       <workItem from="1762611978472" duration="640000" />
       <workItem from="1762612641388" duration="234000" />
-      <workItem from="1762613061585" duration="36825000" />
+      <workItem from="1762613061585" duration="38808000" />
     </task>
     <servers />
   </component>
