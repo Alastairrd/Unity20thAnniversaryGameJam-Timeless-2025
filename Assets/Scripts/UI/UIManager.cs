@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Assets.Scripts.Actions.BuildTrap;
 
 public class UIManager : MonoBehaviour
 {
@@ -86,15 +87,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void HandleQueueLogic(Queue<string> queue) 
-    {
-        currentQueue = queue;
-        while (!currentQueue.IsUnityNull())
-        {
-            PrintMessage(queue.Dequeue());
-        }
-    }
-
+    //public void HandleQueueLogic(Queue<string> queue) 
+    //{
+    //    currentQueue = queue;
+    //    while (!currentQueue.IsUnityNull())
+    //    {
+    //        PrintMessage(queue.Dequeue());
+    //    }
+    //}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="queue"></param>
     public void InputQueue(Queue<string> queue)
     {
         while (queue.Count > 0)
@@ -108,7 +112,6 @@ public class UIManager : MonoBehaviour
             printRoutine = StartCoroutine(PrintCurrentQueue_TEST());
         }
     }
-
     private IEnumerator PrintCurrentQueue_TEST()
     {
         while (currentQueue.Count > 0)
@@ -119,6 +122,10 @@ public class UIManager : MonoBehaviour
         // Finished – mark the coroutine as stopped
         printRoutine = null;
     }
+    /// <summary>
+    /// /
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator PrintCurrentQueue() 
     {
         while (currentQueue.Count > 0)

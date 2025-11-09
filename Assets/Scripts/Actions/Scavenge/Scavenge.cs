@@ -34,7 +34,6 @@ namespace Assets.Scripts.Actions.Scavenge
             // FIND YOUR OUTCOMES BY NAME
             Outcome ShotgunOutcome = GetOutcomeByName("ShotgunFound");
 
-
             ///WRITE CODE HERE
             float randomValue = UnityEngine.Random.value;
             if (randomValue < 0.2)

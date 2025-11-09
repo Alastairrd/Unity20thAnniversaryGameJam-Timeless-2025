@@ -2,7 +2,7 @@ using UnityEngine;
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
 using Assets.Scripts.Handlers;
-using Assets.Scripts.Actions.BuildTrap;
+
 
 public class GameController : MonoBehaviour
 {
@@ -21,8 +21,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-
     #region temp fields
+    [SerializeField]
+    public int hoursLeftToday = 16;
     [SerializeField]  
     public int wallCount = 0;
     [SerializeField]
@@ -41,6 +42,7 @@ public class GameController : MonoBehaviour
     public int food = 10;
     [SerializeField]
     public int damage = 10;
+
     [Header("Buildings")]
     [SerializeField] private List<Building> buildings = new();
     public List<Building> Buildings
@@ -56,10 +58,9 @@ public class GameController : MonoBehaviour
         get => items;
         set => items = value;
     }
-
-
     #endregion
 
+    #region Debug functions
     [ContextMenu("Add Trap")]
     void AddTrap()
     {
@@ -103,19 +104,41 @@ public class GameController : MonoBehaviour
     }
 
     [ContextMenu("MessageProcessDebug")]
-    void DebugMessageSend()
-    {
-        Queue<string> messages = new Queue<string>();
+    //void DebugMessageSend()
+    //{
+    //    Queue<string> messages = new Queue<string>();
 
-        messages.Enqueue("Test message 1");
-        messages.Enqueue("Test message 2");
-        messages.Enqueue("Test message 3");
-        messages.Enqueue("Test message 4");
+    //    messages.Enqueue("Test message 1");
+    //    messages.Enqueue("Test message 2");
+    //    messages.Enqueue("Test message 3");
+    //    messages.Enqueue("Test message 4");
 
-        UIManager.Instance.HandleQueueLogic(messages);
+    //    UIManager.Instance.HandleQueueLogic(messages);
         
+    //}
+    #endregion
+
+    #region GameLoop Checks and Logic
+    bool TimeLeft()
+    {
+        if (hoursLeftToday >= 0) return true;
+        return false;
     }
 
+    bool IsPlayerDead()
+    {
+        if(playerHealth > 0) return true;
+        return false;
+    }
+
+    bool IsBaseDestroyed()
+    {
+        if (baseHealth > 0) return true;
+        return false;
+    }
+    #endregion
+
+    #region Outcome Processing
     void ProcessOutcome(Outcome outcome)
     {
         //ui messages
@@ -156,7 +179,36 @@ public class GameController : MonoBehaviour
                 buildings.Add(buildingReturn);
             }
         }
+
+        //time cost
+        hoursLeftToday -= outcome.timeCost;
     }
+
+    #endregion
+
+    #region Action Display and Simulation
+    void SimulateAction(string actionName)
+    {
+        Queue<Outcome> result = ActionsHandler.Instance.SimulateAction(actionName);
+
+        while (result.Count > 0)
+        {
+            Outcome outcome = result.Dequeue();
+            ProcessOutcome(outcome);
+        }
+    }
+
+    void DecideActionsToDisplay()
+    {
+
+    }
+
+    void SendActionsToUI()
+    {
+
+    }
+    #endregion
+
 
 
 
@@ -169,49 +221,47 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //look for player input on ui
-        //handle displaying of ui based on game state, display right options
 
     }
     
 
     
     
-    void SimulateWave()
-    {
-        //based on wave
-        //call WaveHandler, pass base stats in, return outcomes?
-    }
+    //void SimulateWave()
+    //{
+    //    //based on wave
+    //    //call WaveHandler, pass base stats in, return outcomes?
+    //}
 
-    void SimulateEvent()
-    {
-        //call eventsHandler pool, find random event
-        //pass in necessary info, return outcome from simulation?
-    }
+    //void SimulateEvent()
+    //{
+    //    //call eventsHandler pool, find random event
+    //    //pass in necessary info, return outcome from simulation?
+    //}
 
-    void SimulateAction()
-    {
-        //call actionsHandler actions pool with appropriate action
-        //return outcome from simulation
-    }
+    //void SimulateAction()
+    //{
+    //    //call actionsHandler actions pool with appropriate action
+    //    //return outcome from simulation
+    //}
 
-    void RemoveTime(int hours)
-    {
-        //pass in cost property of an action or event
-    }
+    //void RemoveTime(int hours)
+    //{
+    //    //pass in cost property of an action or event
+    //}
 
-    void DamagePlayer(float damage)
-    {
-        //pass in damage outcome from wave, event, action
-    }
-    void AddItemToInventory(float damage)
-    {
-        //pass in damage outcome from wave, event, action
-    }
+    //void DamagePlayer(float damage)
+    //{
+    //    //pass in damage outcome from wave, event, action
+    //}
+    //void AddItemToInventory(float damage)
+    //{
+    //    //pass in damage outcome from wave, event, action
+    //}
 
-    void AddResource(string resource)
-    {
-        //pass in damage outcome from wave, event, action
-    }
+    //void AddResource(string resource)
+    //{
+    //    //pass in damage outcome from wave, event, action
+    //}
 
 }
