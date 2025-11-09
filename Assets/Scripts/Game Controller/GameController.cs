@@ -109,19 +109,6 @@ public class GameController : MonoBehaviour
             ProcessOutcome(outcome);
         }
     }
-
-    [ContextMenu("MessageProcessDebug")]
-    //void DebugMessageSend()
-    //{
-    //    Queue<string> messages = new Queue<string>();
-
-    //    messages.Enqueue("Test message 1");
-    //    messages.Enqueue("Test message 2");
-    //    messages.Enqueue("Test message 3");
-    //    messages.Enqueue("Test message 4");
-
-        
-    //}
     #endregion
 
     #region GameLoop Checks and Logic
@@ -146,7 +133,16 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        //SceneManager.LoadScene();
+        List<string> list = new List<string>();
+        //UIManager.Instance.PrintMessage($"Please choose one of the following actions: \n");
+        UIManager.Instance.TakePossibleActions(list);
+        UIManager.Instance.PrintMessage($"0: Reset");
+        
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(0);
     }
 
     #region Outcome Processing
@@ -164,14 +160,12 @@ public class GameController : MonoBehaviour
         //player health
         playerHealth += outcome.playerHealthChange;
 
-        if (!checkHealth())
-        {
-            UIManager.Instance.PrintMessage("Game Over");
-            //Todo HandleEndOfGame()
-            return;
-        }
-            
-            
+        //if (!checkHealth())
+        //{
+        //    UIManager.Instance.PrintMessage("Game Over");
+        //    //Todo HandleEndOfGame()
+        //    return;
+        //}
 
         //resources & inventory
         wood += outcome.woodChange;
@@ -210,26 +204,41 @@ public class GameController : MonoBehaviour
             isWaveRunning = true;
             DebugSimulateWave();
 
-            //checks
-            if (!checkHealth())
-            {
-                Debug.Log("False");
-                UIManager.Instance.PrintMessage("Game Over");
-            }
-            else
+            
+            if(checkHealth())
             {
                 Debug.Log("True");
                 UIManager.Instance.PrintMessage($"\n");
-                UIManager.Instance.PrintMessage($"<align=\"center\">=== You survived Wave {WaveHandler.Instance.wave.ToString()} === </align>");
+                UIManager.Instance.PrintMessage($"<align=\"center\">=== You survived day {WaveHandler.Instance.wave.ToString()} === </align>");
                 UIManager.Instance.PrintMessage($"\n");
+
             }
+
+            isWaveRunning = false;
+
         }
-        else if (TimeLeft())
-        {
-             isWaveRunning = false;
-        }
+        //else if (TimeLeft())
+        //{
+        //     isWaveRunning = false;
+        //}
         //GameStateCheck();
+
+        //checks
+
+        if (!checkHealth() && !isWaveRunning)
+        {
+
+            UIManager.Instance.PrintMessage($"\n");
+            UIManager.Instance.PrintMessage($"<align=\"center\">=== You died on day {(WaveHandler.Instance.wave - 1).ToString()} === </align>");
+            
+            UIManager.Instance.PrintMessage($"\n");
+            UIManager.Instance.PrintMessage($"<align=\"center\">=== Game Over === </align>");
+            UIManager.Instance.PrintMessage("");
+
+            GameOver();
+        }
     }
+
     public bool checkHealth()
     {
         // Check if Player is Still Alive
