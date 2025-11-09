@@ -33,7 +33,7 @@ public class WaveHandler : MonoBehaviour
         Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
         waveResult.messages = new List<string>();
         waveResult.messages.Add($"\n");
-        waveResult.messages.Add($"<align=\"center\"><color=green>=== Wave {wave} === </color></align>");
+        waveResult.messages.Add($"<align=\"center\"> === Wave {wave} === </align>");
         waveResult.messages.Add($"\n");
          
         
@@ -47,21 +47,54 @@ public class WaveHandler : MonoBehaviour
         
         while (GameController.Instance.checkHealth() && enemies.Count > 0)
         {
+            waveResult.messages.Add($"\n");
             IEnemy enemy = enemies.Dequeue(); 
             // lucky move
-            if (Random.Range(0, 1) < 0.1)
+            if (Random.Range(0f, 1f) < 0.05)
             {
                 enemy.Health -= GameController.Instance.damage;
-                waveResult.messages.Add("Lucky Strike Enemy Startled!!!");
+                
+                waveResult.messages.Add($"\n");
+                waveResult.messages.Add("<align=\"center\">***Lucky Strike! Gained extra move***</align>");
+                waveResult.messages.Add($"\n");
+                
+                waveResult.messages.Add($"Hit {enemy.Name} for {GameController.Instance.damage} damage");
+            }
+
+            // checks enemy health 
+            if (enemy.Health < 0)
+            {
+                waveResult.messages.Add($"\n");
+                waveResult.messages.Add($"<align=\"center\">{enemy.Name} defeated (X~X)</align>");
+                waveResult.messages.Add("<align=\"center\">********************</align>");
+                continue;
             }
 
             // enemy move
-            waveResult = enemy.Simulate(waveResult); 
+            if(Random.Range(0f,1f) < Random.Range(0.5f, 1.0f)) waveResult = enemy.Simulate(waveResult); 
+            else waveResult.messages.Add($"<align=\"right\">{enemy.Name} Missed</align>");
             
             // player move
-            enemy.Health -= GameController.Instance.damage;
-            
+            if (Random.Range(0f, 1f) < Random.Range(0.5f, 1.0f))
+            {
+                enemy.Health -= GameController.Instance.damage;
+                waveResult.messages.Add($"Hit {enemy.Name} for {GameController.Instance.damage} damage");
+            }
+            else
+            {
+                waveResult.messages.Add($"Player missed {enemy.Name}");
+            }
+            // checks enemy health 
+            if (enemy.Health < 0)
+            {
+                waveResult.messages.Add($"\n");
+                waveResult.messages.Add($"<align=\"center\">{enemy.Name} defeated (X~X)</align>");
+                waveResult.messages.Add("<align=\"center\">********************</align>");
+                continue;
+            }
             if(enemy.Health > 0) enemies.Enqueue(enemy);
+            waveResult.messages.Add("\n");
+            waveResult.messages.Add("<align=\"center\">********************</align>");
         }
         
 

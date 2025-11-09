@@ -15,10 +15,10 @@ public class Zombie : IEnemy
     public Outcome Simulate(Outcome waveResult)
     {
         waveResult.baseHealthChange -= Damage;
-        waveResult.messages.Add($"{Name} attacked Base for {Damage}");
+        waveResult.messages.Add($"<align=\"right\">{Name} attacked Base for {Damage}</align>");
         
         waveResult.playerHealthChange -= Damage;
-        waveResult.messages.Add($"{Name} attacked Player for {Damage}");
+        waveResult.messages.Add($"<align=\"right\">{Name} attacked Player for {Damage}</align>");
         return waveResult;
     }
 }
