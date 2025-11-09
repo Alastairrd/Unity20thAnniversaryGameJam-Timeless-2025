@@ -13,10 +13,10 @@ namespace Assets.Scripts.Actions.BuildTrap
         [SerializeField] private int _timeChange = 3;
         public int timeChange => _timeChange;
 
-        public int minWood;
-        public int minMetal;
-        public int minMedicine;
-        public int minFood;
+        public int minWood { get; set; }
+        public int minMetal { get; set; }
+        public int minMedicine { get; set; }
+        public int minFood { get; set; }
         /// <summary>
         /// RENAME ACTION NAME AND FILENAMES TO WHATEVER
         /// </summary>
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Actions.BuildTrap
             SetMinResourceCosts();
         }
 
-        private void SetMinResourceCosts()
+        public void SetMinResourceCosts()
         {
             // Initialize to zero
             int outcomeMinWood = 0;
