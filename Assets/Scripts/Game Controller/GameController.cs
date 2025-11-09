@@ -234,7 +234,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region Action Display and Simulation
-    void SimulateAction(string actionName)
+    public void SimulateAction(string actionName)
     {
         Queue<Outcome> result = ActionsHandler.Instance.SimulateAction(actionName);
 
