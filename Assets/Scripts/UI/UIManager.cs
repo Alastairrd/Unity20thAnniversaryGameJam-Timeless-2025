@@ -87,18 +87,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //public void HandleQueueLogic(Queue<string> queue) 
-    //{
-    //    currentQueue = queue;
-    //    while (!currentQueue.IsUnityNull())
-    //    {
-    //        PrintMessage(queue.Dequeue());
-    //    }
-    //}
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="queue"></param>
     public void InputQueue(Queue<string> queue)
     {
         while (queue.Count > 0)

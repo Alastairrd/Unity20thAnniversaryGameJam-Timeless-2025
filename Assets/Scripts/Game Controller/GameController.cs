@@ -186,7 +186,7 @@ public class GameController : MonoBehaviour
         Debug.Log($"Time Left {TimeLeft()}");
 
         //time cost
-        hoursLeftToday -= outcome.timeCost;
+        hoursLeftToday -= outcome.timeChange;
         Debug.Log($"Time Left {TimeLeft()}");
         if(!checkHealth()) UIManager.Instance.PrintMessage("Game Over");
         if (!TimeLeft())

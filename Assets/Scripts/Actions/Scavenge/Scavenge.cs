@@ -8,6 +8,9 @@ namespace Assets.Scripts.Actions.Scavenge
     {
         [SerializeField] private string _actionName = "Scavenge";
         public string actionName => _actionName;
+
+        [SerializeField] private int _timeChange = 5;
+        public int timeChange => _timeChange;
         /// <summary>
         /// RENAME ACTION NAME AND FILENAMES TO WHATEVER
         /// </summary>
