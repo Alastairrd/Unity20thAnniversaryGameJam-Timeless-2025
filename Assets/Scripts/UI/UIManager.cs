@@ -25,8 +25,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
 
-    [SerializeField] bool InstantMessages = false;
-
     Dictionary<string, string> ActionDictionary = new Dictionary<string, string>()
     {
         {"BuildWall", "Build a Wall" },
@@ -217,7 +215,7 @@ public class UIManager : MonoBehaviour
         newMessage = "\n" + text;
         while (newMessage.Length > 0) 
         {
-            Debug.Log(newMessage);
+            //Debug.Log(newMessage);
             float textSpeed = TextSpeed(newMessage);
             currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
@@ -227,19 +225,13 @@ public class UIManager : MonoBehaviour
         yield return null;
     }
 
-    void MessageNoAnimation() 
-    {
-        currentText += "\n" + newMessage;
-        newMessage = string.Empty;
-        OnTextChange();
-    }
 
     //Returns a speed proportional to the length of the text
     float TextSpeed(string text)
     {
         if (pressingSkip) 
         {
-            Debug.Log("Skipping text speed");
+            //Debug.Log("Skipping text speed");
             return 0;
         }
         else 

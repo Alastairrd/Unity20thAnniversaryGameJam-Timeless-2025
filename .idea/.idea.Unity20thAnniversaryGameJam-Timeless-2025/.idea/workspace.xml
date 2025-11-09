@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Unity20thAnniversaryGameJam-Timeless-2025/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" afterDir="false" />
-    </list>
+    <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +40,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f1/6a33585a/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b1b6e137fed94ac1a54aeeb4e5f261681e0400/5b/1113856f/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/matve/OneDrive/Desktop/gameJam/Unity20thAnniversaryGameJam-Timeless-2025/Assets/Scripts/Game Controller/GameController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/matve/OneDrive/Desktop/gameJam/Unity20thAnniversaryGameJam-Timeless-2025/Assets/Scripts/Game Controller/GameController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,7 +138,7 @@
       <workItem from="1762611349685" duration="598000" />
       <workItem from="1762611978472" duration="640000" />
       <workItem from="1762612641388" duration="234000" />
-      <workItem from="1762613061585" duration="40137000" />
+      <workItem from="1762613061585" duration="41643000" />
     </task>
     <servers />
   </component>
