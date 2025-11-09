@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
 
     #region temp fields
     [SerializeField]
+    public bool isWaveRunning  = false;
+    [SerializeField]
     public int hoursLeftToday = 16;
     [SerializeField]  
     public int wallCount = 0;
@@ -188,9 +190,14 @@ public class GameController : MonoBehaviour
         hoursLeftToday -= outcome.timeChange;
         Debug.Log($"Time Left {TimeLeft()}");
         if(!checkHealth()) UIManager.Instance.PrintMessage("Game Over");
-        if (!TimeLeft())
+        if (!TimeLeft() && !isWaveRunning)
         {
+            isWaveRunning = true;
             DebugSimulateWave();
+        }
+        else if (TimeLeft())
+        {
+             isWaveRunning = false;
         }
         GameStateCheck();
     }
@@ -227,7 +234,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region Action Display and Simulation
-    void SimulateAction(string actionName)
+    public void SimulateAction(string actionName)
     {
         Queue<Outcome> result = ActionsHandler.Instance.SimulateAction(actionName);
 

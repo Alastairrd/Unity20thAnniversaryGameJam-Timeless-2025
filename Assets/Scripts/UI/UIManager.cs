@@ -25,8 +25,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
 
-    
-       
+    Dictionary<string, string> ActionDictionary = new Dictionary<string, string>()
+    {
+        {"BuildWall", "Build a Wall." },
+        {"Scavenge", "Scavenge" },
+        {"BuildTrap", "Build Trap" }
+    };
+
+
+
+
+
     bool pressingSkip = false;
     private Coroutine printRoutine;
 
@@ -84,35 +93,36 @@ public class UIManager : MonoBehaviour
         { 
             if(number > 0 && number <= PossibleOutcomes.Count)
             {
-                PrintMessage("You have chosen: " + ChosenAction(number - 1));
-                //proceed with game logic
+                ChosenAction(number - 1);
                 return;
             }
         }
 
-
+        
         for (int i = 0; i < PossibleOutcomes.Count; i++)
         {
             if (input.ToLower() == PossibleOutcomes[i].ToLower()) 
             {
-                PrintMessage("You have chosen: " + ChosenAction(i));
-                //proceed with game logic
+                ChosenAction(i);
                 return;
             }
         }
 
-        PrintMessage("Invalid input, please try again.");
+
+
+
+        PrintMessage("That is not an action you can do");
     }
 
 
-    string ChosenAction(int actionChosen)
+    void ChosenAction(int actionChosen)
     {
-        //game controller fucntion that takes action
-        return PossibleOutcomes[actionChosen];
+        string action = PossibleOutcomes[actionChosen];
+        GameController.Instance.SimulateAction(action);
     }
 
 
-    void TakePossibleActions(List<string> possibleActions)
+    public void TakePossibleActions(List<string> possibleActions)
     {
         PossibleOutcomes = possibleActions;
         InputQueue(CreateQueueFromActions(PossibleOutcomes));
@@ -125,14 +135,21 @@ public class UIManager : MonoBehaviour
         actionQueue.Enqueue("Please choose one of the following actions: \n");
         for (int i = 0; i < possibleActions.Count; i++)
         {
-            actionQueue.Enqueue((i + 1).ToString() + ". " + possibleActions[i]);
+            actionQueue.Enqueue((i + 1).ToString() + ". " + GetActionFromDictionary(possibleActions[i]) + "\n");
         }
 
         return actionQueue;
     }
 
-    //------------------------- Message Handling ----------------------------//
+    string GetActionFromDictionary(string actionKey)
+    {
+        if(ActionDictionary.TryGetValue(actionKey, out string actionDescription)) { 
+            return actionDescription;
+        }
+        return "Unknown action.";
+    }
 
+    //------------------------- Message Handling ----------------------------//
     public void InputQueue(Queue<string> queue)
     {
         while (queue.Count > 0)
