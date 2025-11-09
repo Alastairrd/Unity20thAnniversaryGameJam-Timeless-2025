@@ -186,6 +186,16 @@ public class GameController : MonoBehaviour
 
         //time cost
         hoursLeftToday -= outcome.timeCost;
+
+        GameStateCheck();
+    }
+
+    void GameStateCheck()
+    {
+        ///
+        IsBaseDestroyed();
+        IsPlayerDead();
+        TimeLeft();
     }
 
     #endregion
