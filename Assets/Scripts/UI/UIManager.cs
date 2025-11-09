@@ -25,15 +25,25 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
 
+    [SerializeField] bool InstantMessages = false;
+
     Dictionary<string, string> ActionDictionary = new Dictionary<string, string>()
     {
-        {"BuildWall", "Build a Wall." },
+        {"BuildWall", "Build a Wall" },
         {"Scavenge", "Scavenge" },
-        {"BuildTrap", "Build Trap" }
+        {"BuildTrap", "Build a Trap" }
     };
 
 
-
+    Dictionary<string, string> InputDictionary = new Dictionary<string, string>()
+    {
+        {"Build Wall"       ,"BuildWall"},
+        {"Build a Wall"     ,"BuildWall"},
+        {"Build Walls"      ,"BuildWall"},
+        {"Scavenge"         ,"Scavenge"},
+        {"Build Trap"       ,"BuildTrap"},
+        {"Build a Trap"     ,"BuildTrap"},
+    };
 
 
     bool pressingSkip = false;
@@ -41,9 +51,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        PrintMessage(startMessage);
-        currentText = ConsoleText.text;
-        TakePossibleActions(new List<string> { "BuildWall", "Scavenge", "BuildTrap" });
+        TakePossibleActions(new List<string> { "BuildWall", "Scavenge",});
     }
     private void Awake()
     {
@@ -55,6 +63,8 @@ public class UIManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        PrintMessage(startMessage);
     }
 
     private void Update()
@@ -108,12 +118,27 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        string MappedInput;
+        if(InputDictionary.TryGetValue(input, out MappedInput))
+        {
+            for (int i = 0; i < PossibleOutcomes.Count; i++)
+            {
+                if(MappedInput.ToLower() == PossibleOutcomes[i].ToLower())
+                {
+                    ChosenAction(i);
+                    return;
+                }
+            }
+            PrintMessage("You find yourself unable to " + GetActionFromDictionary(MappedInput));
+            TakePossibleActions(PossibleOutcomes);
+            return;
+        }
 
-
-
-        PrintMessage("That is not an action you can do");
+        PrintMessage("You are unable to perfom that action");
+        //TakePossibleActions(PossibleOutcomes);
     }
 
+    
 
     void ChosenAction(int actionChosen)
     {
@@ -146,10 +171,15 @@ public class UIManager : MonoBehaviour
         if(ActionDictionary.TryGetValue(actionKey, out string actionDescription)) { 
             return actionDescription;
         }
-        return "Unknown action.";
+        return "Unknown action."; //This should never happen
     }
 
     //------------------------- Message Handling ----------------------------//
+    public void PrintMessage(string message)
+    {
+        InputQueue(new Queue<string>(new string[] { message }));
+    }
+
     public void InputQueue(Queue<string> queue)
     {
         while (queue.Count > 0)
@@ -173,22 +203,14 @@ public class UIManager : MonoBehaviour
         // Finished � mark the coroutine as stopped
         printRoutine = null;
     }
-    /// <summary>
-    /// /
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator PrintCurrentQueue() 
+
+    public IEnumerator PrintCurrentQueue()
     {
         while (currentQueue.Count > 0)
         {
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
     }
-    public IEnumerator PrintMessage(string text) 
-    {
-        yield return StartCoroutine(MessageAnimation(text));
-    }
-
 
     IEnumerator MessageAnimation(string text)
     {
@@ -212,11 +234,7 @@ public class UIManager : MonoBehaviour
         OnTextChange();
     }
 
-    public void OnTextChange() 
-    {
-        ConsoleText.text = currentText;
-    }
-
+    //Returns a speed proportional to the length of the text
     float TextSpeed(string text)
     {
         if (pressingSkip) 
@@ -229,6 +247,11 @@ public class UIManager : MonoBehaviour
             return Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed, 1 / minSpeed);
         }
             
+    }
+
+    public void OnTextChange()
+    {
+        ConsoleText.text = currentText;
     }
 
 }
