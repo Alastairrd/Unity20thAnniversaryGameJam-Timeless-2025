@@ -4,5 +4,5 @@ public interface IEnemy
     public string Name { get; set; }
     public int Health { get; set; }
     public int Damage { get; set; }
-    public void Simulate();
+    public Outcome Simulate(Outcome waveResult);
 }

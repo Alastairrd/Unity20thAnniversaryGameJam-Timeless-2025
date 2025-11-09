@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
@@ -12,6 +13,7 @@ public class WaveHandler : MonoBehaviour
     // public List<IEnemy> enemyTypes;
     [SerializeField]
     public Queue<IEnemy> enemies = new Queue<IEnemy>();
+    public Queue<Outcome> waveResults = new Queue<Outcome>();
     
     private void Awake()
     {
@@ -30,21 +32,30 @@ public class WaveHandler : MonoBehaviour
         // Check if Player is Still Alive
         if (GameController.Instance.playerHealth < 0)
         {
-            UIManager.Instance.currentQueue.Enqueue("Player is Dead");
+            Outcome playerDeath = ScriptableObject.CreateInstance<Outcome>();
+            playerDeath.messages = new List<string>();
+            playerDeath.messages.Add("Player Death");
+            waveResults.Enqueue(playerDeath);
             return false;
         }
         // Check if Base is still Standing
         if (GameController.Instance.baseHealth < 0)
         {
-            UIManager.Instance.currentQueue.Enqueue("Base has been Destroyed");
+            Outcome baseDestroyed = ScriptableObject.CreateInstance<Outcome>();
+            baseDestroyed.messages = new List<string>();
+            baseDestroyed.messages.Add("Base Destroyed");
+            waveResults.Enqueue(baseDestroyed);
             return false;
         }
         
         return true;
     }
-    public void Simulate()
+    public Queue<Outcome> Simulate()
     {
+        Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
+        waveResult.messages = new List<string>();
         UIManager.Instance.currentQueue.Enqueue($"Simulate Wave Test {wave}");
+        
         
         for (int i = 0; i < Random.Range(wave, 2*wave); i++)
         {
@@ -61,22 +72,22 @@ public class WaveHandler : MonoBehaviour
             if (Random.Range(0, 1) < 0.1)
             {
                 enemy.Health -= GameController.Instance.damage;
-                UIManager.Instance.currentQueue.Enqueue("Lucky Strike Enemy Startled!!!");
+                waveResult.messages.Add("Lucky Strike Enemy Startled!!!");
             }
 
             // enemy move
-            enemy.Simulate(); 
+            waveResult = enemy.Simulate(waveResult); 
+            
             // player move
             enemy.Health -= GameController.Instance.damage;
             
             if(enemy.Health > 0) enemies.Enqueue(enemy);
         }
-        if (!checkHealth()) UIManager.Instance.currentQueue.Enqueue("Game Over");
-        else UIManager.Instance.currentQueue.Enqueue($"Wave Survived {wave}");
+        if (!checkHealth()) waveResult.messages.Add("Game Over");
+        else waveResult.messages.Add($"Wave Survived {wave}");
         wave++;
-        Debug.Log("qCount " + UIManager.Instance.currentQueue.Count);
-        StartCoroutine(UIManager.Instance.PrintCurrentQueue());
-
+        waveResults.Enqueue(waveResult);
+        return waveResults;
     } 
     
 }

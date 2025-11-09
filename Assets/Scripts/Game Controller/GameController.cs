@@ -86,7 +86,12 @@ public class GameController : MonoBehaviour
     [ContextMenu("Wave Simulate")]
     void DebugSimulateWave()
     {
-        WaveHandler.Instance.Simulate();
+        Queue<Outcome> waveOutcome = WaveHandler.Instance.Simulate();
+        while (waveOutcome.Count > 0)
+        {
+            Debug.Log(waveOutcome.Count);
+            ProcessOutcome(waveOutcome.Dequeue());
+        }
     }
 
     [ContextMenu("Action Simulate")]
