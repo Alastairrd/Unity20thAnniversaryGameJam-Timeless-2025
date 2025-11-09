@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
-  m_Name: GoodStreetSafe1
+  m_Name: GoodStreetHardware
   m_EditorClassIdentifier: 
-  outcomeName: GoodStreetSafe1
+  outcomeName: GoodStreetHardware
   <messages>k__BackingField:
-  - "You decide to give the streets around your hideout an explore. It\u2019s emptier
-    than you\u2019ve ever seen it, but for once that\u2019s a good thing."
-  - You manage to scrounge a whole lot of materials without getting into any trouble.
-    Sometimes, Luck is on your side, and you take her opportunity by the fistful
-    and then run away before she changes her mind.
-  woodChange: 5
-  metalChange: 5
-  medicineChange: 5
-  foodChange: 5
+  - Exploration of a nearby street takes you to a hardware store, where you manage
+    to get a bunch of tools and materials before a roaming band of brigands begins
+    to filter into the store.
+  - "You slip out the back and use the alleyway behind the store to return to your
+    hideout. It\u2019s a detour, and ends up being the rest of your expedition."
+  woodChange: 10
+  metalChange: 10
+  medicineChange: 0
+  foodChange: 0
   timeChange: 0
   playerHealthChange: 0
   baseHealthChange: 0
