@@ -11,14 +11,14 @@ public class Zombie : IEnemy
         Name = "Zombie";
         Health = 100;
         Damage = 10;
-        Debug.Log("Adding Zombie");
+        UIManager.Instance.currentQueue.Enqueue("Adding Zombie");
     }
     public void Simulate()
     {
         GameController.Instance.baseHealth -= Damage;
-        Debug.Log($"{Name} attacked Base for {Damage}"); // base health use in separate file
+        UIManager.Instance.currentQueue.Enqueue($"{Name} attacked Base for {Damage}"); // base health use in separate file
         
         GameController.Instance.playerHealth -= Damage;
-        Debug.Log($"{Name} attacked Player for {Damage}"); 
+        UIManager.Instance.currentQueue.Enqueue($"{Name} attacked Player for {Damage}"); 
     }
 }
