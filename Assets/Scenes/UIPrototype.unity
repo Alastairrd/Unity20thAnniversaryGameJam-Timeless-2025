@@ -676,6 +676,14 @@ PrefabInstance:
       propertyPath: _timeChange
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6936975067234868327, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: playerHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936975067234868327, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      propertyPath: hoursLeftToday
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

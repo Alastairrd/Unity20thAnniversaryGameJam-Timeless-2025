@@ -3,6 +3,7 @@ using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
 using Assets.Scripts.Handlers;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Actions;
 
 
 public class GameController : MonoBehaviour
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public int trapCount = 0;
     [SerializeField]
-    public int playerHealth = 10;
+    public int playerHealth = 100;
     [SerializeField]
     public int baseHealth = 10;
     [SerializeField]
@@ -160,13 +161,6 @@ public class GameController : MonoBehaviour
         //player health
         playerHealth += outcome.playerHealthChange;
 
-        //if (!checkHealth())
-        //{
-        //    UIManager.Instance.PrintMessage("Game Over");
-        //    //Todo HandleEndOfGame()
-        //    return;
-        //}
-
         //resources & inventory
         wood += outcome.woodChange;
         metal += outcome.metalChange;
@@ -209,7 +203,7 @@ public class GameController : MonoBehaviour
             {
                 Debug.Log("True");
                 UIManager.Instance.PrintMessage($"\n");
-                UIManager.Instance.PrintMessage($"<align=\"center\">=== You survived day {WaveHandler.Instance.wave.ToString()} === </align>");
+                UIManager.Instance.PrintMessage($"<align=\"center\">=== You survived day {(WaveHandler.Instance.wave - 1).ToString()} === </align>");
                 UIManager.Instance.PrintMessage($"\n");
 
             }
@@ -217,11 +211,6 @@ public class GameController : MonoBehaviour
             isWaveRunning = false;
 
         }
-        //else if (TimeLeft())
-        //{
-        //     isWaveRunning = false;
-        //}
-        //GameStateCheck();
 
         //checks
 
@@ -248,10 +237,10 @@ public class GameController : MonoBehaviour
             return false;
         }
         // Check if Base is still Standing
-        if (baseHealth < 0)
-        {
-            return false;
-        }
+        //if (baseHealth < 0)
+        //{
+        //    return false;
+        //}
         
         return true;
     }
@@ -276,11 +265,16 @@ public class GameController : MonoBehaviour
             Outcome outcome = result.Dequeue();
             ProcessOutcome(outcome);
         }
+
+        if(checkHealth())
+        {
+            UIManager.Instance.TakePossibleActions(DecideActionsToDisplay2());
+        }
     }
 
     List<string> DecideActionsToDisplay()
     {
-        var ActionList = ActionsHandler.Instance.GetAllActions();
+        var ActionList = new List<IActionObject>(ActionsHandler.Instance.GetAllActions());
         //time costs restrictions
         foreach (var Action in ActionList) 
         {
@@ -313,6 +307,32 @@ public class GameController : MonoBehaviour
         return Actions;
     }
 
+    List<string> DecideActionsToDisplay2()
+    {
+        var actionList = new List<IActionObject>(ActionsHandler.Instance.GetAllActions());
+
+        Debug.Log(actionList.Count);
+        // Time cost restrictions
+        actionList.RemoveAll(action => action.timeChange > hoursLeftToday);
+
+        // Resource cost restrictions
+        actionList.RemoveAll(action =>
+            wood < action.minWood ||
+            metal < action.minMetal ||
+            medicine < action.minMedicine ||
+            food < action.minFood
+        );
+
+        // Convert to string names
+        List<string> actions = new List<string>();
+        foreach (var action in actionList)
+        {
+            actions.Add(action.actionName);
+        }
+        Debug.Log(actions.Count);
+
+        return actions;
+    }
     void SendActionsToUI()
     {
         //UIManager.Instance.TakePossibleActions(DecideActionsToDisplay())
@@ -325,7 +345,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        UIManager.Instance.TakePossibleActions(DecideActionsToDisplay2());
     }
 
     
