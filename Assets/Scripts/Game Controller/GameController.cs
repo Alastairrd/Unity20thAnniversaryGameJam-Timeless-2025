@@ -185,7 +185,7 @@ public class GameController : MonoBehaviour
         }
 
         //time cost
-        hoursLeftToday -= outcome.timeCost;
+        hoursLeftToday -= outcome.timeChange;
 
         GameStateCheck();
     }
@@ -214,6 +214,7 @@ public class GameController : MonoBehaviour
 
     void DecideActionsToDisplay()
     {
+
 
     }
 

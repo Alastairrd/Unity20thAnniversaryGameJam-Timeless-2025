@@ -13,6 +13,9 @@ namespace Assets.Scripts.Actions.BuildTrap
         [SerializeField] private string _actionName = "BuildTrap";
         public string actionName => _actionName;
 
+        [SerializeField] private int _timeChange = 3;
+        public int timeChange => _timeChange;
+
         [SerializeField] private List<Outcome> outcomes = new();
         public List<Outcome> Outcomes
         {

@@ -8,6 +8,9 @@ namespace Assets.Scripts.Actions.BuildTrap
     {
         [SerializeField] private string _actionName = "BuildWall";
         public string actionName => _actionName;
+
+        [SerializeField] private int _timeChange = 3;
+        public int timeChange => _timeChange;
         /// <summary>
         /// RENAME ACTION NAME AND FILENAMES TO WHATEVER
         /// </summary>

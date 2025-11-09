@@ -23,10 +23,8 @@ public class Outcome : ScriptableObject
     public int foodChange;
     #endregion
 
-    [Header("Time Cost")]
-    #region Time Cost
-    [SerializeField]
-    public int timeCost;
+    #region Time Change
+    public int timeChange;
     #endregion
 
     #region Health Changes

@@ -20,11 +20,12 @@ MonoBehaviour:
   metalChange: 0
   medicineChange: 0
   foodChange: 0
-  timeCost: 1
+  timeChange: 0
   playerHealthChange: 0
   baseHealthChange: 0
-  buildingsChange: []
-  buildingsChangeAmount: 
+  buildingsChange:
+  - {fileID: 0}
+  buildingsChangeAmount: 00000000
   itemsChange:
   - {fileID: 11400000, guid: 9ec95972a0607eb4db90f91c95184db5, type: 2}
   itemsChangeAmount: 01000000
