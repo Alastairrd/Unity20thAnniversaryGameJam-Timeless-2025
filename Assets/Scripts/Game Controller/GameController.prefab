@@ -47,15 +47,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cdfe096002b2fd418909c3f73ee5c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWaveRunning: 0
+  hoursLeftToday: 16
   wallCount: 10
   trapCount: 5
-  playerHealth: -37
+  playerHealth: 12
   baseHealth: 10
   wood: 5
   metal: 5
   medicine: 5
   food: 5
   damage: 10
+  buildings: []
+  items: []
 --- !u!114 &6190280302504889139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildTrap
+  _timeChange: 3
   outcomes:
   - {fileID: 11400000, guid: 48fcc2d179447474a8d0e12eee91c526, type: 2}
   - {fileID: 11400000, guid: ef6e68a36afc9b24fb0fb2254255d31e, type: 2}
@@ -144,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildWall
+  _timeChange: 3
   outcomes:
   - {fileID: 11400000, guid: 4a438a91e2a124840ba767f106cf7e16, type: 2}
   - {fileID: 11400000, guid: 94803fe3c21fdda4aa4b989debc00a70, type: 2}
