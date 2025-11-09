@@ -12,14 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHospitalDmg
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
-  medicineChange: 0
-  foodChange: 0
+  outcomeName: NeutralHospitalDmg
+  <messages>k__BackingField:
+  - "The St John\u2019s Mercy Hospital Evacuation Centre is an excellent place to
+    die trying to get some supplies. It is chalk full of military surplus, medical
+    goods, government rations, and undead beasts."
+  - You took to exploring the place in hopes of getting some good loot, and what
+    you found was an incredible amount of danger. A little medicine here, an attack
+    from behind there, a dart from a horde at one point leads to a split second of
+    opportunity to bag some materials from a storeroom.
+  - By the end of your expedition, you come away with pain and a good amount of supplies.
+    Hopefully this was all worth it.
+  woodChange: 5
+  metalChange: 5
+  medicineChange: 5
+  foodChange: 5
   timeChange: 0
-  playerHealthChange: 0
+  playerHealthChange: 10
   baseHealthChange: 0
   buildingsChange: []
   buildingsChangeAmount: 

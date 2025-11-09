@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHospitalDanger
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: NeutralHospitalDanger
+  <messages>k__BackingField:
+  - "Avarice called to you. It whispered the name of St John\u2019s Mercy hospital,
+    and you obeyed down to a tee. Before the total collapse of society this was one
+    of the main crisis and evacuation points that the government had taken hold at
+    in your city."
+  - "Now it\u2019s a place of total outbreak. The infected are the dominant species
+    in these wards, and they chase you all about, to-and-fro, preventing you from
+    actually scavenging for supplies or even really getting a lay of the place."
+  - In the end, you barely escape without a scratch, but you also gain nothing as
+    a result. You walk away empty-handed, but at least you live.
   woodChange: 0
   metalChange: 0
   medicineChange: 0

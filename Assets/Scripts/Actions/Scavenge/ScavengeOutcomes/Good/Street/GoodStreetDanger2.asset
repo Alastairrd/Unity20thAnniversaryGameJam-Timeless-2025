@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
+  m_Name: GoodStreetDanger2
+  m_EditorClassIdentifier: 
+  outcomeName: GoodStreetDanger1
+  <messages>k__BackingField:
+  - You take to the streets for your scav run.
+  - "It\u2019s relatively uneventful, till you find yourself crossing paths with
+    a lone scavenger who tries their best to see you impaled on their sharpened stick."
+  - "It takes a lot of your attention, but you manage to defend yourself, even turning
+    your assailant\u2019s own weapon onto themselves, effectively ending their bandit
+    career for good."
+  - "Death is an unfortunate outcome, but what isn\u2019t unfortunate is the nice
+    spread of materials you gained from his corpse. You stomp his head clean in so
+    he doesn\u2019t return either. Consider that community service."
+  woodChange: 5
+  metalChange: 10
+  medicineChange: 5
+  foodChange: 0
+  timeChange: 0
+  playerHealthChange: 0
+  baseHealthChange: 0
+  buildingsChange: []
+  buildingsChangeAmount: 
+  itemsChange: []
+  itemsChangeAmount: 

@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHospitalNothing
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: NeutralHospitalNothing
+  <messages>k__BackingField:
+  - "A need for supplies sends you to try the hospital. It\u2019s a massive set of
+    buildings, each a ward of sorts. During the initial outbreak, this hospital also
+    doubled as a military outpost and a government-issued safe zone, quarantine,
+    and evacuation point. There is incredible loot here, but also incredible danger."
+  - You make your way through the general clinic sections of the hospital, keeping
+    a low profile. In the pursuit of safety and caution, you sacrifice too much time
+    hiding and avoiding profitable areas.
+  - "By the time you have to go back, you find yourself particularly empty-handed.
+    At least you didn\u2019t hurt yourself, however."
   woodChange: 0
   metalChange: 0
   medicineChange: 0
