@@ -66,6 +66,7 @@ public class WaveHandler : MonoBehaviour
             {
                 waveResult.messages.Add($"\n");
                 waveResult.messages.Add($"<align=\"center\">{enemy.Name} defeated (X~X)</align>");
+                waveResult.messages.Add($"\n");
                 waveResult.messages.Add("<align=\"center\">********************</align>");
                 continue;
             }
@@ -73,6 +74,7 @@ public class WaveHandler : MonoBehaviour
             // enemy move
             if(Random.Range(0f,1f) < Random.Range(0.5f, 1.0f)) waveResult = enemy.Simulate(waveResult); 
             else waveResult.messages.Add($"<align=\"right\">{enemy.Name} Missed</align>");
+            if (GameController.Instance.playerHealth <= 0) break;
             
             // player move
             if (Random.Range(0f, 1f) < Random.Range(0.5f, 1.0f))
@@ -89,6 +91,7 @@ public class WaveHandler : MonoBehaviour
             {
                 waveResult.messages.Add($"\n");
                 waveResult.messages.Add($"<align=\"center\">{enemy.Name} defeated (X~X)</align>");
+                waveResult.messages.Add($"\n");
                 waveResult.messages.Add("<align=\"center\">********************</align>");
                 continue;
             }
