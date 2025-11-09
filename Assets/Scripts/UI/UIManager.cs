@@ -87,18 +87,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    //public void HandleQueueLogic(Queue<string> queue) 
-    //{
-    //    currentQueue = queue;
-    //    while (!currentQueue.IsUnityNull())
-    //    {
-    //        PrintMessage(queue.Dequeue());
-    //    }
-    //}
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="queue"></param>
     public void InputQueue(Queue<string> queue)
     {
         while (queue.Count > 0)
@@ -119,7 +107,7 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
 
-        // Finished – mark the coroutine as stopped
+        // Finished ï¿½ mark the coroutine as stopped
         printRoutine = null;
     }
     /// <summary>
@@ -133,9 +121,9 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
     }
-    public void PrintMessage(string text) 
+    public IEnumerator PrintMessage(string text) 
     {
-        StartCoroutine(MessageAnimation(text));
+        yield return StartCoroutine(MessageAnimation(text));
     }
 
     IEnumerator MessageAnimation(string text)

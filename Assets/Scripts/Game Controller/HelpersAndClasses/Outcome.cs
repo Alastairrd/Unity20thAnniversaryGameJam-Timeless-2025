@@ -23,7 +23,7 @@ public class Outcome : ScriptableObject
     public int foodChange;
     #endregion
 
-    #region Time Change
+    #region Time Cost
     public int timeChange;
     #endregion
 

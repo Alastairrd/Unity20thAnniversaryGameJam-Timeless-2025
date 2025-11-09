@@ -14,5 +14,7 @@ namespace Assets.Scripts.Actions
         Queue<Outcome> Simulate();
 
         Outcome GetOutcomeByName(string name);
+
+        public void SetOutcomeTimeChange();
     }
 }

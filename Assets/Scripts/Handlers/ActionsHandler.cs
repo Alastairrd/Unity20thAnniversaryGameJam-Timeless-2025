@@ -75,6 +75,17 @@ namespace Assets.Scripts.Handlers
             return new Queue<Outcome>();
         }
 
+        public List<IActionObject> GetAllActions()
+        {
+            if (_actions == null || _actions.Count == 0)
+            {
+                Debug.LogWarning("No actions registered or ActionsHandler not initialized!");
+                return new List<IActionObject>();
+            }
+
+            return _actions.Values.ToList();
+        }
+
         //// Lazy-load all actions
         //public static void Initialize(GameObject container)
         //{

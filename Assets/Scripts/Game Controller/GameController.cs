@@ -183,11 +183,38 @@ public class GameController : MonoBehaviour
                 buildings.Add(buildingReturn);
             }
         }
+        Debug.Log($"Time Left {TimeLeft()}");
 
         //time cost
         hoursLeftToday -= outcome.timeChange;
-
+        Debug.Log($"Time Left {TimeLeft()}");
+        if(!checkHealth()) UIManager.Instance.PrintMessage("Game Over");
+        if (!TimeLeft())
+        {
+            DebugSimulateWave();
+        }
         GameStateCheck();
+    }
+    public bool checkHealth()
+    {
+        // Check if Player is Still Alive
+        if (playerHealth < 0)
+        {
+            Outcome playerDeath = ScriptableObject.CreateInstance<Outcome>();
+            playerDeath.messages = new List<string>();
+            playerDeath.messages.Add("Player Death");
+            return false;
+        }
+        // Check if Base is still Standing
+        if (baseHealth < 0)
+        {
+            Outcome baseDestroyed = ScriptableObject.CreateInstance<Outcome>();
+            baseDestroyed.messages = new List<string>();
+            baseDestroyed.messages.Add("Base Destroyed");
+            return false;
+        }
+        
+        return true;
     }
 
     void GameStateCheck()
@@ -214,7 +241,14 @@ public class GameController : MonoBehaviour
 
     void DecideActionsToDisplay()
     {
-
+        var ActionList = ActionsHandler.Instance.GetAllActions();
+        foreach (var Action in ActionList) 
+        {
+            if(Action.timeChange < hoursLeftToday)
+            {
+                ActionList.Remove(Action);
+            }
+        }
 
     }
 
@@ -232,13 +266,6 @@ public class GameController : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
 
     
     
