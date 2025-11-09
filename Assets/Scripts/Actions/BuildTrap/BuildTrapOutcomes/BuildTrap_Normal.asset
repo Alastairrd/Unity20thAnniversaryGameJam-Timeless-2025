@@ -18,12 +18,12 @@ MonoBehaviour:
   - You deftly piece together your makeshift contraption, things are going well.
   - You successfully build a simple trap.
   woodChange: 0
-  metalChange: 3
+  metalChange: -2
   medicineChange: 0
   foodChange: 0
-  timeCost: 3
+  timeChange: 0
   playerHealthChange: 0
-  baseHealthChange: 0
+  baseHealthChange: 30
   buildingsChange:
   - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
   buildingsChangeAmount: 01000000

@@ -23,7 +23,7 @@ MonoBehaviour:
   foodChange: 0
   timeChange: 0
   playerHealthChange: 0
-  baseHealthChange: 50
+  baseHealthChange: 60
   buildingsChange:
   - {fileID: 11400000, guid: e3650e6db481e3240ae7ea3482fed45e, type: 2}
   buildingsChangeAmount: 02000000

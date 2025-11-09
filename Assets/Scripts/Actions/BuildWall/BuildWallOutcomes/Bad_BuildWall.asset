@@ -15,8 +15,8 @@ MonoBehaviour:
   outcomeName: Bad
   <messages>k__BackingField:
   - You begin to fashion a makeshift wall from wooden planks.
-  - You aren't very efficient, and you make a lot of mistakes. Too much wood was
-    utilised
+  - You aren't very efficient, and you make a lot of mistakes. A lot more wood is
+    utilised than is necessary
   - You finished building the wall, but you could have definitely used less.
   woodChange: -4
   metalChange: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   foodChange: 0
   timeChange: 0
   playerHealthChange: 0
-  baseHealthChange: 30
+  baseHealthChange: 20
   buildingsChange:
   - {fileID: 11400000, guid: e3650e6db481e3240ae7ea3482fed45e, type: 2}
   buildingsChangeAmount: 01000000
