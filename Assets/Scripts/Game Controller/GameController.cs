@@ -39,6 +39,22 @@ public class GameController : MonoBehaviour
     public int food = 10;
     [SerializeField]
     public int damage = 10;
+    [Header("Buildings")]
+    [SerializeField] private List<Building> buildings = new();
+    public List<Building> Buildings
+    {
+        get => buildings;
+        set => buildings = value;
+    }
+
+    [Header("Items")]
+    [SerializeField] private List<PlayerItem> items = new();
+    public List<PlayerItem> Items
+    {
+        get => items;
+        set => items = value;
+    }
+
 
     #endregion
 
@@ -75,15 +91,11 @@ public class GameController : MonoBehaviour
     void DebugSimulateAction()
     {
         Queue<Outcome> result = ActionsHandler.Instance.SimulateAction("BuildWall");
-        //ProcessResult()
 
         while (result.Count > 0) 
         {
             Outcome outcome = result.Dequeue();
-            for (int i = 0; i < outcome.messages.Count; i++) 
-            {
-                Debug.Log(outcome.messages[i]);
-            } 
+            ProcessOutcome(outcome);
         }
     }
 
@@ -100,6 +112,53 @@ public class GameController : MonoBehaviour
         UIManager.Instance.HandleQueueLogic(messages);
         
     }
+
+    void ProcessOutcome(Outcome outcome)
+    {
+        //ui messages
+        Queue<string> messages = new Queue<string>();
+        for (int i = 0; i < outcome.messages.Count; i++)
+        {
+            Debug.Log(outcome.messages[i]);
+            messages.Enqueue(outcome.messages[i]);
+        }
+
+        //player health
+        playerHealth += outcome.playerHealthChange;
+
+        //resources & inventory
+        wood += outcome.woodChange;
+        metal += outcome.metalChange;
+        food += outcome.foodChange;
+        medicine += outcome.medicineChange;
+        for (int i = 0; i < outcome.ItemsChange.Count; i++)
+        {
+            var itemReturn = outcome.ItemsChange[i];
+            var itemReturnCount = outcome.ItemsChangeAmount[i];
+            for (int j = 0; j < itemReturnCount; j++)
+            {
+                items.Add(itemReturn);
+            }
+        }
+
+
+        //UIManager.Instance.HandleQueueLogic(messages);
+
+
+        //base handling
+        baseHealth += outcome.baseHealthChange;
+        for (int i = 0; i < outcome.BuildingsChange.Count; i++)
+        {
+            var buildingReturn = outcome.BuildingsChange[i];
+            var buildingReturnCount = outcome.BuildingsChangeAmount[i];
+            for (int j = 0; j < buildingReturnCount; j++)
+            {
+                buildings.Add(buildingReturn);
+            }
+        }
+    }
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

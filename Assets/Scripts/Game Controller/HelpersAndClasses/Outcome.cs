@@ -14,27 +14,27 @@ public class Outcome : ScriptableObject
     #region Resource Changes
     [Header("Resource Changes")]
     [SerializeField]
-    int woodChange;
+    public int woodChange;
     [SerializeField]
-    int metalChange;
+    public int metalChange;
     [SerializeField]
-    int medicineChange;
+    public int medicineChange;
     [SerializeField]
-    int foodChange;
+    public int foodChange;
     #endregion
 
     [Header("Time Cost")]
     #region Time Cost
     [SerializeField]
-    int timeCost;
+    public int timeCost;
     #endregion
 
     #region Health Changes
     [Header("Health Changes")]
     [SerializeField]
-    int playerHealthChange;
+    public int playerHealthChange;
     [SerializeField]
-    int baseHealthChange;
+    public int baseHealthChange;
     #endregion
 
     #region Base Changes

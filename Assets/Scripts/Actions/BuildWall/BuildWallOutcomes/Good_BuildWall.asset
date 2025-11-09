@@ -17,7 +17,7 @@ MonoBehaviour:
   - You begin to fashion a makeshift wall from wooden planks.
   - You realise you have a little extra wood than you realised, and might be able
     to stretch this construction a little further.
-  - You finished building the wall.
+  - You finished building the wall, and managed to make an extra one too.
   woodChange: -3
   metalChange: 0
   medicineChange: 0
