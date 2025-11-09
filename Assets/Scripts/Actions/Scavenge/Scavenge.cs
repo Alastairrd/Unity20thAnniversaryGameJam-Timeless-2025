@@ -91,7 +91,7 @@ namespace Assets.Scripts.Actions.Scavenge
             Queue<Outcome> result = new Queue<Outcome>();
 
             // FIND OUTCOME RANDOMLY
-            int rand = Random.Range(0, outcomes.Count) - 1;
+            int rand = Random.Range(0, outcomes.Count);
             Outcome chosenOutcome = outcomes[rand];
 
             result.Enqueue(chosenOutcome);
