@@ -17,10 +17,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
 
+    [SerializeField] List<string> PossibleOutcomes;
+
 
     [SerializeField] float speedToLengthRatio = 10;
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
+
+    
        
     bool pressingSkip = false;
     private Coroutine printRoutine;
@@ -29,6 +33,7 @@ public class UIManager : MonoBehaviour
     {
         PrintMessage(startMessage);
         currentText = ConsoleText.text;
+        TakePossibleActions(new List<string> { "BuildWall", "Scavenge", "BuildTrap" });
     }
     private void Awake()
     {
@@ -41,6 +46,7 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -53,13 +59,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //------------------------- Input Handling ----------------------------//
     bool CanEnterText()
     {
         if (newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0)
             return true;
         else
             return false;
-
     }
 
     public void ReadInput()
@@ -68,32 +74,63 @@ public class UIManager : MonoBehaviour
         {
             HandleInputLogic(InputText.text);
             InputText.text = string.Empty;
-            //play sound for enter
         }
-        //play for error
     }
 
     void HandleInputLogic(string input) 
     {
-        if (input.ToLower() == "build wall" || input == "1")
-        {
-            PrintMessage("wall was build hehehhe");
+        if (int.TryParse(input, out int number))
+        { 
+            if(number > 0 && number <= PossibleOutcomes.Count)
+            {
+                PrintMessage("You have chosen: " + ChosenAction(number - 1));
+                //proceed with game logic
+                return;
+            }
         }
-        else
+
+
+        for (int i = 0; i < PossibleOutcomes.Count; i++)
         {
-            string concatString = input + " is not a valid option";
-            PrintMessage(concatString);
+            if (input.ToLower() == PossibleOutcomes[i].ToLower()) 
+            {
+                PrintMessage("You have chosen: " + ChosenAction(i));
+                //proceed with game logic
+                return;
+            }
         }
+
+        PrintMessage("Invalid input, please try again.");
     }
 
-    public void HandleQueueLogic(Queue<string> queue) 
+
+    string ChosenAction(int actionChosen)
     {
-        currentQueue = queue;
-        while (!currentQueue.IsUnityNull())
-        {
-            PrintMessage(queue.Dequeue());
-        }
+        //game controller fucntion that takes action
+        return PossibleOutcomes[actionChosen];
     }
+
+
+    void TakePossibleActions(List<string> possibleActions)
+    {
+        PossibleOutcomes = possibleActions;
+        InputQueue(CreateQueueFromActions(PossibleOutcomes));
+    }
+
+    Queue<string> CreateQueueFromActions(List<string> possibleActions)
+    {
+        Queue<string> actionQueue = new Queue<string>();
+
+        actionQueue.Enqueue("Please choose one of the following actions: \n");
+        for (int i = 0; i < possibleActions.Count; i++)
+        {
+            actionQueue.Enqueue((i + 1).ToString() + ". " + possibleActions[i]);
+        }
+
+        return actionQueue;
+    }
+
+    //------------------------- Message Handling ----------------------------//
 
     public void InputQueue(Queue<string> queue)
     {
@@ -131,6 +168,7 @@ public class UIManager : MonoBehaviour
         StartCoroutine(MessageAnimation(text));
     }
 
+
     IEnumerator MessageAnimation(string text)
     {
         newMessage = "\n" + text;
@@ -144,6 +182,13 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
         yield return null;
+    }
+
+    void MessageNoAnimation() 
+    {
+        currentText += "\n" + newMessage;
+        newMessage = string.Empty;
+        OnTextChange();
     }
 
     public void OnTextChange() 

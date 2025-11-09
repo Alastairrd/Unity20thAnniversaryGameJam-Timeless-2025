@@ -117,7 +117,6 @@ public class GameController : MonoBehaviour
         messages.Enqueue("Test message 3");
         messages.Enqueue("Test message 4");
 
-        UIManager.Instance.HandleQueueLogic(messages);
         
     }
 
