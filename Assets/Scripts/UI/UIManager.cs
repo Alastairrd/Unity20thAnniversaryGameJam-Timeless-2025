@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Assets.Scripts.Actions.BuildTrap;
 
 public class UIManager : MonoBehaviour
 {
@@ -145,7 +146,6 @@ public class UIManager : MonoBehaviour
             printRoutine = StartCoroutine(PrintCurrentQueue_TEST());
         }
     }
-
     private IEnumerator PrintCurrentQueue_TEST()
     {
         while (currentQueue.Count > 0)
@@ -153,9 +153,13 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
 
-        // Finished – mark the coroutine as stopped
+        // Finished ï¿½ mark the coroutine as stopped
         printRoutine = null;
     }
+    /// <summary>
+    /// /
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator PrintCurrentQueue() 
     {
         while (currentQueue.Count > 0)
@@ -163,9 +167,9 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
     }
-    public void PrintMessage(string text) 
+    public IEnumerator PrintMessage(string text) 
     {
-        StartCoroutine(MessageAnimation(text));
+        yield return StartCoroutine(MessageAnimation(text));
     }
 
 

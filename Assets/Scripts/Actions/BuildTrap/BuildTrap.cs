@@ -13,6 +13,9 @@ namespace Assets.Scripts.Actions.BuildTrap
         [SerializeField] private string _actionName = "BuildTrap";
         public string actionName => _actionName;
 
+        [SerializeField] private int _timeChange = 3;
+        public int timeChange => _timeChange;
+
         [SerializeField] private List<Outcome> outcomes = new();
         public List<Outcome> Outcomes
         {
@@ -20,10 +23,28 @@ namespace Assets.Scripts.Actions.BuildTrap
             set => outcomes = value;
         }
 
+        private void Awake()
+        {
+            SetOutcomeTimeChange();
+        }
+
         public Outcome GetOutcomeByName(string name)
         {
             return outcomes.Find(o => o.outcomeName == name);
         }
+
+        public void SetOutcomeTimeChange()
+        {
+            foreach (var outcome in outcomes)
+            {
+                if (outcome != null)
+                {
+                    outcome.timeChange = _timeChange;
+                }
+            }
+        }
+
+
 
         public Queue<Outcome> Simulate()
         {
@@ -50,6 +71,8 @@ namespace Assets.Scripts.Actions.BuildTrap
                 result.Enqueue(goodOutcome);
                 return result;
             }
+            
+           
         }
     }
 

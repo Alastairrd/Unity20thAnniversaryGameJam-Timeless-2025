@@ -27,29 +27,7 @@ public class WaveHandler : MonoBehaviour
         }
     }
 
-    private bool checkHealth()
-    {
-        // Check if Player is Still Alive
-        if (GameController.Instance.playerHealth < 0)
-        {
-            Outcome playerDeath = ScriptableObject.CreateInstance<Outcome>();
-            playerDeath.messages = new List<string>();
-            playerDeath.messages.Add("Player Death");
-            waveResults.Enqueue(playerDeath);
-            return false;
-        }
-        // Check if Base is still Standing
-        if (GameController.Instance.baseHealth < 0)
-        {
-            Outcome baseDestroyed = ScriptableObject.CreateInstance<Outcome>();
-            baseDestroyed.messages = new List<string>();
-            baseDestroyed.messages.Add("Base Destroyed");
-            waveResults.Enqueue(baseDestroyed);
-            return false;
-        }
-        
-        return true;
-    }
+    
     public Queue<Outcome> Simulate()
     {
         Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
@@ -59,13 +37,13 @@ public class WaveHandler : MonoBehaviour
         
         for (int i = 0; i < Random.Range(wave, 2*wave); i++)
         {
-            enemies.Enqueue(new Zombie());
+            enemies.Enqueue(new Zombie(Random.Range(1, wave+1)));
             enemies.Enqueue(new Raider());
         }
         
         UIManager.Instance.currentQueue.Enqueue($"Watch out!!! {enemies.Count} enemies");
         
-        while (checkHealth() && enemies.Count > 0)
+        while (GameController.Instance.checkHealth())
         {
             IEnemy enemy = enemies.Dequeue(); 
             // lucky move
@@ -83,10 +61,11 @@ public class WaveHandler : MonoBehaviour
             
             if(enemy.Health > 0) enemies.Enqueue(enemy);
         }
-        if (!checkHealth()) waveResult.messages.Add("Game Over");
+        if (GameController.Instance.checkHealth()) waveResult.messages.Add("Game Over");
         else waveResult.messages.Add($"Wave Survived {wave}");
         wave++;
         waveResults.Enqueue(waveResult);
+        GameController.Instance.hoursLeftToday = 24;
         return waveResults;
     } 
     

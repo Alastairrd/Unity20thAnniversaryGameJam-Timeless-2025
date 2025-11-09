@@ -7,7 +7,7 @@ public class Raider : IEnemy
     public int Health { get; set; }
     public int Damage { get; set; }
 
-    public Raider()
+    public Raider(int level = 0)
     {
         Name = "Raider";
         Health = 20;
