@@ -2,6 +2,7 @@ using UnityEngine;
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
 using Assets.Scripts.Handlers;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour
@@ -143,6 +144,11 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
+    void GameOver()
+    {
+        //SceneManager.LoadScene();
+    }
+
     #region Outcome Processing
     void ProcessOutcome(Outcome outcome)
     {
@@ -229,18 +235,12 @@ public class GameController : MonoBehaviour
         // Check if Player is Still Alive
         if (playerHealth < 0)
         {
-            Outcome playerDeath = ScriptableObject.CreateInstance<Outcome>();
-            playerDeath.messages = new List<string>();
-            playerDeath.messages.Add("Player Death");
             Debug.Log("Player Death");
             return false;
         }
         // Check if Base is still Standing
         if (baseHealth < 0)
         {
-            Outcome baseDestroyed = ScriptableObject.CreateInstance<Outcome>();
-            baseDestroyed.messages = new List<string>();
-            baseDestroyed.messages.Add("Base Destroyed");
             return false;
         }
         
