@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
 
-        // Finished – mark the coroutine as stopped
+        // Finished ï¿½ mark the coroutine as stopped
         printRoutine = null;
     }
     /// <summary>
@@ -133,9 +133,9 @@ public class UIManager : MonoBehaviour
             yield return StartCoroutine(MessageAnimation(currentQueue.Dequeue()));
         }
     }
-    public void PrintMessage(string text) 
+    public IEnumerator PrintMessage(string text) 
     {
-        StartCoroutine(MessageAnimation(text));
+        yield return StartCoroutine(MessageAnimation(text));
     }
 
     IEnumerator MessageAnimation(string text)
