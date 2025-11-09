@@ -241,6 +241,14 @@ public class GameController : MonoBehaviour
 
     void DecideActionsToDisplay()
     {
+        var ActionList = ActionsHandler.Instance.GetAllActions();
+        foreach (var Action in ActionList) 
+        {
+            if(Action.timeChange < hoursLeftToday)
+            {
+                ActionList.Remove(Action);
+            }
+        }
 
     }
 

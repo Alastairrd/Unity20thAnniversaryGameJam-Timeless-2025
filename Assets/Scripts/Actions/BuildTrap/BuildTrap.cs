@@ -20,10 +20,28 @@ namespace Assets.Scripts.Actions.BuildTrap
             set => outcomes = value;
         }
 
+        private void Awake()
+        {
+            SetOutcomeTimeChange();
+        }
+
         public Outcome GetOutcomeByName(string name)
         {
             return outcomes.Find(o => o.outcomeName == name);
         }
+
+        public void SetOutcomeTimeChange()
+        {
+            foreach (var outcome in outcomes)
+            {
+                if (outcome != null)
+                {
+                    outcome.timeChange = _timeChange;
+                }
+            }
+        }
+
+
 
         public Queue<Outcome> Simulate()
         {
@@ -50,6 +68,8 @@ namespace Assets.Scripts.Actions.BuildTrap
                 result.Enqueue(goodOutcome);
                 return result;
             }
+            
+           
         }
     }
 
