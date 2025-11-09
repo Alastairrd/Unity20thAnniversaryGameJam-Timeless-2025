@@ -7,32 +7,34 @@ public class Raider : IEnemy
     public int Health { get; set; }
     public int Damage { get; set; }
 
-    public Raider()
+    public Raider(int level = 0)
     {
         Name = "Raider";
         Health = 20;
         Damage = 0;
     }
-    public void Simulate()
+    public Outcome Simulate(Outcome waveResult)
     {
         int stole = 0;
         if(GameController.Instance.wood > 0) 
         {
             stole = Math.Min(10, GameController.Instance.wood);
-            GameController.Instance.wood -= stole;
-            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} wood");
+            waveResult.woodChange -= stole;
+            waveResult.messages.Add($"{Name} stole {stole} wood");
         }
         if(GameController.Instance.metal > 0) 
         {
             stole = Math.Min(10, GameController.Instance.metal);
-            GameController.Instance.metal -= stole;
-            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} metal");
+            waveResult.metalChange -= stole;
+            waveResult.messages.Add($"{Name} stole {stole} metal");
         }
         if(GameController.Instance.food > 0) 
         {
             stole = Math.Min(10, GameController.Instance.food);
-            GameController.Instance.food -= stole;
-            UIManager.Instance.currentQueue.Enqueue($"{Name} stole {stole} food");
+            waveResult.foodChange -= stole;
+            waveResult.messages.Add($"{Name} stole {stole} food");
         }
+
+        return waveResult;
     }
 }
