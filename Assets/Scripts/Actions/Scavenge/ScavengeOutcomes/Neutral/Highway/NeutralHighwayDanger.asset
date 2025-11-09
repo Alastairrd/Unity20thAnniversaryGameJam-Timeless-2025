@@ -12,13 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHighwayDanger
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: NeutralHighwayDanger
+  <messages>k__BackingField:
+  - "Despite the risks, you decidedly took a chance on the nearby highway. The vehicle
+    pileups along there are good places for finding supplies\u2014especially fuel.
+    You meander between abandoned vehicles, falling into a lull from the rhythm of
+    fuel siphoning and dashboard looting."
+  - Along the way, you spy a vehicle with some life in it. Surprised, you look inside
+    only to be greeted by a fellow survivor lying across the passenger seat cushions.
+    The survivor within rises beneath their blanket to meet your peering eyes behind
+    the cabin window.
+  - "Surprise fills their eyes, making them wide and panicked. Before you can defuse
+    their worries or take advantage of them, the survivor draws something metallic
+    from beneath their seat, and you barely have time to register the barrel of a
+    gun before it\u2019s firing at you."
+  - "You duck out of the way, the fine shatter of the port window raining along your
+    back. You make a run down the highway, weaving between cars until you feel like
+    you\u2019re far out of her range."
+  - Somewhere in your escape, you lose your finds. At least you are unharmed, but
+    you have gained nothing from this venture.
   woodChange: 0
   metalChange: 0
   medicineChange: 0
   foodChange: 0
-  timeChange: 0
+  timeChange: 4
   playerHealthChange: 0
   baseHealthChange: 0
   buildingsChange: []

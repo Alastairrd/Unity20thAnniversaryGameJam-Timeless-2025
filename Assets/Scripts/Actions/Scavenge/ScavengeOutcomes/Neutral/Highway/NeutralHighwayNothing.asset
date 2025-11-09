@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHighwayNothing
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: NeutralHighwayNothing
+  <messages>k__BackingField:
+  - "You explore the nearby highway to your holdout, but it\u2019s not fruitful.
+    Meandering between cars nets you nothing particularly useful. You find no one,
+    and you find nothing. You head home empty-handed."
   woodChange: 0
   metalChange: 0
   medicineChange: 0
   foodChange: 0
-  timeChange: 0
+  timeChange: 4
   playerHealthChange: 0
   baseHealthChange: 0
   buildingsChange: []

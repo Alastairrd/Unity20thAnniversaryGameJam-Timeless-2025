@@ -12,14 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: NeutralHighwayDmg
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
-  medicineChange: 0
+  outcomeName: NeutralHighwayDmg
+  <messages>k__BackingField:
+  - "The nearest highway was your choice for expedition this time. You spend an hour
+    peering into cars, smashing windows looking for something decent. Cars aren\u2019t
+    exactly good sources of loot however, but what was tantalising was the locked
+    up semi-trailer with a big HEINZ logo on its side."
+  - "You figure the front cabin of the semi-truck ought to have a key to the heavy
+    lock on the trailer doors. You make your way to the driver\u2019s seat and mount
+    the steps to the door, only to find the driver still in his seat, dead and slumped
+    in his seatbelt."
+  - "The stench and the morbidity doesn\u2019t deter you still from reaching round
+    to his dashboard. You rifle about until you find a key, and as you withdraw the
+    corpse of the late driver comes to life and begins gnawing into your shoulder. "
+  - "It takes a lot to pull away, but you do, landing butt first in the asphalt whilst
+    the undead driver thrashes away in its seatbelt. The landing hurt more than this
+    gumless idiot\u2019s attempts at chewing through your sinew. You stand up and
+    walk back to your spoils."
+  woodChange: 5
+  metalChange: 5
+  medicineChange: 5
   foodChange: 0
-  timeChange: 0
-  playerHealthChange: 0
+  timeChange: 4
+  playerHealthChange: -10
   baseHealthChange: 0
   buildingsChange: []
   buildingsChangeAmount: 
