@@ -10,7 +10,7 @@ namespace Assets.Scripts.Actions.Scavenge
         [SerializeField] private string _actionName = "Scavenge";
         public string actionName => _actionName;
 
-        [SerializeField] private int _timeChange = 5;
+        [SerializeField] private int _timeChange = 4;
         public int timeChange => _timeChange;
 
         public int minWood { get; set; }
@@ -55,9 +55,9 @@ namespace Assets.Scripts.Actions.Scavenge
         public void SetMinResourceCosts()
         {
             // Initialize to zero
-            int outcomeMinWood = 4;
-            int outcomeMinMetal = 4;
-            int outcomeMinMedicine = 4;
+            int outcomeMinWood = 0;
+            int outcomeMinMetal = 0;
+            int outcomeMinMedicine = 0;
             //int outcomeMinFood = 0;
 
             foreach (var outcome in outcomes)

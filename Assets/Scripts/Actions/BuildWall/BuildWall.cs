@@ -10,7 +10,7 @@ namespace Assets.Scripts.Actions.BuildTrap
         [SerializeField] private string _actionName = "BuildWall";
         public string actionName => _actionName;
 
-        [SerializeField] private int _timeChange = 3;
+        [SerializeField] private int _timeChange = 2;
         public int timeChange => _timeChange;
 
         public int minWood { get; set; }
