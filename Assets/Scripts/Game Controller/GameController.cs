@@ -2,6 +2,7 @@ using UnityEngine;
 using Assets.Scripts.Game_Controller.HelpersAndClasses;
 using System.Collections.Generic;
 using Assets.Scripts.Handlers;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour
@@ -142,6 +143,11 @@ public class GameController : MonoBehaviour
         return false;
     }
     #endregion
+
+    void GameOver()
+    {
+        //SceneManager.LoadScene();
+    }
 
     #region Outcome Processing
     void ProcessOutcome(Outcome outcome)
