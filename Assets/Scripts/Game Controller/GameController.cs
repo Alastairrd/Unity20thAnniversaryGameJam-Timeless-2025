@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour
     #region GameLoop Checks and Logic
     bool TimeLeft()
     {
-        if (hoursLeftToday >= 0) return true;
+        if (hoursLeftToday > 0) return true;
         return false;
     }
 
@@ -157,6 +157,15 @@ public class GameController : MonoBehaviour
 
         //player health
         playerHealth += outcome.playerHealthChange;
+
+        if (!checkHealth())
+        {
+            UIManager.Instance.PrintMessage("Game Over");
+            //Todo HandleEndOfGame()
+            return;
+        }
+            
+            
 
         //resources & inventory
         wood += outcome.woodChange;
@@ -189,17 +198,31 @@ public class GameController : MonoBehaviour
         //time cost
         hoursLeftToday -= outcome.timeChange;
         Debug.Log($"Time Left {TimeLeft()}");
-        if(!checkHealth()) UIManager.Instance.PrintMessage("Game Over");
+        
         if (!TimeLeft() && !isWaveRunning)
         {
             isWaveRunning = true;
             DebugSimulateWave();
+
+            //checks
+            if (!checkHealth())
+            {
+                Debug.Log("False");
+                UIManager.Instance.PrintMessage("Game Over");
+            }
+            else
+            {
+                Debug.Log("True");
+                UIManager.Instance.PrintMessage($"\n");
+                UIManager.Instance.PrintMessage($"<align=\"center\">=== You survived Wave {WaveHandler.Instance.wave.ToString()} === </align>");
+                UIManager.Instance.PrintMessage($"\n");
+            }
         }
         else if (TimeLeft())
         {
              isWaveRunning = false;
         }
-        GameStateCheck();
+        //GameStateCheck();
     }
     public bool checkHealth()
     {
@@ -209,6 +232,7 @@ public class GameController : MonoBehaviour
             Outcome playerDeath = ScriptableObject.CreateInstance<Outcome>();
             playerDeath.messages = new List<string>();
             playerDeath.messages.Add("Player Death");
+            Debug.Log("Player Death");
             return false;
         }
         // Check if Base is still Standing

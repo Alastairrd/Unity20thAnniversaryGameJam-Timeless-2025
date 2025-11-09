@@ -215,7 +215,7 @@ public class UIManager : MonoBehaviour
         newMessage = "\n" + text;
         while (newMessage.Length > 0) 
         {
-            Debug.Log(newMessage);
+            //Debug.Log(newMessage);
             float textSpeed = TextSpeed(newMessage);
             currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
@@ -231,7 +231,7 @@ public class UIManager : MonoBehaviour
     {
         if (pressingSkip) 
         {
-            Debug.Log("Skipping text speed");
+            //Debug.Log("Skipping text speed");
             return 0;
         }
         else 

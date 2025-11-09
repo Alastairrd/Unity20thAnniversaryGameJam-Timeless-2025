@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class WaveHandler : MonoBehaviour
 {
     public static WaveHandler Instance { get;  private set; }
-    private int wave = 1;
+    public int wave = 1;
     // [SerializeField]
     // public List<IEnemy> enemyTypes;
     [SerializeField]
@@ -63,8 +63,10 @@ public class WaveHandler : MonoBehaviour
             
             if(enemy.Health > 0) enemies.Enqueue(enemy);
         }
-        if (!GameController.Instance.checkHealth()) waveResult.messages.Add("Game Over");
-        else waveResult.messages.Add($"Wave Survived {wave}");
+        
+
+        Debug.Log("past bool statements");
+
         wave++;
         waveResults.Enqueue(waveResult);
         GameController.Instance.hoursLeftToday = 24;
