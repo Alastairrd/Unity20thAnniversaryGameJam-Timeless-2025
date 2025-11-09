@@ -84,6 +84,7 @@ public class UIManager : MonoBehaviour
         if (CanEnterText()) 
         {
             PlaceHolder.text = "Enter your action...";
+            InputText.Select();
         }
         else
         {
