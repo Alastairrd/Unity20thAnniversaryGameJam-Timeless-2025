@@ -6,11 +6,11 @@ public class Zombie : IEnemy
     public int Health { get; set; }
     public int Damage { get; set; }
 
-    public Zombie()
+    public Zombie(int level = 1)
     {
         Name = "Zombie";
         Health = 100;
-        Damage = 10;
+        Damage = Random.Range(level*2,level*5);
     }
     public Outcome Simulate(Outcome waveResult)
     {

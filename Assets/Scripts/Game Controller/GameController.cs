@@ -89,7 +89,6 @@ public class GameController : MonoBehaviour
         Queue<Outcome> waveOutcome = WaveHandler.Instance.Simulate();
         while (waveOutcome.Count > 0)
         {
-            Debug.Log(waveOutcome.Count);
             ProcessOutcome(waveOutcome.Dequeue());
         }
     }

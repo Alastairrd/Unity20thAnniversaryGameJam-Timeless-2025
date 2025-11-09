@@ -59,7 +59,7 @@ public class WaveHandler : MonoBehaviour
         
         for (int i = 0; i < Random.Range(wave, 2*wave); i++)
         {
-            enemies.Enqueue(new Zombie());
+            enemies.Enqueue(new Zombie(Random.Range(1, wave+1)));
             enemies.Enqueue(new Raider());
         }
         
