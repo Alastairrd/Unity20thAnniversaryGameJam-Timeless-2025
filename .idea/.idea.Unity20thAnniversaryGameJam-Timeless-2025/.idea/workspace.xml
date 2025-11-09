@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="654d794c-eec8-4558-b435-24f1793604d3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/107-1076994_white-square-outline-plain-black-background-square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/107-1076994_white-square-outline-plain-black-background-square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/images.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/images.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AcPlus_IBM_EGA_8x8 SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/AcPlus_IBM_EGA_8x8 SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UIPrototype.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UIPrototype.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game Controller/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/WaveHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +71,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -140,7 +148,7 @@
       <workItem from="1762611349685" duration="598000" />
       <workItem from="1762611978472" duration="640000" />
       <workItem from="1762612641388" duration="234000" />
-      <workItem from="1762613061585" duration="50627000" />
+      <workItem from="1762613061585" duration="51444000" />
     </task>
     <servers />
   </component>
