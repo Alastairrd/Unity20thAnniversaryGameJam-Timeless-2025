@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
+using System.Text.RegularExpressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -210,9 +211,33 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private string tagStart = "";
+    private string tagEnd = "";
+
+    private string stripTags(string text)
+    {
+        string stripText = "";
+        tagStart = tagEnd = "";
+        bool tagClosed = false;
+        
+        foreach (char c in text)
+        {
+            tagClosed &= (c != '<');
+            
+            if (tagClosed) stripText += c;
+            else if(stripText == "") tagStart += c;
+            else tagEnd += c;
+            
+            tagClosed |= (c == '>');
+        }
+        return stripText;
+    }
     IEnumerator MessageAnimation(string text)
     {
+        if (text.Length > 0 && text[0] == '<') text = stripTags(text);
+        
         newMessage = "\n" + text;
+        currentText += tagStart;
         while (newMessage.Length > 0) 
         {
             //Debug.Log(newMessage);
@@ -222,6 +247,9 @@ public class UIManager : MonoBehaviour
             OnTextChange();
             yield return new WaitForSeconds(textSpeed);
         }
+
+        currentText += tagEnd;
+        tagStart = tagEnd = "";
         yield return null;
     }
 

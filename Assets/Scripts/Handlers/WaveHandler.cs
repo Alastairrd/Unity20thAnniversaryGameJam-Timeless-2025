@@ -33,7 +33,7 @@ public class WaveHandler : MonoBehaviour
         Outcome waveResult = ScriptableObject.CreateInstance<Outcome>();
         waveResult.messages = new List<string>();
         waveResult.messages.Add($"\n");
-        waveResult.messages.Add($"<align=\"center\">=== Wave {wave} === </align>");
+        waveResult.messages.Add($"<align=\"center\"><color=green>=== Wave {wave} === </color></align>");
         waveResult.messages.Add($"\n");
          
         
