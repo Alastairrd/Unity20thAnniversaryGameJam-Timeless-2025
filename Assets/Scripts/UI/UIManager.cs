@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Queue<string> currentQueue = new Queue<string>();
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
+    [SerializeField] TMP_Text PlaceHolder;
 
     [SerializeField] List<string> PossibleOutcomes;
 
@@ -25,6 +26,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] float speedToLengthRatio = 10;
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
+
 
     Dictionary<string, string> ActionDictionary = new Dictionary<string, string>()
     {
@@ -47,6 +49,8 @@ public class UIManager : MonoBehaviour
 
     bool pressingSkip = false;
     private Coroutine printRoutine;
+
+    float lastPlaceHolderSwitch = 0f;
 
     private void Start()
     {
@@ -76,7 +80,19 @@ public class UIManager : MonoBehaviour
         {
             pressingSkip = false;
         }
+
+        if (CanEnterText()) 
+        {
+            PlaceHolder.text = "Enter your action...";
+        }
+        else
+        {
+            InputText.text = "";
+            PlaceHolder.text = "";
+        }
+        
     }
+
 
     //------------------------- Input Handling ----------------------------//
     bool CanEnterText()
