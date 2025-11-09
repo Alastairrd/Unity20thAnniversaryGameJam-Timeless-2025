@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
 
+    private bool didFocus = false;
+
+
 
     Dictionary<string, string> ActionDictionary = new Dictionary<string, string>()
     {
@@ -81,17 +84,27 @@ public class UIManager : MonoBehaviour
             pressingSkip = false;
         }
 
-        if (CanEnterText()) 
+        if (!didFocus)
+        {
+            InputText.ActivateInputField();  // gives focus + caret
+            didFocus = true;
+        }
+
+        if (CanEnterText())
         {
             PlaceHolder.text = "Enter your action...";
-            InputText.Select();
         }
         else
         {
-            InputText.text = "";
             PlaceHolder.text = "";
+            InputText.text = "";
         }
-        
+
+        // If the input field ever loses focus, force focus again
+        if (!InputText.isFocused)
+        {
+            InputText.ActivateInputField();
+        }
     }
 
 
