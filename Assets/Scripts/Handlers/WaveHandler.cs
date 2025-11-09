@@ -113,7 +113,7 @@ public class WaveHandler : MonoBehaviour
 
         wave++;
         waveResults.Enqueue(waveResult);
-        GameController.Instance.hoursLeftToday = 24;
+        GameController.Instance.hoursLeftToday = 16;
         return waveResults;
     } 
     
