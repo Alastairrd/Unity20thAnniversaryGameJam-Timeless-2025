@@ -231,7 +231,7 @@ public class GameController : MonoBehaviour
     public bool checkHealth()
     {
         // Check if Player is Still Alive
-        if (playerHealth < 0)
+        if (playerHealth <= 0)
         {
             Debug.Log("Player Death");
             return false;
@@ -268,6 +268,7 @@ public class GameController : MonoBehaviour
 
         if(checkHealth())
         {
+            UIManager.Instance.PrintMessage($"You have {hoursLeftToday} hours until the horde approaches.");
             UIManager.Instance.TakePossibleActions(DecideActionsToDisplay2());
         }
     }
