@@ -234,7 +234,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region Action Display and Simulation
-    void SimulateAction(string actionName)
+    public void SimulateAction(string actionName)
     {
         Queue<Outcome> result = ActionsHandler.Instance.SimulateAction(actionName);
 
@@ -245,9 +245,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void DecideActionsToDisplay()
+    List<string> DecideActionsToDisplay()
     {
         var ActionList = ActionsHandler.Instance.GetAllActions();
+        //time costs restrictions
         foreach (var Action in ActionList) 
         {
             if(Action.timeChange < hoursLeftToday)
@@ -256,11 +257,32 @@ public class GameController : MonoBehaviour
             }
         }
 
+
+        //resource cost restrictions
+        foreach (var Action in ActionList)
+        {
+            if(wood < Action.minWood || metal < Action.minMetal || medicine < Action.minMedicine || food < Action.minFood)
+            {
+                ActionList.Remove(Action);
+            }
+        }
+
+        //todo medicine
+
+        //todo food
+
+        //make into strings
+        List<string> Actions = new List<string>();
+        foreach (var Action in ActionList)
+        {
+            Actions.Add(Action.actionName);
+        }
+        return Actions;
     }
 
     void SendActionsToUI()
     {
-
+        //UIManager.Instance.TakePossibleActions(DecideActionsToDisplay())
     }
     #endregion
 

@@ -8,6 +8,11 @@ namespace Assets.Scripts.Actions
         public string actionName { get; }
 
         public int timeChange { get; }
+
+        public int minWood { get; set; }
+        public int minMetal { get; set; }
+        public int minMedicine { get; set; }
+        public int minFood { get; set; }
         List<Outcome> Outcomes { get; set; }
 
         // Method every action must implement
@@ -16,5 +21,8 @@ namespace Assets.Scripts.Actions
         Outcome GetOutcomeByName(string name);
 
         public void SetOutcomeTimeChange();
+
+        public void SetMinResourceCosts();
+        
     }
 }
