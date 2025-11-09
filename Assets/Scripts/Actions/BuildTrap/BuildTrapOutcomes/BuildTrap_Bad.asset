@@ -16,15 +16,15 @@ MonoBehaviour:
   <messages>k__BackingField:
   - You begin to build a simple metal spike trap at a choice spot.
   - You accidentally bend a piece beyond repair, you throw it away in frustration.
-  - You hurt yourself while trying to put the trap together.
-  - You successfully build a simple trap.
+  - The piece snaps and shrapnel flies all about, hurting you in the process.
+  - Despite this mishap, you successfully build a simple trap.
   woodChange: 0
-  metalChange: -4
+  metalChange: -3
   medicineChange: 0
   foodChange: 0
-  timeCost: 3
-  playerHealthChange: -3
-  baseHealthChange: 0
+  timeChange: 0
+  playerHealthChange: -5
+  baseHealthChange: 30
   buildingsChange:
   - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
   buildingsChangeAmount: 01000000

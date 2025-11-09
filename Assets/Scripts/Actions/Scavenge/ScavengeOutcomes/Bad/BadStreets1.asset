@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: BadStreets1
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: BadStreets1
+  <messages>k__BackingField:
+  - 'You take to the streets for your scavenging. '
+  - "The urban roads wind you round to a residential that\u2019s been repurposed
+    by some community of survivors."
+  - "You try to approach the makeshift gate they\u2019ve set up across the thin residential
+    road and the guard stationed there fires at you without warning."
+  - His projectile nicks you and sends you running. You spend the rest of the time
+    licking your wounds.
   woodChange: 0
   metalChange: 0
   medicineChange: 0
   foodChange: 0
   timeChange: 0
-  playerHealthChange: 0
+  playerHealthChange: -10
   baseHealthChange: 0
   buildingsChange: []
   buildingsChangeAmount: 

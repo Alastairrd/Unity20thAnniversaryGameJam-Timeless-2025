@@ -20,12 +20,12 @@ MonoBehaviour:
     make an extra trap.
   - You successfully build 2 simple traps.
   woodChange: 0
-  metalChange: 3
+  metalChange: -1
   medicineChange: 0
   foodChange: 0
-  timeCost: 3
+  timeChange: 0
   playerHealthChange: 0
-  baseHealthChange: 0
+  baseHealthChange: 60
   buildingsChange:
   - {fileID: 11400000, guid: b976efd010bc325409973612b6ca64e9, type: 2}
   buildingsChangeAmount: 02000000

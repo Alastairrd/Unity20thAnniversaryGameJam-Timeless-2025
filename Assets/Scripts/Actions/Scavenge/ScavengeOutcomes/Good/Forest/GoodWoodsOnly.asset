@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: GoodWoodsOnly
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
+  outcomeName: GoodWoodsOnly
+  <messages>k__BackingField:
+  - For your expedition, you decided to go somewhere safe.
+  - The local woods nearby provides good wood for those that can take it.
+  - You prove your might. You take wood.
+  woodChange: 12
   metalChange: 0
   medicineChange: 0
   foodChange: 0

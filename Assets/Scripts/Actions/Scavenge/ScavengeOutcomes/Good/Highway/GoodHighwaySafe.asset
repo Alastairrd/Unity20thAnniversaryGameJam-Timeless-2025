@@ -12,11 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: GoodHighwaySafe
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
-  medicineChange: 0
+  outcomeName: GoodHighwaySafe
+  <messages>k__BackingField:
+  - You take to the nearby highway for your next expedition. Such a place is dangerous
+    for how little reward it gives, but sometimes you can get nice hauls from abandoned
+    semi-trailers and roadside establishments.
+  - 'This expedition finds you something a little interesting though. Rather than
+    a semi-trailer or a petrol station, you find the aftermath of a bloody scuffle
+    between what looks like two survivor groups. '
+  - "It\u2019s hard to tell what happened, and who was on who\u2019s side, but what
+    you can tell is that you\u2019re one of the first to the scene of carnage\u2014even
+    getting here before the infected\u2014so you better make the most of your fortune."
+  - "You run each man\u2019s pockets and backpacks as best as you can, then leave."
+  woodChange: 5
+  metalChange: 5
+  medicineChange: 5
   foodChange: 0
   timeChange: 0
   playerHealthChange: 0

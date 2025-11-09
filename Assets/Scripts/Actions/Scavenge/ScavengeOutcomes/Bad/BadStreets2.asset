@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: BadStreets2
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
+  outcomeName: BadStreets2
+  <messages>k__BackingField:
+  - The streets around your hideout are your chosen hunting grounds this time. You
+    try the alleyways, hoping these urban corridors will be safer than the open streets
+    in terms of hiding you from general hordes.
+  - "Too bad the infected didn\u2019t get any memo. They stand about in dark corners
+    and up above on awnings and external fire escapes. They spot you in a heartbeat
+    and descend on you in seconds."
+  - You barely escape with your life, but not without its own costs.
   woodChange: 0
   metalChange: 0
   medicineChange: 0
   foodChange: 0
   timeChange: 0
-  playerHealthChange: 0
+  playerHealthChange: -10
   baseHealthChange: 0
   buildingsChange: []
   buildingsChangeAmount: 

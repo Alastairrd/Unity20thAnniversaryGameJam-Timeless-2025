@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
   m_Name: GoodHospitalDanger
   m_EditorClassIdentifier: 
-  outcomeName: 
-  <messages>k__BackingField: []
-  woodChange: 0
-  metalChange: 0
+  outcomeName: GoodHospitalDanger
+  <messages>k__BackingField:
+  - The hospital is your choice of prey. You felt daring, and one of the most dangerous
+    looting spots in the city piqued your interest where it would otherwise have
+    scared you off.
+  - You take your entrance by squeezing under a chain-link fence and make it into
+    deep territory. A little exploration leads you to believe this part of the hospital
+    was the militaristic part of the evac centre that spawned when the initial outbreak
+    started.
+  - You hoped to find weapons scavenging the storehouses, but it seems that every
+    armoury has already been picked clean of useable guns and munitions. This was
+    a shame, but you still find useable parts that could be repurposed in other things.
+  - 'You take what you can before a nearby undead notices you through an open window.
+    It screeches as it darts for you, getting itself stuck between the windowsill
+    and the broken panes. '
+  - Dispatching of it is simple, but distant roars tell you that you need to move
+    before the true horde gets here.
+  - You end up leaving with a good haul and your life intact.
+  woodChange: 5
+  metalChange: 10
   medicineChange: 0
   foodChange: 0
   timeChange: 0

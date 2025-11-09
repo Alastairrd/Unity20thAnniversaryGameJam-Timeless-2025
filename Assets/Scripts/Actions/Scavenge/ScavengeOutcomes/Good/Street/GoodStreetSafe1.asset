@@ -22,7 +22,7 @@ MonoBehaviour:
   woodChange: 5
   metalChange: 5
   medicineChange: 5
-  foodChange: 5
+  foodChange: 0
   timeChange: 0
   playerHealthChange: 0
   baseHealthChange: 0
