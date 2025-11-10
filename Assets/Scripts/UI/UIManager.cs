@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        
+        UnityEngine.Cursor.visible = false;
     }
     private void Awake()
     {
