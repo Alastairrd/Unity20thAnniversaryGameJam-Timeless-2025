@@ -12,9 +12,9 @@ public class Raider : IEnemy
     {
         Name = "Raider";
         Health = 20;
-        Damage = 0;
+        Damage = 2;
     }
-    public Outcome Simulate(Outcome waveResult, int localBaseHealth)
+    public Outcome Simulate(Outcome waveResult, ref int localBaseHealth, ref int localPlayerHealth)
     {
         int stole = 0;
         if (localBaseHealth <= 0)
@@ -37,6 +37,12 @@ public class Raider : IEnemy
                 waveResult.foodChange -= stole;
                 waveResult.messages.Add($"<align=\"right\">{Name} stole {stole} food</align>");
             }
+        } else
+        {
+            Debug.Log("attacking base for " + Damage);
+            localBaseHealth -= Damage;
+            waveResult.baseHealthChange -= Damage;
+            waveResult.messages.Add($"<align=\"right\">{Name} attacked Base for {Damage}</align>");
         }
         return waveResult;
     }

@@ -76,12 +76,14 @@ public class WaveHandler : MonoBehaviour
             // enemy move
             if (Random.Range(0f, 1f) < Random.Range(0.5f, 1.0f)) 
             {
-                waveResult = enemy.Simulate(waveResult, localBaseHealth);
-                localBaseHealth += waveResult.baseHealthChange;
-                localPlayerHealth += waveResult.playerHealthChange;
+                Debug.Log("base health going into enemy sim "+ localBaseHealth);
+                waveResult = enemy.Simulate(waveResult, ref localBaseHealth, ref localPlayerHealth);
+                //localBaseHealth += waveResult.baseHealthChange;
+                //localPlayerHealth += waveResult.playerHealthChange;
+                Debug.Log("local base health after sim now " + localBaseHealth + "modified by " + waveResult.baseHealthChange);
             } 
             else waveResult.messages.Add($"<align=\"right\">{enemy.Name} Missed</align>");
-            if (GameController.Instance.playerHealth <= 0) break;
+            //if (GameController.Instance.playerHealth <= 0) break;
             if (localPlayerHealth <= 0) break;
             
             // player move

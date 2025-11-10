@@ -16,13 +16,13 @@ MonoBehaviour:
   <messages>k__BackingField:
   - You begin to fashion a makeshift wall from wooden planks.
   - You aren't very efficient, and you make a lot of mistakes. A lot more wood is
-    utilised than is necessary
+    utilised than is necessary.
   - You finished building the wall, but you could have definitely used less.
   woodChange: -4
   metalChange: 0
   medicineChange: 0
   foodChange: 0
-  timeChange: 0
+  timeChange: 2
   playerHealthChange: 0
   baseHealthChange: 20
   buildingsChange:
