@@ -676,7 +676,40 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a05fcaf3705999d4fa049862c77e97ae, type: 2}
   - {fileID: 11400000, guid: 45e353d1423c13a4aa3e176cd80fe33c, type: 2}
   - {fileID: 11400000, guid: f54de4afbee7855468c880e51d741598, type: 2}
-  - {fileID: 11400000, guid: 1d313650f5014d340b940a1b8947aa57, type: 2}
+--- !u!114 &605894427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605894422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ba335e0785a243a559d94e16da63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: HealPlayer
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: e39abc99b7146ef4a83aff2f7a0af3ec, type: 2}
+  - {fileID: 11400000, guid: a9210045faa145c47958f8bbe0d0dc24, type: 2}
+  - {fileID: 11400000, guid: c750283edc7b349499f688e13b154d7e, type: 2}
+--- !u!114 &605894428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605894422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e1bd43ae5f7be4e92d8db3971f39ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: PassTime
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: 0d481320cd00d2d48b8dbbe670ee8f85, type: 2}
 --- !u!1001 &665621341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,39 +787,14 @@ PrefabInstance:
       addedObject: {fileID: 835569151}
     - targetCorrespondingSourceObject: {fileID: 4253192022652204188, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 605894428}
+    - targetCorrespondingSourceObject: {fileID: 4253192022652204188, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 605894427}
+    - targetCorrespondingSourceObject: {fileID: 4253192022652204188, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 605894423}
   m_SourcePrefab: {fileID: 100100000, guid: 6e152ce2dded6b74c9edd4f3ad42db36, type: 3}
---- !u!1 &726991671
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 726991673}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &726991673
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726991671}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66697633, y: -4.815683, z: 581.1028}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750848566
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +937,7 @@ MonoBehaviour:
   speedToLengthRatio: 5
   minSpeed: 20
   maxSpeed: 40
+  enterInputSound: {fileID: 8286339686561626741, guid: 1f4b738664c2a304880377292d394ed8, type: 3}
 --- !u!1 &877648322
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,37 +984,6 @@ Transform:
   m_LocalPosition: {x: -1.7640388, y: 6.092203, z: -10.136122}
   m_LocalScale: {x: 8.19, y: -22.135134, z: -22.135134}
   m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &881724823
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 881724824}
-  m_Layer: 0
-  m_Name: ConsoleScenePrefab
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &881724824
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881724823}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2222,7 +2200,5 @@ SceneRoots:
   - {fileID: 1727370292}
   - {fileID: 1499646347}
   - {fileID: 750848567}
-  - {fileID: 726991673}
   - {fileID: 925592491}
-  - {fileID: 881724824}
   - {fileID: 665621341}

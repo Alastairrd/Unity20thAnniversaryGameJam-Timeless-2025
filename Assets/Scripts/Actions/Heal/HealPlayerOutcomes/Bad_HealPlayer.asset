@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
+  m_Name: Bad_HealPlayer
+  m_EditorClassIdentifier: 
+  outcomeName: Bad
+  <messages>k__BackingField:
+  - Taking a moment to breathe, you become aware of that all to familiar unwelcome
+    feeling - pain.
+  - Best not to leave your wounds unattended to - you rifle through your supplies
+    looking for something to patch yourself up with.
+  - You never were good with a needle. Trying to stich yourself you feel you've managed
+    to do more harm than good. It looks slightly better than before.
+  woodChange: 0
+  metalChange: 0
+  medicineChange: -2
+  foodChange: 0
+  timeChange: 2
+  playerHealthChange: 10
+  baseHealthChange: 0
+  buildingsChange: []
+  buildingsChangeAmount: 
+  itemsChange: []
+  itemsChangeAmount: 

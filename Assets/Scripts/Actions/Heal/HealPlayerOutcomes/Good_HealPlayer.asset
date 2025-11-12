@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4b5f9a5ee54424ea0bb2b9f9640dc2, type: 3}
+  m_Name: Good_HealPlayer
+  m_EditorClassIdentifier: 
+  outcomeName: Good
+  <messages>k__BackingField:
+  - Taking stock of yourself, you begin to feel every ache. Your body feels as battered
+    as the weathered walls around you.
+  - Rummaging through medical supplies you've pilfered, you find exactly what you
+    need to patch yourself up. You deftly disinfect and bandage a few cuts and scrapes
+    - that'll keep you going.
+  woodChange: 0
+  metalChange: 0
+  medicineChange: -2
+  foodChange: 0
+  timeChange: 2
+  playerHealthChange: 25
+  baseHealthChange: 0
+  buildingsChange: []
+  buildingsChangeAmount: 
+  itemsChange: []
+  itemsChangeAmount: 

@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
 
+    [SerializeField] GameObject enterInputSound;
+
     private bool didFocus = false;
 
 
@@ -35,7 +37,9 @@ public class UIManager : MonoBehaviour
     {
         {"BuildWall", "Build a Wall" },
         {"Scavenge", "Scavenge" },
-        {"BuildTrap", "Build a Trap" }
+        {"BuildTrap", "Build a Trap" },
+        {"HealPlayer", "First-Aid" },
+        {"PassTime", "Pass the time" }
     };
 
 
@@ -44,9 +48,19 @@ public class UIManager : MonoBehaviour
         {"Build Wall"       ,"BuildWall"},
         {"Build a Wall"     ,"BuildWall"},
         {"Build Walls"      ,"BuildWall"},
+        {"Wall"             ,"BuildWall"},
         {"Scavenge"         ,"Scavenge"},
         {"Build Trap"       ,"BuildTrap"},
         {"Build a Trap"     ,"BuildTrap"},
+        {"Trap"             ,"BuildTrap"},
+        {"First-Aid"        ,"HealPlayer"},
+        {"First Aid"        ,"HealPlayer"},
+        {"Heal"             ,"HealPlayer"},
+        {"Firstaid"         ,"HealPlayer"},
+        {"pass time"        ,"PassTime"},
+        {"pass"             ,"PassTime"},
+        {"wait"             ,"PassTime"},
+        {"skip"             ,"PassTime"},
     };
 
 
@@ -111,16 +125,14 @@ public class UIManager : MonoBehaviour
     //------------------------- Input Handling ----------------------------//
     bool CanEnterText()
     {
-        if (newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0)
-            return true;
-        else
-            return false;
+        return newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0;
     }
 
     public void ReadInput()
     {
         if(CanEnterText())
         {
+            Destroy(Instantiate(enterInputSound), 1);
             HandleInputLogic(InputText.text);
             InputText.text = string.Empty;
         }
@@ -199,11 +211,12 @@ public class UIManager : MonoBehaviour
     {
         Queue<string> actionQueue = new Queue<string>();
 
-        actionQueue.Enqueue("Please choose one of the following actions: \n");
+        actionQueue.Enqueue("\n Please choose one of the following actions: \n");
         for (int i = 0; i < possibleActions.Count; i++)
         {
             actionQueue.Enqueue((i + 1).ToString() + ". " + GetActionFromDictionary(possibleActions[i]) + "\n");
         }
+        actionQueue.Enqueue("\n");
 
         return actionQueue;
     }

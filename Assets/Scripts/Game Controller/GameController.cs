@@ -160,6 +160,7 @@ public class GameController : MonoBehaviour
 
         //player health
         playerHealth += outcome.playerHealthChange;
+        if (playerHealth > 100) playerHealth = 100; //clamp to 100
 
         //resources & inventory
         wood += outcome.woodChange;
@@ -269,46 +270,11 @@ public class GameController : MonoBehaviour
         if(checkHealth())
         {
             UIManager.Instance.PrintMessage($"You have {hoursLeftToday} hours until the horde approaches.");
-            UIManager.Instance.TakePossibleActions(DecideActionsToDisplay2());
+            UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
         }
     }
 
     List<string> DecideActionsToDisplay()
-    {
-        var ActionList = new List<IActionObject>(ActionsHandler.Instance.GetAllActions());
-        //time costs restrictions
-        foreach (var Action in ActionList) 
-        {
-            if(Action.timeChange < hoursLeftToday)
-            {
-                ActionList.Remove(Action);
-            }
-        }
-
-
-        //resource cost restrictions
-        foreach (var Action in ActionList)
-        {
-            if(wood < Action.minWood || metal < Action.minMetal || medicine < Action.minMedicine || food < Action.minFood)
-            {
-                ActionList.Remove(Action);
-            }
-        }
-
-        //todo medicine
-
-        //todo food
-
-        //make into strings
-        List<string> Actions = new List<string>();
-        foreach (var Action in ActionList)
-        {
-            Actions.Add(Action.actionName);
-        }
-        return Actions;
-    }
-
-    List<string> DecideActionsToDisplay2()
     {
         var actionList = new List<IActionObject>(ActionsHandler.Instance.GetAllActions());
 
@@ -323,6 +289,9 @@ public class GameController : MonoBehaviour
             medicine < action.minMedicine ||
             food < action.minFood
         );
+
+        //healing possible?
+        actionList.RemoveAll(action => !(playerHealth < 100) && action.actionName == "HealPlayer");
 
         // Convert to string names
         List<string> actions = new List<string>();
@@ -346,7 +315,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UIManager.Instance.TakePossibleActions(DecideActionsToDisplay2());
+        UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
     }
 
     
