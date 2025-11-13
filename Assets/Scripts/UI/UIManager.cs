@@ -4,9 +4,8 @@ using System.Text.RegularExpressions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Assets.Scripts.Actions.BuildTrap;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,6 +18,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text ConsoleText;
     [SerializeField] TMP_InputField InputText;
     [SerializeField] TMP_Text PlaceHolder;
+
+    [SerializeField] Image HealthBar;
+    [SerializeField] Image BaseHealthBar;
+    [SerializeField] Image TimeBar;
+    [SerializeField] TMP_Text Wood;
+    [SerializeField] TMP_Text Metal;
+    [SerializeField] TMP_Text Medicine;
 
     [SerializeField] List<string> PossibleOutcomes;
 
@@ -68,10 +74,16 @@ public class UIManager : MonoBehaviour
     private Coroutine printRoutine;
 
     float lastPlaceHolderSwitch = 0f;
+    [SerializeField]
+    float blinkerCooldown = 1;
+
+    bool isToggledPlaceHolder = true;
 
     private void Start()
     {
-        UnityEngine.Cursor.visible = false;
+        //UnityEngine.Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        UpdateResourceUI();
     }
     private void Awake()
     {
@@ -89,14 +101,10 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
             pressingSkip = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
+        if (Input.GetKeyUp(KeyCode.DownArrow))
             pressingSkip = false;
-        }
 
         if (!didFocus)
         {
@@ -104,21 +112,31 @@ public class UIManager : MonoBehaviour
             didFocus = true;
         }
 
-        if (CanEnterText())
-        {
-            PlaceHolder.text = "Enter your action...";
-        }
-        else
-        {
-            PlaceHolder.text = "";
-            InputText.text = "";
-        }
-
         // If the input field ever loses focus, force focus again
         if (!InputText.isFocused)
-        {
             InputText.ActivateInputField();
+
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2)) 
+            InputText.ActivateInputField();
+
+        if (CanEnterText())
+            UpdateResourceUI();
+        else
+            BlinkPlaceHolder();
+    }
+
+    void BlinkPlaceHolder()
+    {
+        if(lastPlaceHolderSwitch + blinkerCooldown < Time.time)
+        {
+            isToggledPlaceHolder = !isToggledPlaceHolder;
+            lastPlaceHolderSwitch = Time.time;
         }
+
+        if (isToggledPlaceHolder)
+            PlaceHolder.text = "";
+        else
+            PlaceHolder.text = "type actions here";
     }
 
 
@@ -192,7 +210,15 @@ public class UIManager : MonoBehaviour
         //TakePossibleActions(PossibleOutcomes);
     }
 
-    
+    public void UpdateResourceUI() 
+    {
+        HealthBar.GetComponent<Image>().fillAmount = GameController.Instance.playerHealth / 100;
+        BaseHealthBar.GetComponent<Image>().fillAmount = GameController.Instance.baseHealth / 100;
+        TimeBar.GetComponent<Image>().fillAmount = GameController.Instance.hoursLeftToday / 16;
+        Metal.text = GameController.Instance.metal.ToString();
+        Medicine.text = GameController.Instance.medicine.ToString();
+        Wood.text = GameController.Instance.wood.ToString();
+    }
 
     void ChosenAction(int actionChosen)
     {

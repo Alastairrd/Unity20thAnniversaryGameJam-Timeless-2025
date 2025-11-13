@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region GameLoop Checks and Logic
-    bool TimeLeft()
+    public bool TimeLeft()
     {
         if (hoursLeftToday > 0) return true;
         return false;
