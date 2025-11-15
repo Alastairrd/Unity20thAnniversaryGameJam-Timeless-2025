@@ -240,7 +240,7 @@ public class UIManager : MonoBehaviour
         actionQueue.Enqueue("\n Please choose one of the following actions: \n");
         for (int i = 0; i < possibleActions.Count; i++)
         {
-            actionQueue.Enqueue((i + 1).ToString() + ". " + GetActionFromDictionary(possibleActions[i]) + "\n");
+            actionQueue.Enqueue((i + 1).ToString() + ". " + GetActionFromDictionary(possibleActions[i]));
         }
         actionQueue.Enqueue("\n");
 
