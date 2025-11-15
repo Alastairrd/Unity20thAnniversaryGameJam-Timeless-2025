@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [TextArea()]
     [SerializeField] string startMessage = " ";
     [SerializeField] string currentText = string.Empty;
     [SerializeField] string newMessage = string.Empty;
@@ -19,9 +20,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_InputField InputText;
     [SerializeField] TMP_Text PlaceHolder;
 
+    [SerializeField] GameObject ResourceUI;
+
     [SerializeField] Image HealthBar;
     [SerializeField] Image BaseHealthBar;
-    [SerializeField] Image TimeBar;
+    [SerializeField] TMP_Text TimeText;
     [SerializeField] TMP_Text Wood;
     [SerializeField] TMP_Text Metal;
     [SerializeField] TMP_Text Medicine;
@@ -34,6 +37,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] float maxSpeed = 3;
 
     [SerializeField] GameObject enterInputSound;
+
 
     private bool didFocus = false;
 
@@ -118,6 +122,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2)) 
             InputText.ActivateInputField();
+        UpdateResourceUI();
 
         if (CanEnterText())
             UpdateResourceUI();
@@ -212,12 +217,18 @@ public class UIManager : MonoBehaviour
 
     public void UpdateResourceUI() 
     {
-        HealthBar.GetComponent<Image>().fillAmount = GameController.Instance.playerHealth / 100;
-        BaseHealthBar.GetComponent<Image>().fillAmount = GameController.Instance.baseHealth / 100;
-        TimeBar.GetComponent<Image>().fillAmount = GameController.Instance.hoursLeftToday / 16;
-        Metal.text = GameController.Instance.metal.ToString();
-        Medicine.text = GameController.Instance.medicine.ToString();
-        Wood.text = GameController.Instance.wood.ToString();
+        if (HealthBar)
+        {
+            HealthBar.fillAmount = GameController.Instance.playerHealth / 100;
+            BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 100;
+            Metal.text = GameController.Instance.metal.ToString();
+            Medicine.text = GameController.Instance.medicine.ToString();
+            Wood.text = GameController.Instance.wood.ToString();
+        }
+
+        TimeText.text = (24 - GameController.Instance.hoursLeftToday).ToString() + ":00";
+
+        Debug.Log("Updated UI");
     }
 
     void ChosenAction(int actionChosen)
@@ -354,6 +365,16 @@ public class UIManager : MonoBehaviour
     public void OnTextChange()
     {
         ConsoleText.text = currentText;
+    }
+
+    public void CloseResourceUI() 
+    {
+        ResourceUI.SetActive(false);
+    }
+
+    public void OpenResourceUI()
+    {
+        ResourceUI.SetActive(true);
     }
 
 }
