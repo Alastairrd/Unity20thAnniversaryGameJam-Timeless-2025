@@ -136,7 +136,7 @@ public class GameController : MonoBehaviour
     {
         List<string> list = new List<string>();
         //UIManager.Instance.PrintMessage($"Please choose one of the following actions: \n");
-        UIManager.Instance.TakePossibleActions(list);
+        //UIManager.Instance.TakePossibleActions(list);
         UIManager.Instance.PrintMessage($"0: Reset");
         
     }
@@ -270,7 +270,7 @@ public class GameController : MonoBehaviour
         if(checkHealth())
         {
             UIManager.Instance.PrintMessage($"You have {hoursLeftToday} hours until the horde approaches.");
-            UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
+            //UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
         }
     }
 
@@ -315,7 +315,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
+        //UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
     }
 
     
