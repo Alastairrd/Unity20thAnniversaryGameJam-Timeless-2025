@@ -276,6 +276,7 @@ public class Player : MonoBehaviour
     {
         idle,
 
+        upgrading,
         crafting,
         building,
 
@@ -283,9 +284,10 @@ public class Player : MonoBehaviour
 
         getting,
 
-        figthing,
-
+        figthing, //if we wanna add dodge and slash actions
         talking,
+
+        surviving, ///maybe for waves
 
     }
 

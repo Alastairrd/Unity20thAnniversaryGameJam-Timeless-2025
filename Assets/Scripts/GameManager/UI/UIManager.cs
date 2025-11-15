@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Assets.Scripts.Actions.BuildTrap;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,8 +25,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image BaseHealthBar;
     [SerializeField] TMP_Text TimeText;
 
-    [SerializeField] List<string> PossibleActions;
-
     [SerializeField] float speedToLengthRatio = 10;
     [SerializeField] float minSpeed = 1;
     [SerializeField] float maxSpeed = 3;
@@ -37,6 +36,8 @@ public class UIManager : MonoBehaviour
     bool pressingSkip = false;
     private bool didFocus = false;
 
+    [Header("Sound")]
+    [SerializeField] public AudioListener audioListener;
     [SerializeField] GameObject enterInputSound;
 
     public Coroutine printRoutine;
@@ -213,4 +214,18 @@ public class UIManager : MonoBehaviour
         //TO DO
     }
     #endregion //TO IMPLEMENT
+
+    #region Sound
+    
+    public void IncreaseVolume() 
+    {
+        Mathf.Clamp(AudioListener.volume, AudioListener.volume += .1f, 1);
+    }
+
+    public void DecreaseVolume()
+    {
+        //Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f, 1);
+    }
+
+    #endregion
 }
