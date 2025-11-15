@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
 
     #region ProcessingPossibleChoices
-    void updatePossibleActionsQueue()
+    public void UpdatePossibleActionsQueue()
     {
         currentPossibleActions = ProcessPossibleActions();
     }
@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     #region Action Functions
 
     #region ProcessingPossibleChoices
+
+    #endregion
 
     #endregion
 
