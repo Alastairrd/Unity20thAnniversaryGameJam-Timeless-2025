@@ -128,8 +128,39 @@ public class Actions : MonoBehaviour
         {
             if (Player.Instance.currentLocation != LocationList.Locations.Bunker)
                 list.Add("bunker");
-
+            else if((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.insanity > 16)
+                list.Add("sleep");
+            
             list.Add("scavenge");
+
+            if (Player.Instance.canCraftAnyItem()) 
+                list.Add("craft");
+
+                if(Player.Instance.canCraftItem(InventoryItems.Items.axe))
+                    list.Add("axe");
+                if (Player.Instance.canCraftItem(InventoryItems.Items.wrench))
+                    list.Add("wrench");
+                if (Player.Instance.canCraftItem(InventoryItems.Items.knife))
+                    list.Add("knife");
+                if (Player.Instance.canCraftItem(InventoryItems.Items.gloves))
+                    list.Add("gloves");
+                if (Player.Instance.canCraftItem(InventoryItems.Items.gun))
+                    list.Add("gun");
+                if (Player.Instance.canCraftItem(InventoryItems.Items.bullet))
+                    list.Add("bullet");
+            /*
+            "axe",
+                "gloves",
+                "knife",
+                "picker",
+                "rod",
+                "wrench",
+                "gun",
+                "bullet",*/
+
+
+            if (Player.Instance.canUpgradeAnyItem())
+                list.Add("upgrade");
 
         }
 
@@ -141,6 +172,7 @@ public class Actions : MonoBehaviour
         return list;
     }
     #endregion
+
 
     #region Action Function
     public void Bunker() // GO to bunker if not in it
@@ -155,12 +187,12 @@ public class Actions : MonoBehaviour
 
     public void Upgrade() //if in bunker, has materials for at least one item upgrade
     {
-
+        Player.Instance.currentState = Player.PlayerStates.upgrading;
     }
 
     public void Craft() //if in bunker has materials for at least one item upgrade
     {
-
+        Player.Instance.currentState = Player.PlayerStates.crafting;
     }
 
         public void Axe() //has materials for at least one item upgrade
@@ -205,7 +237,7 @@ public class Actions : MonoBehaviour
 
     public void Build()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.building;
     }
 
         public void Walls()
@@ -230,7 +262,7 @@ public class Actions : MonoBehaviour
 
     public void Consume()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.consuming;
     }
 
         public void Medicine()
@@ -265,7 +297,7 @@ public class Actions : MonoBehaviour
 
     public void Scavange()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.scavenging;
     }
 
         public void Yard()
@@ -379,7 +411,10 @@ public class Actions : MonoBehaviour
 
     public void Exit()
     {
-
+        if(Player.Instance.currentState != Player.PlayerStates.getting)
+            Player.Instance.currentState = Player.PlayerStates.idle;
+        else
+            Player.Instance.currentState = Player.PlayerStates.idle;
     }
 #endregion
 }

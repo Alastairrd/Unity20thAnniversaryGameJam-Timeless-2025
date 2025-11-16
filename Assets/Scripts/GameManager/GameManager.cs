@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public int GlobalZombieDensity = 1;
     public List<Location> Locations;
+    public int time = 8;
 
 
     private void Start()

@@ -11,13 +11,13 @@ public class Location : MonoBehaviour
     [Header("Distance to Neighbors of corresponding index")]
     public List<int> neighborDistances;
 
-    public int zombieDesnity = 0;
-    public int humanDesnity = 0;
+    public int zombieDensity = 0;
+    public int humanDensity = 0;
     public int fishDensity = 0;
-    public int animalDesnity = 0;
-    public int vegDesnity = 0;
+    public int animalDensity = 0;
+    public int vegDensity = 0;
 
-    public int moneyDesnity = 0;
+    public int moneyDensity = 0;
 
     public int woodDensity = 0;
     public int metalDensity = 0;

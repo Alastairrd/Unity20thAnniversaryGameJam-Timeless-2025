@@ -26,7 +26,7 @@ public class InventoryItems
         vegetables, //heals 5
         meat,       //heals 5 but takes time
         fish,       //but catches plenty and takes time
-        //you have too find these
+        //you have to find these
         medicine, //heals compeletly
         bandade, //changes maz health
     }
@@ -98,6 +98,7 @@ public class InventoryItems
             { BunkerItems.walls,  new Recipe(wood: 1, metal: 1, scraps: 0, leather: 1) },         // heals
             { BunkerItems.reinforcement, new Recipe(wood: 0, metal: 10, scraps: 1, leather: 0) }, // increases MaxHP
         };
+
 
 }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -202,8 +203,8 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Inventory
-    Dictionary<InventoryItems.Items, int> inventoryDictionary = new Dictionary<InventoryItems.Items, int>();
-    Dictionary<InventoryItems.Items, int> bunkerDictionary = new Dictionary<InventoryItems.Items, int>();
+    public Dictionary<InventoryItems.Items, int> inventoryDictionary = new Dictionary<InventoryItems.Items, int>();
+    public Dictionary<InventoryItems.Items, int> bunkerDictionary = new Dictionary<InventoryItems.Items, int>();
     //HashSet<InventoryItems.Guns> gunsDictionary = new HashSet<InventoryItems.Guns>();
 
     public int ReadItemAmount(InventoryItems.Items item)
@@ -214,6 +215,65 @@ public class Player : MonoBehaviour
             Debug.LogWarning(item + ": does not exist within item");
         return 0;
     }
+
+    public bool canCraftItem(InventoryItems.Items item) 
+    {
+        if(ReadItemAmount(item) == 0) 
+        {
+            if (
+               (ReadItemAmount(InventoryItems.Items.wood)       > InventoryItems.UtilityRecipes[item].wood)
+            && (ReadItemAmount(InventoryItems.Items.metal)      > InventoryItems.UtilityRecipes[item].metal)
+            && (ReadItemAmount(InventoryItems.Items.scraps)     > InventoryItems.UtilityRecipes[item].scraps)
+            && (ReadItemAmount(InventoryItems.Items.leather)    > InventoryItems.UtilityRecipes[item].leather)
+               )
+                    return true;
+        }
+        return false;
+            
+    }
+
+    public bool canCraftAnyItem() //needs testing
+    {
+        bool canCraftItemSoFar = false;
+        foreach (InventoryItems.Items item in InventoryItems.UtilityRecipes.Keys)
+        {
+            if (canCraftItem(item))
+                canCraftItemSoFar = true;
+            else
+                return false;
+        }
+        return canCraftItemSoFar;
+    }
+
+    public bool canUpgradeItem(InventoryItems.Items item)
+    {
+        if (ReadItemAmount(item) > 0)
+        {
+            if (
+               (ReadItemAmount(InventoryItems.Items.wood)       > InventoryItems.UtilityUpgrades[item].wood)
+            && (ReadItemAmount(InventoryItems.Items.metal)      > InventoryItems.UtilityUpgrades[item].metal)
+            && (ReadItemAmount(InventoryItems.Items.scraps)     > InventoryItems.UtilityUpgrades[item].scraps)
+            && (ReadItemAmount(InventoryItems.Items.leather)    > InventoryItems.UtilityUpgrades[item].leather)
+               )
+                return true;
+        }
+        return false;
+
+    }
+
+    public bool canUpgradeAnyItem() //needs testing
+    {
+        bool canUpgradeItemSoFar = false;
+        foreach (InventoryItems.Items item in InventoryItems.UtilityUpgrades.Keys)
+        {
+            if (canUpgradeItem(item))
+                canUpgradeItemSoFar = true;
+            else
+                return false;
+        }
+        return canUpgradeItemSoFar;
+    }
+
 
     public void AddItem(InventoryItems.Items item, int amount)
     {
@@ -282,7 +342,8 @@ public class Player : MonoBehaviour
 
         consuming,
 
-        getting,
+        scavenging,
+            getting,
 
         figthing, //if we wanna add dodge and slash actions
         talking,

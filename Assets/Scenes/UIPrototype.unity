@@ -154,16 +154,16 @@ MonoBehaviour:
   - {fileID: 502207886}
   - {fileID: 1103034358}
   neighborDistances: 020000000200000002000000
-  zombieDesnity: 0
-  humanDesnity: 0
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 0
-  animalDesnity: 0
-  vegDesnity: 0
-  moneyDesnity: 0
-  woodDensity: 0
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 1
+  metalDensity: 10
+  scrapsDensity: 4
+  leatherDensity: 1
 --- !u!4 &122438783
 Transform:
   m_ObjectHideFlags: 0
@@ -172,12 +172,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122438781}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217450611
 GameObject:
@@ -911,6 +911,44 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &416292264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416292265}
+  m_Layer: 0
+  m_Name: Locations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &416292265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416292264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 463158543}
+  - {fileID: 2123493648}
+  - {fileID: 1210496674}
+  - {fileID: 502207887}
+  - {fileID: 122438783}
+  - {fileID: 1103034359}
+  - {fileID: 469355710}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440251383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,12 +1124,12 @@ MonoBehaviour:
   - {fileID: 1103034358}
   - {fileID: 469355709}
   neighborDistances: 030000000300000001000000020000000300000001000000
-  zombieDesnity: 0
-  humanDesnity: 0
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 0
-  animalDesnity: 0
-  vegDesnity: 0
-  moneyDesnity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
   woodDensity: 0
   metalDensity: 0
   scrapsDensity: 0
@@ -1104,12 +1142,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463158541}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469355708
 GameObject:
@@ -1146,16 +1184,16 @@ MonoBehaviour:
   - {fileID: 1103034358}
   - {fileID: 2123493647}
   neighborDistances: 010000000200000002000000
-  zombieDesnity: 10
-  humanDesnity: 0
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 0
-  animalDesnity: 0
-  vegDesnity: 0
-  moneyDesnity: 0
-  woodDensity: 0
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 1
+  metalDensity: 3
+  scrapsDensity: 3
+  leatherDensity: 1
 --- !u!4 &469355710
 Transform:
   m_ObjectHideFlags: 0
@@ -1164,12 +1202,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469355708}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502207885
 GameObject:
@@ -1206,13 +1244,13 @@ MonoBehaviour:
   - {fileID: 122438782}
   - {fileID: 1210496673}
   neighborDistances: 010000000200000002000000
-  zombieDesnity: 0
-  humanDesnity: 0
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 0
-  animalDesnity: 0
-  vegDesnity: 0
-  moneyDesnity: 0
-  woodDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 1
   metalDensity: 0
   scrapsDensity: 0
   leatherDensity: 0
@@ -1224,12 +1262,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502207885}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508916421
 GameObject:
@@ -2109,16 +2147,16 @@ MonoBehaviour:
   - {fileID: 122438782}
   - {fileID: 469355709}
   neighborDistances: 030000000100000001000000
-  zombieDesnity: 0
-  humanDesnity: 0
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 0
-  animalDesnity: 0
-  vegDesnity: 0
-  moneyDesnity: 0
-  woodDensity: 0
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 1
+  metalDensity: 5
+  scrapsDensity: 10
+  leatherDensity: 1
 --- !u!4 &1103034359
 Transform:
   m_ObjectHideFlags: 0
@@ -2127,12 +2165,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103034357}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210496672
 GameObject:
@@ -2169,12 +2207,12 @@ MonoBehaviour:
   - {fileID: 2123493647}
   - {fileID: 502207886}
   neighborDistances: 030000000100000002000000
-  zombieDesnity: 5
-  humanDesnity: 1
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 1
-  animalDesnity: 10
-  vegDesnity: 3
-  moneyDesnity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
   woodDensity: 10
   metalDensity: 0
   scrapsDensity: 0
@@ -2187,12 +2225,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210496672}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1246959231
 GameObject:
@@ -3134,12 +3172,12 @@ MonoBehaviour:
   - {fileID: 1210496673}
   - {fileID: 469355709}
   neighborDistances: 030000000100000001000000
-  zombieDesnity: 2
-  humanDesnity: 1
+  zombieDensity: 0
+  humanDensity: 0
   fishDensity: 10
-  animalDesnity: 5
-  vegDesnity: 2
-  moneyDesnity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
   woodDensity: 1
   metalDensity: 0
   scrapsDensity: 0
@@ -3152,12 +3190,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123493646}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.807929, y: 2.626389, z: 90}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 416292265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129283114
 GameObject:
@@ -3362,10 +3400,4 @@ SceneRoots:
   - {fileID: 750848567}
   - {fileID: 240774448}
   - {fileID: 1246959232}
-  - {fileID: 463158543}
-  - {fileID: 2123493648}
-  - {fileID: 1210496674}
-  - {fileID: 502207887}
-  - {fileID: 122438783}
-  - {fileID: 1103034359}
-  - {fileID: 469355710}
+  - {fileID: 416292265}
