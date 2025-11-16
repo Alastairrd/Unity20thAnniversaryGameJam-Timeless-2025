@@ -25,9 +25,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image BaseHealthBar;
     [SerializeField] TMP_Text TimeText;
 
-    [SerializeField] float speedToLengthRatio = 10;
-    [SerializeField] float minSpeed = 1;
-    [SerializeField] float maxSpeed = 3;
+    [SerializeField] float textSpeedMultiplier;
+    public float textSpeed;
 
     [SerializeField]
     float blinkerCooldown = 1;
@@ -37,7 +36,6 @@ public class UIManager : MonoBehaviour
     private bool didFocus = false;
 
     [Header("Sound")]
-    [SerializeField] public AudioListener audioListener;
     [SerializeField] GameObject enterInputSound;
 
     public Coroutine printRoutine;
@@ -143,7 +141,7 @@ public class UIManager : MonoBehaviour
     #endregion
 
         #region Message Animation
-    IEnumerator MessageAnimation(string text)
+    IEnumerator MessageAnimation(string text) //give it list of things it should update
     {
         if (text.Length > 0 && text[0] == '<') text = stripTags(text);
         
@@ -151,18 +149,17 @@ public class UIManager : MonoBehaviour
         currentText += tagStart;
         while (newMessage.Length > 0) 
         {
-            //Debug.Log(newMessage);
-            float textSpeed = TextSpeed(newMessage);
             currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
             ConsoleText.text = currentText;
-            yield return new WaitForSeconds(textSpeed);
+            yield return new WaitForSeconds(textSpeed / textSpeedMultiplier);
         }
 
         currentText += tagEnd;
         tagStart = tagEnd = "";
         yield return null;
     }
+
 
     #region Rich Text
     private string tagStart = "";
@@ -191,19 +188,17 @@ public class UIManager : MonoBehaviour
 
     #region TextSpeed
     //Returns a speed proportional to the length of the text
-    float TextSpeed(string text)
+    public void IncreaseTextSpeed()
     {
-        if (pressingSkip) 
-        {
-            //Debug.Log("Skipping text speed");
-            return 0;
-        }
-        else 
-        {
-            return Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed, 1 / minSpeed);
-        }
-            
+        Mathf.Clamp(AudioListener.volume, AudioListener.volume += .1f, 1);
     }
+
+    public void DecreaseTextSpeed()
+    {
+        Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f);
+    }
+
+
     #endregion
 
     #endregion
@@ -224,7 +219,7 @@ public class UIManager : MonoBehaviour
 
     public void DecreaseVolume()
     {
-        //Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f, 1);
+        Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f);
     }
 
     #endregion

@@ -19,50 +19,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    Queue<string> currentPossibleActions = new Queue<string>();
-
     public int GlobalZombieDensity = 1;
     public List<Location> Locations;
 
 
-    #region ProcessingPossibleChoices
-    public void UpdatePossibleActionsQueue()
+    private void Start()
     {
-        currentPossibleActions = ProcessPossibleActions();
+        UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromProcessedActions());
     }
-
-    Queue<string> ProcessPossibleActions() 
-    {
-        Queue<string> queue = new Queue<string>();
-
-        if(Player.Instance.currentState == Player.PlayerStates.idle) 
-        {
-            if (Player.Instance.currentLocation != LocationList.Locations.Bunker)
-                queue.Enqueue("bunker");
-            
-            queue.Enqueue("scavenge");
-
-        }
-
-
-
-        if(queue.Count == 0)
-        {
-
-        }
-
-        return queue;
-    }
-
-    #endregion
-
-
-    #region Action Functions
-
-    #region ProcessingPossibleChoices
-
-    #endregion
-
-    #endregion
-
 }

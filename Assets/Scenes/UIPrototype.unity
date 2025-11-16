@@ -211,12 +211,11 @@ RectTransform:
   m_Children:
   - {fileID: 440251384}
   - {fileID: 1742496004}
-  - {fileID: 827796446}
   m_Father: {fileID: 1499646347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.7437, y: 391.65}
+  m_AnchoredPosition: {x: 1.7437, y: 343}
   m_SizeDelta: {x: 1399.5, y: 160.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217450613
@@ -226,13 +225,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217450611}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -269,8 +268,8 @@ GameObject:
   - component: {fileID: 240774447}
   - component: {fileID: 240774446}
   - component: {fileID: 240774445}
-  - component: {fileID: 240774444}
   - component: {fileID: 240774449}
+  - component: {fileID: 240774444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -302,7 +301,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMessage: ' Hello World!'
+  startMessage: "<color=green> You\u2019ve forgotten what year it is at this point.
+    It\u2019s been several winters since you last remembered your apartment, your
+    family, your old life before this city went to the dogs. \\n \\n There was a
+    viral outbreak of some sort of rabies all those years ago, and within 48 hours
+    the situation was deemed uncontrollable by your local provincial administration.
+    Things became a hectic blur and now the only survivors that remain are those
+    who are either naturally immune or very careful. There is no government presence,
+    no military, no hope. \\n \\n Every day might be your last, every hour you spend
+    determines your fate. All you have is your base, your life, and time. \\n \\n\r\n"
   currentText: 
   newMessage: 
   ConsoleText: {fileID: 1922068083}
@@ -310,11 +317,9 @@ MonoBehaviour:
   PlaceHolder: {fileID: 1410362261}
   HealthBar: {fileID: 305949617}
   BaseHealthBar: {fileID: 284214713}
-  TimeText: {fileID: 0}
-  PossibleActions: []
-  speedToLengthRatio: 10
-  minSpeed: 1
-  maxSpeed: 3
+  TimeText: {fileID: 917545768}
+  textSpeedMultiplier: 10
+  textSpeed: 0.5
   blinkerCooldown: 1
   enterInputSound: {fileID: 8286339686561626741, guid: 1f4b738664c2a304880377292d394ed8, type: 3}
 --- !u!114 &240774446
@@ -351,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a93395b21dd3d4680dc26bb8c3eec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalZombieDensity: 0
+  GlobalZombieDensity: 1
   Locations: []
 --- !u!4 &240774448
 Transform:
@@ -377,18 +382,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 240774443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b624e481bcfca784ea900b5a5e01b59a, type: 3}
+  m_Script: {fileID: 11500000, guid: 34efc443b25aa1e448f7f5c4fa423498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Locations:
-  - {fileID: 463158542}
-  - {fileID: 463158542}
-  - {fileID: 2123493647}
-  - {fileID: 1210496673}
-  - {fileID: 502207886}
-  - {fileID: 122438782}
-  - {fileID: 1103034358}
-  - {fileID: 469355709}
 --- !u!1 &280007021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1146,7 @@ MonoBehaviour:
   - {fileID: 1103034358}
   - {fileID: 2123493647}
   neighborDistances: 010000000200000002000000
-  zombieDesnity: 0
+  zombieDesnity: 10
   humanDesnity: 0
   fishDensity: 0
   animalDesnity: 0
@@ -1433,6 +1429,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1036634627}
+  - {fileID: 827796446}
   m_Father: {fileID: 1499646347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1503,17 +1500,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827796445}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 917545767}
-  m_Father: {fileID: 217450612}
+  m_Father: {fileID: 755236292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: -108}
+  m_AnchoredPosition: {x: -62.256298, y: 510.18002}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827796447
@@ -2741,7 +2738,7 @@ Transform:
   m_GameObject: {fileID: 1664082752}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5742799, y: 0.28553146, z: -0.030559646}
+  m_LocalPosition: {x: -0.48, y: -0.34, z: -0.030559646}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

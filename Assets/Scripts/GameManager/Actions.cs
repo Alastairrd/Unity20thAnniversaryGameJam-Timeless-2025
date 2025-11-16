@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Actions : MonoBehaviour
@@ -14,6 +15,130 @@ public class Actions : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    #endregion
+
+    public HashSet<string> AllPossibleActions = new HashSet<string>()
+    {
+            "bunker",
+            "sleep",
+            "upgrade", //same as craft, but of things you already have
+            "craft",
+                "axe",
+                "gloves",
+                "knife",
+                "picker",
+                "rod",
+                "wrench",
+                "gun",
+                "bullet",
+            "build",
+                "walls",
+                "reinforcement",
+                "traps",
+                "bed",
+            "consume",
+                "medicine",
+                "bandade",
+                "sushi",
+                "meat",
+                "vegetable",
+                "water",
+            "scavange",
+                "yard",
+                "building",
+                "city",
+                "river",
+                "forest",
+                "desert",
+            "get",
+                "wood",
+                "metal",
+                "scraps",
+                "fish",
+                "hunt",
+                "pick",
+                "water",
+            "fight",
+                "dash",
+                "shoot",
+                "attack",
+            "flee", //goes to bunker
+            "talk", //human interaction
+                "buy",   //will offer a random item at a random cost dependant on sanity
+                "sell",  //will offer a random price at a random 
+                "trade", //will offer a random item for another random item
+            "exit"
+    };
+
+    public HashSet<string> ConstantActions = new HashSet<string>
+    {
+        "help",    //prints all constant actions
+        "settings",
+        "up",
+        "down",
+        "faster",
+        "slower",
+        "actions", //possible actions
+        "restart"
+    };
+
+
+    #region Transforming Actions
+    public Queue<string> CreateQueueFromActions(List<string> possibleActions)
+    {
+        Queue<string> actionQueue = new Queue<string>();
+
+        actionQueue.Enqueue("\n Please choose one of the following actions (type word or action): \n");
+        for (int i = 0; i < possibleActions.Count; i++)
+        {
+            actionQueue.Enqueue((i + 1).ToString() + " " + possibleActions[i] + "   ");
+        }
+        actionQueue.Enqueue("\n");
+
+        return actionQueue;
+    }
+
+    public HashSet<string> HashFromListOfPossibleActions(List<string> ProccessedActions) 
+    {
+        HashSet<string> hash = new HashSet<string>();
+
+        foreach (string action in ProccessedActions)
+        {
+            hash.Add(action);
+        }
+
+        return hash; 
+    }
+
+    public Queue<string> CreateQueueFromProcessedActions()
+    {
+        return CreateQueueFromActions(ProcessPossibleActions());
+    }
+
+    #endregion
+
+    #region ProcessingPossibleChoices
+    //we return a list because that way it can have numbers when we create queue from actions
+    public List<string> ProcessPossibleActions()
+    {
+        List<string> list = new List<string>();
+
+        if (Player.Instance.currentState == Player.PlayerStates.idle)
+        {
+            if (Player.Instance.currentLocation != LocationList.Locations.Bunker)
+                list.Add("bunker");
+
+            list.Add("scavenge");
+
+        }
+
+        if (list.Count == 0)
+        {
+            Debug.Log("No Actions");
+        }
+
+        return list;
     }
     #endregion
 
@@ -211,6 +336,21 @@ public class Actions : MonoBehaviour
     {
 
     }
+
+        public void Shoot()
+        {
+
+        }
+
+        public void Attack()
+        {
+
+        }
+
+        public void Dash()
+        {
+
+        }
 
     public void Flee()
     {

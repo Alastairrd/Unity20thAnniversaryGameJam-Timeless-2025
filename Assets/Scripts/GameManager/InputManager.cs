@@ -20,95 +20,12 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
-    public HashSet<string> AllPossibleActions = new HashSet<string>()
-    {
-            "bunker",
-            "sleep",
-            "upgrade", //same as craft, but of things you already have
-            "craft",
-                "axe",      
-                "gloves",
-                "knife",
-                "picker",
-                "rod",
-                "wrench",
-                "gun",
-                "bullet",
-            "build",
-                "walls",
-                "reinforcement",
-                "traps",
-                "bed",
-            "consume",
-                "medicine",
-                "bandade",
-                "fish",
-                "meat",
-                "vegetable",
-                "water",
-            "scavange",
-                "yard",
-                "building",
-                "city",
-                "river",
-                "forest",
-                "desert",
-            "get",
-                "wood",
-                "metal",
-                "scraps",
-                "fish",
-                "hunt",
-                "pick",
-                "water",
-            "fight",
-            "flee", //goes to bunker
-            "talk", //human interaction
-                "buy",   //will offer a random item at a random cost dependant on sanity
-                "sell",  //will offer a random price at a random 
-                "trade", //will offer a random item for another random item
-            "exit"
-    };
-
-
-    public HashSet<string> CurrentPossibleActions = new HashSet<string> 
-    {
-         "scavenge",
-    };
-
-    public HashSet<string> ConstantActions = new HashSet<string>
-    {
-        "help",    //prints all constant actions
-        "settings",
-        "up",
-        "down",
-        "faster",
-        "slower",
-        "actions", //possible actions
-        "restart"
-    };
-
-
-    public Queue<string> CreateQueueFromActions(List<string> possibleActions)
-    {
-        Queue<string> actionQueue = new Queue<string>();
-
-        actionQueue.Enqueue("\n Please choose one of the following actions: \n");
-        for (int i = 0; i < possibleActions.Count; i++)
-        {
-            actionQueue.Enqueue((i + 1).ToString() + ". " + possibleActions[i] + "   ");
-        }
-        actionQueue.Enqueue("\n");
-
-        return actionQueue;
-    }
-
 
     public void HandleInputLogic(string input) 
     {
-        if (ConstantActions.Contains(input))
+        if (Actions.Instance.ConstantActions.Contains(input))
             ValidConstantAction(input);
-        else if (CurrentPossibleActions.Contains(input))
+        else if (Actions.Instance.HashFromListOfPossibleActions(Actions.Instance.ProcessPossibleActions()).Contains(input))
             ValidPossibleAction(input);
         else
             UIManager.Instance.PrintMessage("You are unable to:" + input);
@@ -120,36 +37,48 @@ public class InputManager : MonoBehaviour
         {
             case "help":
                 {
-                    List<string> helpQueue = new List<string>();
-                    helpQueue.Add("settings -> shows commands for changing volume and text speed");
-                    helpQueue.Add("actions -> shows all possible actions");
-                    helpQueue.Add("restart -> start the game over");
-                    UIManager.Instance.InputQueue(CreateQueueFromActions(helpQueue));
+                    List<string> helpList = new List<string>()
+                    {
+                        "settings -> shows commands for changing volume and text speed",
+                        "actions -> shows all possible actions",
+                        "restart -> start the game over"
+                    };
+                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(helpList));
                 }
                 break;
             case "settings":
                 {
-                    List<string> helpQueue = new List<string>();
-                    helpQueue.Add("up -> raise volume");
-                    helpQueue.Add("down -> lower volume");
-                    helpQueue.Add("faster -> make text speed faster");
-                    helpQueue.Add("slow -> make text speed slower");
-                    UIManager.Instance.InputQueue(CreateQueueFromActions(helpQueue));
+                    List<string> helpList = new List<string>()
+                    {
+                        "up -> raise volume",
+                        "down -> lower volume",
+                        "faster -> make text speed faster",
+                        "slow -> make text speed slower"
+                    };
+                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(helpList));
                 }
                 break;
             case "up":
-                UIManager.Instance.PrintMessage("Volume is no: " );
+                UIManager.Instance.IncreaseVolume();
+                UIManager.Instance.PrintMessage("volume: " + AudioListener.volume);
                 break;
             case "down":
+                UIManager.Instance.DecreaseVolume();
+                UIManager.Instance.PrintMessage("volume: " + AudioListener.volume);
                 break;
             case "faster":
+                UIManager.Instance.IncreaseTextSpeed();
+                UIManager.Instance.PrintMessage("text Speed: " + UIManager.Instance.textSpeed);
                 break;
             case "slower":
+                UIManager.Instance.DecreaseTextSpeed();
+                UIManager.Instance.PrintMessage("text Speed: " + UIManager.Instance.textSpeed);
                 break;
             case "actions":
+                UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(Actions.Instance.ProcessPossibleActions()));
                 break;
             case "restart":
-            SceneManager.LoadScene(0);
+                SceneManager.LoadScene(0);
                 break;
             default:
                 break;
@@ -316,7 +245,17 @@ public class InputManager : MonoBehaviour
             case "fight":
                 Actions.Instance.Fight();
                 break;
+                case "shoot":
+                    Actions.Instance.Shoot();
+                    break;
 
+                case "attack":
+                    Actions.Instance.Attack();
+                    break;
+
+                case "dash":
+                    Actions.Instance.Dash();
+                    break;
             case "flee":
                 Actions.Instance.Flee();
                 break;
