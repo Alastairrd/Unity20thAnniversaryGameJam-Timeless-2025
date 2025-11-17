@@ -31,10 +31,10 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] List<string> PossibleOutcomes;
 
-
-    [SerializeField] float speedToLengthRatio = 10;
-    [SerializeField] float minSpeed = 1;
-    [SerializeField] float maxSpeed = 3;
+    [Range(0f, 1f)]
+    [SerializeField] float textSpeed = .1f;
+    [Range(1f, 40f)]
+    [SerializeField] float textSpeedMultiplier = 10;
 
     [SerializeField] GameObject enterInputSound;
 
@@ -220,7 +220,7 @@ public class UIManager : MonoBehaviour
         if (HealthBar)
         {
             HealthBar.fillAmount = GameController.Instance.playerHealth / 100;
-            BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 100;
+            BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 10;
             Metal.text = GameController.Instance.metal.ToString();
             Medicine.text = GameController.Instance.medicine.ToString();
             Wood.text = GameController.Instance.wood.ToString();
@@ -228,7 +228,7 @@ public class UIManager : MonoBehaviour
 
         TimeText.text = (24 - GameController.Instance.hoursLeftToday).ToString() + ":00";
 
-        Debug.Log("Updated UI");
+        //Debug.Log("Updated UI");
     }
 
     void ChosenAction(int actionChosen)
@@ -333,33 +333,16 @@ public class UIManager : MonoBehaviour
         currentText += tagStart;
         while (newMessage.Length > 0) 
         {
-            //Debug.Log(newMessage);
-            float textSpeed = TextSpeed(newMessage);
             currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
             OnTextChange();
-            yield return new WaitForSeconds(textSpeed);
+                if(!pressingSkip)
+                    yield return new WaitForSeconds(textSpeed / textSpeedMultiplier);
         }
 
         currentText += tagEnd;
         tagStart = tagEnd = "";
         yield return null;
-    }
-
-
-    //Returns a speed proportional to the length of the text
-    float TextSpeed(string text)
-    {
-        if (pressingSkip) 
-        {
-            //Debug.Log("Skipping text speed");
-            return 0;
-        }
-        else 
-        {
-            return Mathf.Clamp(speedToLengthRatio / text.Length, 1 / maxSpeed, 1 / minSpeed);
-        }
-            
     }
 
     public void OnTextChange()
