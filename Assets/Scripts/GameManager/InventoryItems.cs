@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class InventoryItems
 {
@@ -45,6 +46,24 @@ public class InventoryItems
         traps,
     }
 
+    public static readonly HashSet<Items> ResourceItems = new HashSet<Items>()
+    {
+        Items.wood,
+        Items.metal,
+        Items.scraps,
+        Items.leather
+    };
+
+    public static readonly HashSet<Items> ConsumableItems = new HashSet<Items>() 
+    {
+        Items.water,      //heals 10
+        Items.vegetables, //heals 5
+        Items.meat,       //heals 5 but takes time
+        Items.fish,       //but catches plenty and takes time
+        Items.medicine, //heals compeletly
+        Items.bandade, //changes maz health
+    };
+
     // one compact struct for your 4 materials
     public struct Recipe
     {
@@ -62,21 +81,22 @@ public class InventoryItems
         }
     }
 
-    // static recipe table
+    // takes little itmes
     public static readonly Dictionary<Items, Recipe> UtilityRecipes =
         new Dictionary<Items, Recipe>
         {
             // utilities
-            { Items.axe,    new Recipe(wood: 3, metal: 1, scraps: 0, leather: 0) },
-            { Items.gloves, new Recipe(wood: 0, metal: 0, scraps: 2, leather: 1) },
+            { Items.axe,    new Recipe(wood: 1, metal: 1, scraps: 0, leather: 1) },
+            { Items.gloves, new Recipe(wood: 0, metal: 0, scraps: 1, leather: 1) },
             { Items.knife,  new Recipe(wood: 1, metal: 1, scraps: 0, leather: 1) },
-            { Items.picker, new Recipe(wood: 2, metal: 0, scraps: 1, leather: 0) },
-            { Items.rod,    new Recipe(wood: 2, metal: 1, scraps: 3, leather: 0) },
-            { Items.wrench, new Recipe(wood: 0, metal: 3, scraps: 1, leather: 0) },
-            { Items.gun,    new Recipe(wood: 1, metal: 5, scraps: 4, leather: 2) }, // more guns == more accuracy
+            { Items.picker, new Recipe(wood: 1, metal: 0, scraps: 1, leather: 0) },
+            { Items.rod,    new Recipe(wood: 1, metal: 1, scraps: 1, leather: 0) },
+            { Items.wrench, new Recipe(wood: 0, metal: 1, scraps: 1, leather: 0) },
+            { Items.gun,    new Recipe(wood: 1, metal: 2, scraps: 2, leather: 1) }, // more guns == more accuracy
             { Items.bullet, new Recipe(wood: 0, metal: 1, scraps: 1, leather: 0) }, //attacking uses bullets
         };
 
+    //takes more items
     public static readonly Dictionary<Items, Recipe> UtilityUpgrades =
         new Dictionary<Items, Recipe>
         {
@@ -85,17 +105,18 @@ public class InventoryItems
             { Items.gloves, new Recipe(wood: 0, metal: 0, scraps: 1, leather: 1) },
             { Items.knife,  new Recipe(wood: 1, metal: 1, scraps: 0, leather: 1) },
             { Items.picker, new Recipe(wood: 2, metal: 0, scraps: 1, leather: 0) },
-            { Items.rod,    new Recipe(wood: 2, metal: 1, scraps: 0, leather: 0) },
+            { Items.rod,    new Recipe(wood: 0, metal: 1, scraps: 2, leather: 0) },
             { Items.wrench, new Recipe(wood: 0, metal: 3, scraps: 1, leather: 0) },
         };
 
+    //takes lots of items
     public static readonly Dictionary<BunkerItems, Recipe> BuildingRecipes =
         new Dictionary<BunkerItems, Recipe>
         {
             // utilities
-            { BunkerItems.bed,    new Recipe(wood: 10, metal: 1, scraps: 5, leather: 10) },       //restores more sanity
-            { BunkerItems.traps, new Recipe(wood: 0, metal: 2, scraps: 5, leather: 1) },          //strenght 
-            { BunkerItems.walls,  new Recipe(wood: 1, metal: 1, scraps: 0, leather: 1) },         // heals
+            { BunkerItems.bed,           new Recipe(wood: 10, metal: 1, scraps: 5, leather: 10) },       //restores more sanity
+            { BunkerItems.traps,         new Recipe(wood: 0, metal: 3, scraps: 3, leather: 1) },          //strenght 
+            { BunkerItems.walls,         new Recipe(wood: 2, metal: 2, scraps: 0, leather: 2) },         // heals
             { BunkerItems.reinforcement, new Recipe(wood: 0, metal: 10, scraps: 1, leather: 0) }, // increases MaxHP
         };
 

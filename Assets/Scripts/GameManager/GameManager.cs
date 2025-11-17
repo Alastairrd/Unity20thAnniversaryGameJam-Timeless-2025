@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,9 +21,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int GlobalZombieDensity = 1;
-    public List<Location> Locations;
+    public List<Location> Locations = new List<Location>();
     public int time = 8;
 
+    #region Time
+
+    #endregion
 
     private void Start()
     {

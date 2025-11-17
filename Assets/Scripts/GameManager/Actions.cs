@@ -126,48 +126,81 @@ public class Actions : MonoBehaviour
 
         if (Player.Instance.currentState == Player.PlayerStates.idle)
         {
-            if (Player.Instance.currentLocation != LocationList.Locations.Bunker)
-                list.Add("bunker");
-            else if((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.insanity > 16)
-                list.Add("sleep");
-            
+            if (Player.Instance.currentLocation == LocationList.Locations.Bunker)
+            {
+                if ((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.insanity > 16)
+                    list.Add("sleep");
+                if (Player.Instance.canCraftAnyItem())
+                    list.Add("craft");
+                if (Player.Instance.canUpgradeAnyItem())
+                    list.Add("upgrade");
+                if (Player.Instance.canBuildAnyItem())
+                    list.Add("build");
+            }
+            else
+            {
+               list.Add("bunker");
+            }
+                
             list.Add("scavenge");
 
-            if (Player.Instance.canCraftAnyItem()) 
-                list.Add("craft");
-
-                if(Player.Instance.canCraftItem(InventoryItems.Items.axe))
-                    list.Add("axe");
-                if (Player.Instance.canCraftItem(InventoryItems.Items.wrench))
-                    list.Add("wrench");
-                if (Player.Instance.canCraftItem(InventoryItems.Items.knife))
-                    list.Add("knife");
-                if (Player.Instance.canCraftItem(InventoryItems.Items.gloves))
-                    list.Add("gloves");
-                if (Player.Instance.canCraftItem(InventoryItems.Items.gun))
-                    list.Add("gun");
-                if (Player.Instance.canCraftItem(InventoryItems.Items.bullet))
-                    list.Add("bullet");
-            /*
-            "axe",
-                "gloves",
-                "knife",
-                "picker",
-                "rod",
-                "wrench",
-                "gun",
-                "bullet",*/
-
-
-            if (Player.Instance.canUpgradeAnyItem())
-                list.Add("upgrade");
-
+            if(Player.Instance.canCraftAnyItem())
+                list.Add("consume");
         }
 
-        if (list.Count == 0)
+        if (Player.Instance.currentState == Player.PlayerStates.crafting)
         {
-            Debug.Log("No Actions");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.axe))
+                list.Add("axe");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.wrench))
+                list.Add("wrench");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.knife))
+                list.Add("knife");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.gloves))
+                list.Add("gloves");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.gloves))
+                list.Add("rod");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.gun))
+                list.Add("gun");
+            if (Player.Instance.canCraftItem(InventoryItems.Items.bullet))
+                list.Add("bullet");
         }
+
+        if (Player.Instance.currentState == Player.PlayerStates.upgrading)
+        {
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.axe))
+                list.Add("axe");
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.wrench))
+                list.Add("wrench");
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.knife))
+                list.Add("knife");
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.gloves))
+                list.Add("gloves");
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.gloves))
+                list.Add("rod");
+        }
+
+        if (Player.Instance.currentState == Player.PlayerStates.consuming) 
+        {
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.water))
+                list.Add("water");
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.fish))
+                list.Add("sushi");
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.meat))
+                list.Add("meat");
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.vegetables))
+                list.Add("vegetables");
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.medicine))
+                list.Add("medicine");
+            if (Player.Instance.canConsumeItem(InventoryItems.Items.bandade))
+                list.Add("bandade");
+
+        }
+
+            if (list.Count == 0)
+            {
+                Debug.Log("No Actions");
+            }
 
         return list;
     }

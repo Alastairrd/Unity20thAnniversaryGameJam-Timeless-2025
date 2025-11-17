@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -191,6 +192,15 @@ public class Player : MonoBehaviour
     {
         weight = amount;
     }
+
+    public void CalculateAndUpdateWeight() 
+    {
+        weight += (inventoryDictionary[InventoryItems.Items.wood]);
+        weight += (inventoryDictionary[InventoryItems.Items.metal]);
+        weight += (inventoryDictionary[InventoryItems.Items.scraps]);
+        weight += (inventoryDictionary[InventoryItems.Items.leather]);
+    }
+
     #endregion
 
         #region Location
@@ -203,9 +213,24 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Inventory
+
+    public void DumpResourcesIntoBunker()
+    {
+        bunkerDictionary[InventoryItems.BunkerItems.wood] += inventoryDictionary[InventoryItems.Items.wood];
+        bunkerDictionary[InventoryItems.BunkerItems.metal] += inventoryDictionary[InventoryItems.Items.metal];
+        bunkerDictionary[InventoryItems.BunkerItems.scraps] += inventoryDictionary[InventoryItems.Items.scraps];
+        bunkerDictionary[InventoryItems.BunkerItems.leather] += inventoryDictionary[InventoryItems.Items.leather];
+
+        inventoryDictionary[InventoryItems.Items.leather] = 0;
+        inventoryDictionary[InventoryItems.Items.leather] = 0;
+        inventoryDictionary[InventoryItems.Items.leather] = 0;
+        inventoryDictionary[InventoryItems.Items.leather] = 0;
+
+        ResetWeight();
+    }
+
+        #region Playter Inventory
     public Dictionary<InventoryItems.Items, int> inventoryDictionary = new Dictionary<InventoryItems.Items, int>();
-    public Dictionary<InventoryItems.Items, int> bunkerDictionary = new Dictionary<InventoryItems.Items, int>();
-    //HashSet<InventoryItems.Guns> gunsDictionary = new HashSet<InventoryItems.Guns>();
 
     public int ReadItemAmount(InventoryItems.Items item)
     {
@@ -215,66 +240,7 @@ public class Player : MonoBehaviour
             Debug.LogWarning(item + ": does not exist within item");
         return 0;
     }
-
-    public bool canCraftItem(InventoryItems.Items item) 
-    {
-        if(ReadItemAmount(item) == 0) 
-        {
-            if (
-               (ReadItemAmount(InventoryItems.Items.wood)       > InventoryItems.UtilityRecipes[item].wood)
-            && (ReadItemAmount(InventoryItems.Items.metal)      > InventoryItems.UtilityRecipes[item].metal)
-            && (ReadItemAmount(InventoryItems.Items.scraps)     > InventoryItems.UtilityRecipes[item].scraps)
-            && (ReadItemAmount(InventoryItems.Items.leather)    > InventoryItems.UtilityRecipes[item].leather)
-               )
-                    return true;
-        }
-        return false;
             
-    }
-
-    public bool canCraftAnyItem() //needs testing
-    {
-        bool canCraftItemSoFar = false;
-        foreach (InventoryItems.Items item in InventoryItems.UtilityRecipes.Keys)
-        {
-            if (canCraftItem(item))
-                canCraftItemSoFar = true;
-            else
-                return false;
-        }
-        return canCraftItemSoFar;
-    }
-
-    public bool canUpgradeItem(InventoryItems.Items item)
-    {
-        if (ReadItemAmount(item) > 0)
-        {
-            if (
-               (ReadItemAmount(InventoryItems.Items.wood)       > InventoryItems.UtilityUpgrades[item].wood)
-            && (ReadItemAmount(InventoryItems.Items.metal)      > InventoryItems.UtilityUpgrades[item].metal)
-            && (ReadItemAmount(InventoryItems.Items.scraps)     > InventoryItems.UtilityUpgrades[item].scraps)
-            && (ReadItemAmount(InventoryItems.Items.leather)    > InventoryItems.UtilityUpgrades[item].leather)
-               )
-                return true;
-        }
-        return false;
-
-    }
-
-    public bool canUpgradeAnyItem() //needs testing
-    {
-        bool canUpgradeItemSoFar = false;
-        foreach (InventoryItems.Items item in InventoryItems.UtilityUpgrades.Keys)
-        {
-            if (canUpgradeItem(item))
-                canUpgradeItemSoFar = true;
-            else
-                return false;
-        }
-        return canUpgradeItemSoFar;
-    }
-
-
     public void AddItem(InventoryItems.Items item, int amount)
     {
         if (inventoryDictionary.ContainsKey(item)) 
@@ -292,14 +258,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// This function does allow item to go to 0, which means 
-    /// </summary>
     public void RemoveItem(InventoryItems.Items item, int amount)
     {
         if (inventoryDictionary.ContainsKey(item))
         {
-            if (inventoryDictionary[item] <= inventoryDictionary[item] - amount)
+            if (inventoryDictionary[item] - amount <= 0)
             {
                 //Out of item
                 Debug.Log("You went past");
@@ -329,6 +292,192 @@ public class Player : MonoBehaviour
         inventoryDictionary = newInventoryDictionary;
     }
 
+    public void CreateInventory() 
+    {
+        foreach (InventoryItems.Items item in Enum.GetValues(typeof(InventoryItems.Items)))
+        {
+            inventoryDictionary.Add(item, 0);
+        }
+    }
+
+                #region Crafting 
+    public bool canCraftItem(InventoryItems.Items item)
+    {
+        if (ReadItemAmount(item) == 0 || (item == InventoryItems.Items.gun || item == InventoryItems.Items.bullet))
+        {
+            if (
+               (ReadBunkerItemAmount(InventoryItems.BunkerItems.wood) > InventoryItems.UtilityRecipes[item].wood)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.metal) > InventoryItems.UtilityRecipes[item].metal)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.scraps) > InventoryItems.UtilityRecipes[item].scraps)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.leather) > InventoryItems.UtilityRecipes[item].leather)
+               )
+                return true;
+        }
+        return false;
+
+    }
+
+    public bool canCraftAnyItem() //needs testing
+    {
+        foreach (InventoryItems.Items item in InventoryItems.UtilityRecipes.Keys)
+        {
+            if (canCraftItem(item))
+                return true;
+        }
+        return false;
+    }
+    #endregion
+
+                #region Upgrade
+    public bool canUpgradeItem(InventoryItems.Items item)
+    {
+        if (ReadItemAmount(item) > 0)
+        {
+            if (
+               (ReadBukerItemAmount(InventoryItems.BunkerItems.wood) > InventoryItems.UtilityUpgrades[item].wood)
+            && (ReadBukerItemAmount(InventoryItems.BunkerItems.metal) > InventoryItems.UtilityUpgrades[item].metal)
+            && (ReadBukerItemAmount(InventoryItems.BunkerItems.scraps) > InventoryItems.UtilityUpgrades[item].scraps)
+            && (ReadBukerItemAmount(InventoryItems.BunkerItems.leather) > InventoryItems.UtilityUpgrades[item].leather)
+               )
+                return true;
+        }
+        return false;
+
+    }
+
+    public bool canUpgradeAnyItem() //needs testing
+    {
+        foreach (InventoryItems.Items item in InventoryItems.UtilityUpgrades.Keys)
+        {
+            if (canUpgradeItem(item))
+                return true;
+        }
+        return false;
+    }
+
+    #endregion
+
+                #region Consume
+    public bool canConsumeItem(InventoryItems.Items item)
+    {
+        if (ReadItemAmount(item) > 0)
+                return true;
+        return false;
+
+    }
+
+    public bool canConsumeAnyItem() //needs testing
+    {
+        foreach (InventoryItems.Items item in InventoryItems.ConsumableItems)
+        {
+            if (canConsumeItem(item))
+                return true;
+        }
+        return false;
+    }
+
+    #endregion
+
+        #region BunkerInventory
+    public Dictionary<InventoryItems.BunkerItems, int> bunkerDictionary = new Dictionary<InventoryItems.BunkerItems, int>();
+    public int ReadBunkerItemAmount(InventoryItems.BunkerItems item)
+    {
+        if (bunkerDictionary.ContainsKey(item))
+            return bunkerDictionary[item];
+        else
+            Debug.LogWarning(item + ": does not exist within item");
+        return 0;
+    }
+
+    public void AddBunkerItem(InventoryItems.BunkerItems item, int amount)
+    {
+        if (bunkerDictionary.ContainsKey(item))
+        {
+            if (bunkerDictionary[item] == 0)
+            {
+                //Added new item event
+                //maybe print the fact? or achievement or narrrative bool?
+            }
+
+            bunkerDictionary[item] += 1;
+        }
+        else
+        {
+            Debug.LogWarning(item + ": does not exist within item");
+        }
+    }
+
+    public void RemoveBunkerItem(InventoryItems.BunkerItems item, int amount)
+    {
+        if (bunkerDictionary.ContainsKey(item))
+        {
+            if (bunkerDictionary[item] - amount <= 0)
+            {
+                //Out of item
+                Debug.LogWarning("You went past");
+                bunkerDictionary[item] = 0;
+            }
+            else
+            {
+                bunkerDictionary[item] -= amount;
+            }
+        }
+        else
+        {
+            Debug.LogWarning(item + " does not exist");
+        }
+    }
+
+    public void SetBunkerItem(InventoryItems.BunkerItems item, int amount)
+    {
+        if (bunkerDictionary.ContainsKey(item))
+            bunkerDictionary[item] = amount;
+        else
+            Debug.LogWarning(item + " does not exist");
+    }
+
+    public void SetBunkerInventory(Dictionary<InventoryItems.BunkerItems, int> newBunkerInventoryDictionary)
+    {
+        bunkerDictionary = newBunkerInventoryDictionary;
+    }
+    public void CreateBunkerInventory()
+    {
+        foreach (InventoryItems.BunkerItems item in Enum.GetValues(typeof(InventoryItems.BunkerItems)))
+        {
+            bunkerDictionary.Add(item, 0);
+        }
+    }
+            #region Build
+    public bool canBuildItem(InventoryItems.BunkerItems item)
+    {
+        if (ReadBunkerItemAmount(item) == 0)
+        {
+            if (
+               (ReadBunkerItemAmount(InventoryItems.BunkerItems.wood)     > InventoryItems.BuildingRecipes[item].wood)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.metal)    > InventoryItems.BuildingRecipes[item].metal)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.scraps)   > InventoryItems.BuildingRecipes[item].scraps)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.leather)  > InventoryItems.BuildingRecipes[item].leather)
+               )
+                return true;
+        }
+        return false;
+
+    }
+
+    public bool canBuildAnyItem() //needs testing
+    {
+        bool canBuildItemSoFar = false;
+        foreach (InventoryItems.BunkerItems item in InventoryItems.BuildingRecipes.Keys)
+        {
+            if (canBuildItem(item))
+                canBuildItemSoFar = true;
+            else
+                return false;
+        }
+        return canBuildItemSoFar;
+    }
+            #endregion
+        #endregion
     #endregion
 
     #region Player States
@@ -383,6 +532,11 @@ public class Player : MonoBehaviour
         if(PlayerSettings != null)
         {
             SetPlayerSettings();
+        }
+        else 
+        {
+            CreateInventory();
+            CreateBunkerInventory();
         }
         health = maxHealth;
     }
