@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6936975067234868327}
   - component: {fileID: 6190280302504889139}
   - component: {fileID: 8276393321486661752}
+  - component: {fileID: 3804930916184648932}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   hoursLeftToday: 16
   wallCount: 10
   trapCount: 5
-  playerHealth: 12
+  playerHealth: 100
   baseHealth: 10
   wood: 5
   metal: 5
@@ -72,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ecd357c8faaaf4195bb1687ff56c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wave: 1
 --- !u!114 &8276393321486661752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +87,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionDatabase: {fileID: 4253192022652204188}
+--- !u!114 &3804930916184648932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391162229997344737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMessage: "<color=green> You\u2019ve forgotten what year it is at this point.
+    It\u2019s been several winters since you last remembered your apartment, your
+    family, your old life before this city went to the dogs. \\n \\n There was a
+    viral outbreak of some sort of rabies all those years ago, and within 48 hours
+    the situation was deemed uncontrollable by your local provincial administration.
+    Things became a hectic blur and now the only survivors that remain are those
+    who are either naturally immune or very careful. There is no government presence,
+    no military, no hope. \\n \\n Every day might be your last, every hour you spend
+    determines your fate. All you have is your base, your life, and time. \\n \\n"
+  currentText: 
+  newMessage: 
+  ConsoleText: {fileID: 0}
+  InputText: {fileID: 0}
+  PlaceHolder: {fileID: 0}
+  ResourceUI: {fileID: 0}
+  HealthBar: {fileID: 0}
+  BaseHealthBar: {fileID: 0}
+  TimeText: {fileID: 0}
+  Wood: {fileID: 0}
+  Metal: {fileID: 0}
+  Medicine: {fileID: 0}
+  PossibleOutcomes: []
+  textSpeed: 0.75
+  textSpeedMultiplier: 10
+  enterInputSound: {fileID: 8286339686561626741, guid: 1f4b738664c2a304880377292d394ed8, type: 3}
+  blinkerCooldown: 0.85
 --- !u!1 &4253192022652204188
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +136,9 @@ GameObject:
   - component: {fileID: 1765113280377186594}
   - component: {fileID: 4091425873692780791}
   - component: {fileID: 5572239214298210171}
+  - component: {fileID: 7949180850726433135}
+  - component: {fileID: 2616947581545446103}
+  - component: {fileID: 3940015192912251074}
   m_Layer: 0
   m_Name: ActionDatabase
   m_TagString: Untagged
@@ -131,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildTrap
-  _timeChange: 3
+  _timeChange: 2
   outcomes:
   - {fileID: 11400000, guid: 48fcc2d179447474a8d0e12eee91c526, type: 2}
   - {fileID: 11400000, guid: ef6e68a36afc9b24fb0fb2254255d31e, type: 2}
@@ -149,8 +192,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionName: BuildWall
-  _timeChange: 3
+  _timeChange: 2
   outcomes:
   - {fileID: 11400000, guid: 4a438a91e2a124840ba767f106cf7e16, type: 2}
   - {fileID: 11400000, guid: 94803fe3c21fdda4aa4b989debc00a70, type: 2}
   - {fileID: 11400000, guid: 09bf000ce9c902e4db0e04ed6c331178, type: 2}
+--- !u!114 &7949180850726433135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253192022652204188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e1bd43ae5f7be4e92d8db3971f39ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: PassTime
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: 0d481320cd00d2d48b8dbbe670ee8f85, type: 2}
+--- !u!114 &2616947581545446103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253192022652204188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ba335e0785a243a559d94e16da63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: HealPlayer
+  _timeChange: 2
+  outcomes:
+  - {fileID: 11400000, guid: e39abc99b7146ef4a83aff2f7a0af3ec, type: 2}
+  - {fileID: 11400000, guid: a9210045faa145c47958f8bbe0d0dc24, type: 2}
+  - {fileID: 11400000, guid: c750283edc7b349499f688e13b154d7e, type: 2}
+--- !u!114 &3940015192912251074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253192022652204188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c7243e7772e384695fedbe06ebe63e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Scavenge
+  _timeChange: 4
+  outcomes:
+  - {fileID: 11400000, guid: 170ff0139243dc044ba73f97493f220c, type: 2}
+  - {fileID: 11400000, guid: dabebe8e4ea470e468f4009c79313350, type: 2}
+  - {fileID: 11400000, guid: 629a53db07ca0f94d9a5d9a65363d509, type: 2}
+  - {fileID: 11400000, guid: 804f363b898d6b54a82ed4937a3b1214, type: 2}
+  - {fileID: 11400000, guid: 36529a19a39badc4db6fdf979c32f04f, type: 2}
+  - {fileID: 11400000, guid: a717cd8adfdedbb44b89fe28abf345b6, type: 2}
+  - {fileID: 11400000, guid: 8095c1a5cba5bbe469bafd317e424765, type: 2}
+  - {fileID: 11400000, guid: dffcf42d14ddc4542852060fc6e6498a, type: 2}
+  - {fileID: 11400000, guid: bc24ad982b95d264e9f295c9c4d15035, type: 2}
+  - {fileID: 11400000, guid: 1eebbd94b65136449a26603974f3eabb, type: 2}
+  - {fileID: 11400000, guid: 992196c0f73562e46b7c28814296d667, type: 2}
+  - {fileID: 11400000, guid: dc816b59d8528b14885660a5f445f28a, type: 2}
+  - {fileID: 11400000, guid: 98d5d40cd0d9ea34bb3c91473a0918bd, type: 2}
+  - {fileID: 11400000, guid: e6cb6a5d449822846a1a221d46e4f790, type: 2}
+  - {fileID: 11400000, guid: 8ac8bf3c5d468f4488d4230977185fa8, type: 2}
+  - {fileID: 11400000, guid: 6cab7cee611be134482c8fd8bc635146, type: 2}
+  - {fileID: 11400000, guid: 6a549be0f5cbb034184d5b77405f91ab, type: 2}
+  - {fileID: 11400000, guid: d807beaaf3c1d604eadb4f4fc8d35032, type: 2}
+  - {fileID: 11400000, guid: 90eaa2fc3d948e846896bc972e164c8f, type: 2}
+  - {fileID: 11400000, guid: 2e38e56f8865875468fc36f125effb7b, type: 2}
+  - {fileID: 11400000, guid: 4b25ab824652ce64083e9ef4e68ecf50, type: 2}
+  - {fileID: 11400000, guid: 17d31970f16b008468d18480eb421345, type: 2}
+  - {fileID: 11400000, guid: a05fcaf3705999d4fa049862c77e97ae, type: 2}
+  - {fileID: 11400000, guid: 45e353d1423c13a4aa3e176cd80fe33c, type: 2}
+  - {fileID: 11400000, guid: f54de4afbee7855468c880e51d741598, type: 2}
