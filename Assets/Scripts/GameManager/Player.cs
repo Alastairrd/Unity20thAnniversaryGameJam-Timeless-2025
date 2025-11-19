@@ -334,10 +334,10 @@ public class Player : MonoBehaviour
         if (ReadItemAmount(item) > 0)
         {
             if (
-               (ReadBukerItemAmount(InventoryItems.BunkerItems.wood) > InventoryItems.UtilityUpgrades[item].wood)
-            && (ReadBukerItemAmount(InventoryItems.BunkerItems.metal) > InventoryItems.UtilityUpgrades[item].metal)
-            && (ReadBukerItemAmount(InventoryItems.BunkerItems.scraps) > InventoryItems.UtilityUpgrades[item].scraps)
-            && (ReadBukerItemAmount(InventoryItems.BunkerItems.leather) > InventoryItems.UtilityUpgrades[item].leather)
+               (ReadBunkerItemAmount(InventoryItems.BunkerItems.wood) > InventoryItems.UtilityUpgrades[item].wood)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.metal) > InventoryItems.UtilityUpgrades[item].metal)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.scraps) > InventoryItems.UtilityUpgrades[item].scraps)
+            && (ReadBunkerItemAmount(InventoryItems.BunkerItems.leather) > InventoryItems.UtilityUpgrades[item].leather)
                )
                 return true;
         }
@@ -476,8 +476,10 @@ public class Player : MonoBehaviour
         }
         return canBuildItemSoFar;
     }
-            #endregion
-        #endregion
+    #endregion
+    #endregion
+    #endregion
+
     #endregion
 
     #region Player States
