@@ -10,10 +10,23 @@ using UnityEngine.Rendering;
 
 public class UIManager : MonoBehaviour
 {
+    #region Singleton Pattern
     public static UIManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    #endregion
 
     [TextArea]
-    [SerializeField] string startMessage = " ";
+    [SerializeField] public string startMessage = " ";
     [SerializeField] string currentText = string.Empty;
     [SerializeField] string newMessage = string.Empty;
     [SerializeField] public Queue<string> currentQueue = new Queue<string>();
@@ -152,7 +165,8 @@ public class UIManager : MonoBehaviour
             currentText += newMessage[0];
             newMessage = newMessage.Substring(1, newMessage.Length - 1);
             ConsoleText.text = currentText;
-            yield return new WaitForSeconds(textSpeed / textSpeedMultiplier);
+            if(!pressingSkip)
+                yield return new WaitForSeconds(textSpeed / textSpeedMultiplier);
         }
 
         currentText += tagEnd;
@@ -190,12 +204,18 @@ public class UIManager : MonoBehaviour
     //Returns a speed proportional to the length of the text
     public void IncreaseTextSpeed()
     {
-        Mathf.Clamp(AudioListener.volume, AudioListener.volume += .1f, 1);
+        float speed = textSpeed;
+        speed += .1f;
+        if (speed > 1) speed = 1;
+        textSpeed = speed;
     }
 
     public void DecreaseTextSpeed()
     {
-        Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f);
+        float speed = textSpeed;
+        speed -= .1f;
+        if (speed < 0) speed = 0;
+        textSpeed = speed;
     }
 
 
@@ -214,12 +234,18 @@ public class UIManager : MonoBehaviour
     
     public void IncreaseVolume() 
     {
-        Mathf.Clamp(AudioListener.volume, AudioListener.volume += .1f, 1);
+        float volume = AudioListener.volume;
+        volume += .1f;
+        if (volume > 1) volume = 1;
+        AudioListener.volume = volume;
     }
 
     public void DecreaseVolume()
     {
-        Mathf.Clamp(AudioListener.volume, 0, AudioListener.volume -= .1f);
+        float volume = AudioListener.volume;
+        volume -= .1f;
+        if (volume < 0) volume = 0;
+        AudioListener.volume = volume;
     }
 
     #endregion

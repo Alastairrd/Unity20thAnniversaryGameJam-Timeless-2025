@@ -12,7 +12,7 @@ public class PlayerSettings : ScriptableObject
     public float insanity = 0;
     public float weight = 0;
     public Player.PlayerStates playerState = Player.PlayerStates.idle;
-    public LocationList.Locations location = LocationList.Locations.Bunker;
+    public LocationList.Locations location = LocationList.Locations.bunker;
     public Dictionary<InventoryItems.Items, int> inventoryDictionary = new Dictionary<InventoryItems.Items, int>();
     public Dictionary<InventoryItems.BunkerItems, int> bunkerDictionary = new Dictionary<InventoryItems.BunkerItems, int>();
 

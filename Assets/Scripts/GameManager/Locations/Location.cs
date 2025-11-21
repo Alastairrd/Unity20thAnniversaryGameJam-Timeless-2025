@@ -13,6 +13,7 @@ public class Location : MonoBehaviour
 
     public int zombieDensity = 0;
     public int humanDensity = 0;
+
     public int fishDensity = 0;
     public int animalDensity = 0;
     public int vegDensity = 0;
@@ -23,6 +24,7 @@ public class Location : MonoBehaviour
     public int metalDensity = 0;
     public int scrapsDensity = 0;
     public int leatherDensity = 0;
+
 
 #if UNITY_EDITOR
     private void OnValidate()

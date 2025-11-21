@@ -18,6 +18,7 @@ public class Actions : MonoBehaviour
     }
     #endregion
 
+    //Turn into a function that returns the hash set of an enum
     public HashSet<string> AllPossibleActions = new HashSet<string>()
     {
             "bunker",
@@ -58,7 +59,6 @@ public class Actions : MonoBehaviour
                 "fish",
                 "hunt",
                 "pick",
-                "water",
             "fight",
                 "dash",
                 "shoot",
@@ -85,14 +85,14 @@ public class Actions : MonoBehaviour
 
 
     #region Transforming Actions
-    public Queue<string> CreateQueueFromActions(List<string> possibleActions)
+    public Queue<string> CreateQueueFromAListOfActions(List<string> possibleActions)
     {
         Queue<string> actionQueue = new Queue<string>();
 
-        actionQueue.Enqueue("\n Please choose one of the following actions (type word or action): \n");
+        actionQueue.Enqueue("PLEASE CHOOSE ONE OF THE FOLLOWING ACTIONS BY TYPING: \n");
         for (int i = 0; i < possibleActions.Count; i++)
         {
-            actionQueue.Enqueue((i + 1).ToString() + " " + possibleActions[i] + "   ");
+            actionQueue.Enqueue(/*(i + 1).ToString() + " "+ */possibleActions[i] + "   ");
         }
         actionQueue.Enqueue("\n");
 
@@ -113,7 +113,7 @@ public class Actions : MonoBehaviour
 
     public Queue<string> CreateQueueFromProcessedActions()
     {
-        return CreateQueueFromActions(ProcessPossibleActions());
+        return CreateQueueFromAListOfActions(ProcessPossibleActions());
     }
 
     #endregion
@@ -126,7 +126,7 @@ public class Actions : MonoBehaviour
 
         if (Player.Instance.currentState == Player.PlayerStates.idle)
         {
-            if (Player.Instance.currentLocation == LocationList.Locations.Bunker)
+            if (Player.Instance.currentLocation == LocationList.Locations.bunker)
             {
                 if ((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.insanity > 16)
                     list.Add("sleep");
@@ -197,7 +197,38 @@ public class Actions : MonoBehaviour
 
         }
 
-            if (list.Count == 0)
+        if (Player.Instance.currentState == Player.PlayerStates.scavenging)
+        {
+            foreach (Location location in LocationManager.Instance.Locations)
+            {
+                if(location.location != Player.Instance.currentLocation)
+                    list.Add(location.location.ToString());
+            }
+        }
+
+        if (Player.Instance.currentState == Player.PlayerStates.getting)
+        {
+            foreach (string gettable in LocationManager.Instance.possibleThingsToGetHere()) 
+            {
+                list.Add("gettable");
+            }
+        }
+
+        if (Player.Instance.currentState == Player.PlayerStates.talking)
+        {
+            list.Add("buy");
+            list.Add("sell");
+            list.Add("trade");
+        }
+
+        if (Player.Instance.currentState == Player.PlayerStates.figthing)
+        {
+            list.Add("shoot");
+            list.Add("dash");
+            list.Add("flee");
+        }
+
+        if (list.Count == 0)
             {
                 Debug.Log("No Actions");
             }

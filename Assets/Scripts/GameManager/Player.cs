@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
     #region Miscelanious
     public float insanity = 0;
     public float weight = 0;
-    public LocationList.Locations currentLocation = LocationList.Locations.Bunker;
+    public LocationList.Locations currentLocation = LocationList.Locations.bunker;
 
         #region Insanity
     //Instanity is practically unlock

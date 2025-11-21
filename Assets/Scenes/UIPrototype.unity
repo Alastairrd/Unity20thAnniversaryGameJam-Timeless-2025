@@ -119,66 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &122438781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 122438783}
-  - component: {fileID: 122438782}
-  m_Layer: 0
-  m_Name: Yard
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &122438782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122438781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 5
-  neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 502207886}
-  - {fileID: 1103034358}
-  neighborDistances: 020000000200000002000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 0
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
-  woodDensity: 1
-  metalDensity: 10
-  scrapsDensity: 4
-  leatherDensity: 1
---- !u!4 &122438783
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122438781}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 416292265}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217450611
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +196,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217450611}
   m_CullTransparentMesh: 1
+--- !u!1 &233227104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233227105}
+  - component: {fileID: 233227106}
+  m_Layer: 0
+  m_Name: Yard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233227105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233227104}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 416292265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &233227106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233227104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 5
+  neighborLocations:
+  - {fileID: 1017304053}
+  - {fileID: 1932401094}
+  - {fileID: 1138621170}
+  neighborDistances: 020000000200000002000000
+  zombieDensity: 4
+  humanDensity: 3
+  fishDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 3
+  woodDensity: 1
+  metalDensity: 10
+  scrapsDensity: 4
+  leatherDensity: 1
 --- !u!1 &240774443
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalZombieDensity: 1
-  Locations: []
+  time: 8
 --- !u!4 &240774448
 Transform:
   m_ObjectHideFlags: 0
@@ -385,6 +385,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34efc443b25aa1e448f7f5c4fa423498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &272892151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272892153}
+  - component: {fileID: 272892152}
+  m_Layer: 0
+  m_Name: Forest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &272892152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272892151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 1
+  neighborLocations:
+  - {fileID: 1017304053}
+  - {fileID: 666705876}
+  - {fileID: 1932401094}
+  neighborDistances: 030000000100000002000000
+  zombieDensity: 0
+  humanDensity: 0
+  fishDensity: 1
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 10
+  metalDensity: 0
+  scrapsDensity: 0
+  leatherDensity: 0
+--- !u!4 &272892153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272892151}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 416292265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280007021
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +980,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 416292265}
+  - component: {fileID: 416292266}
   m_Layer: 0
   m_Name: Locations
   m_TagString: Untagged
@@ -940,15 +1001,28 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 463158543}
-  - {fileID: 2123493648}
-  - {fileID: 1210496674}
-  - {fileID: 502207887}
-  - {fileID: 122438783}
-  - {fileID: 1103034359}
-  - {fileID: 469355710}
+  - {fileID: 666705877}
+  - {fileID: 272892153}
+  - {fileID: 1138621171}
+  - {fileID: 1932401095}
+  - {fileID: 2015091539}
+  - {fileID: 1017304054}
+  - {fileID: 233227105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &416292266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416292264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35af42c651e52e74f93373c1338a1953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Locations: []
 --- !u!1 &440251383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,189 +1160,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440251383}
   m_CullTransparentMesh: 1
---- !u!1 &463158541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 463158543}
-  - component: {fileID: 463158542}
-  m_Layer: 0
-  m_Name: Bunker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &463158542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463158541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 0
-  neighborLocations:
-  - {fileID: 2123493647}
-  - {fileID: 1210496673}
-  - {fileID: 502207886}
-  - {fileID: 122438782}
-  - {fileID: 1103034358}
-  - {fileID: 469355709}
-  neighborDistances: 030000000300000001000000020000000300000001000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 0
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
-  woodDensity: 0
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
---- !u!4 &463158543
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463158541}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 416292265}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &469355708
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 469355710}
-  - component: {fileID: 469355709}
-  m_Layer: 0
-  m_Name: City
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &469355709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469355708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 4
-  neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 1103034358}
-  - {fileID: 2123493647}
-  neighborDistances: 010000000200000002000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 0
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
-  woodDensity: 1
-  metalDensity: 3
-  scrapsDensity: 3
-  leatherDensity: 1
---- !u!4 &469355710
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469355708}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 416292265}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &502207885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 502207887}
-  - component: {fileID: 502207886}
-  m_Layer: 0
-  m_Name: Desert
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &502207886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502207885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 3
-  neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 122438782}
-  - {fileID: 1210496673}
-  neighborDistances: 010000000200000002000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 0
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
-  woodDensity: 1
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
---- !u!4 &502207887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502207885}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 416292265}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &508916421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1296,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508916421}
   m_CullTransparentMesh: 1
+--- !u!1 &666705875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666705877}
+  - component: {fileID: 666705876}
+  m_Layer: 0
+  m_Name: River
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &666705876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666705875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 2
+  neighborLocations:
+  - {fileID: 1017304053}
+  - {fileID: 272892152}
+  - {fileID: 2015091538}
+  neighborDistances: 030000000100000001000000
+  zombieDensity: 3
+  humanDensity: 5
+  fishDensity: 10
+  animalDensity: 3
+  vegDensity: 4
+  moneyDensity: 0
+  woodDensity: 2
+  metalDensity: 0
+  scrapsDensity: 1
+  leatherDensity: 2
+--- !u!4 &666705877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666705875}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 416292265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &750848566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1865,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1017304052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017304054}
+  - component: {fileID: 1017304053}
+  m_Layer: 0
+  m_Name: Bunker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1017304053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017304052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 0
+  neighborLocations:
+  - {fileID: 666705876}
+  - {fileID: 272892152}
+  - {fileID: 1932401094}
+  - {fileID: 233227106}
+  - {fileID: 1138621170}
+  - {fileID: 2015091538}
+  neighborDistances: 030000000300000001000000020000000300000001000000
+  zombieDensity: 0
+  humanDensity: 0
+  fishDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 0
+  metalDensity: 0
+  scrapsDensity: 0
+  leatherDensity: 0
+--- !u!4 &1017304054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017304052}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 416292265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024418308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,11 +2073,11 @@ MonoBehaviour:
   m_Content: {fileID: 1922068080}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 10
   m_Viewport: {fileID: 1024418309}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 283190292}
@@ -2112,7 +2126,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036634626}
   m_CullTransparentMesh: 1
---- !u!1 &1103034357
+--- !u!1 &1138621169
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2120,8 +2134,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1103034359}
-  - component: {fileID: 1103034358}
+  - component: {fileID: 1138621171}
+  - component: {fileID: 1138621170}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -2129,13 +2143,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1103034358
+--- !u!114 &1138621170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103034357}
+  m_GameObject: {fileID: 1138621169}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
@@ -2143,87 +2157,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: 6
   neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 122438782}
-  - {fileID: 469355709}
+  - {fileID: 1017304053}
+  - {fileID: 233227106}
+  - {fileID: 2015091538}
   neighborDistances: 030000000100000001000000
-  zombieDensity: 0
-  humanDensity: 0
+  zombieDensity: 7
+  humanDensity: 5
   fishDensity: 0
   animalDensity: 0
   vegDensity: 0
-  moneyDensity: 0
+  moneyDensity: 6
   woodDensity: 1
   metalDensity: 5
   scrapsDensity: 10
   leatherDensity: 1
---- !u!4 &1103034359
+--- !u!4 &1138621171
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103034357}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 416292265}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1210496672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1210496674}
-  - component: {fileID: 1210496673}
-  m_Layer: 0
-  m_Name: Forest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1210496673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210496672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  location: 1
-  neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 2123493647}
-  - {fileID: 502207886}
-  neighborDistances: 030000000100000002000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 1
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
-  woodDensity: 10
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 0
---- !u!4 &1210496674
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210496672}
+  m_GameObject: {fileID: 1138621169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3137,7 +3091,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &2123493646
+--- !u!1 &1932401093
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3145,50 +3099,110 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2123493648}
-  - component: {fileID: 2123493647}
+  - component: {fileID: 1932401095}
+  - component: {fileID: 1932401094}
   m_Layer: 0
-  m_Name: River
+  m_Name: Desert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2123493647
+--- !u!114 &1932401094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123493646}
+  m_GameObject: {fileID: 1932401093}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: 2
+  location: 3
   neighborLocations:
-  - {fileID: 463158542}
-  - {fileID: 1210496673}
-  - {fileID: 469355709}
-  neighborDistances: 030000000100000001000000
-  zombieDensity: 0
-  humanDensity: 0
-  fishDensity: 10
-  animalDensity: 0
-  vegDensity: 0
-  moneyDensity: 0
+  - {fileID: 1017304053}
+  - {fileID: 233227106}
+  - {fileID: 272892152}
+  neighborDistances: 010000000200000002000000
+  zombieDensity: 1
+  humanDensity: 2
+  fishDensity: 0
+  animalDensity: 1
+  vegDensity: 2
+  moneyDensity: 1
   woodDensity: 1
-  metalDensity: 0
-  scrapsDensity: 0
-  leatherDensity: 3
---- !u!4 &2123493648
+  metalDensity: 1
+  scrapsDensity: 1
+  leatherDensity: 1
+--- !u!4 &1932401095
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123493646}
+  m_GameObject: {fileID: 1932401093}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 416292265}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2015091537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015091539}
+  - component: {fileID: 2015091538}
+  m_Layer: 0
+  m_Name: City
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2015091538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015091537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38f80a3f7e87094c8e0c1ef3c10bbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: 4
+  neighborLocations:
+  - {fileID: 1017304053}
+  - {fileID: 1138621170}
+  - {fileID: 666705876}
+  neighborDistances: 010000000200000002000000
+  zombieDensity: 10
+  humanDensity: 10
+  fishDensity: 0
+  animalDensity: 0
+  vegDensity: 0
+  moneyDensity: 0
+  woodDensity: 1
+  metalDensity: 3
+  scrapsDensity: 3
+  leatherDensity: 1
+--- !u!4 &2015091539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015091537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3298,7 +3312,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 240774445}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ReadInput
         m_Mode: 1

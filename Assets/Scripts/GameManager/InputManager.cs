@@ -20,7 +20,6 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
-
     public void HandleInputLogic(string input) 
     {
         if (Actions.Instance.ConstantActions.Contains(input))
@@ -43,7 +42,7 @@ public class InputManager : MonoBehaviour
                         "actions -> shows all possible actions",
                         "restart -> start the game over"
                     };
-                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(helpList));
+                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromAListOfActions(helpList));
                 }
                 break;
             case "settings":
@@ -55,7 +54,7 @@ public class InputManager : MonoBehaviour
                         "faster -> make text speed faster",
                         "slow -> make text speed slower"
                     };
-                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(helpList));
+                    UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromAListOfActions(helpList));
                 }
                 break;
             case "up":
@@ -75,7 +74,7 @@ public class InputManager : MonoBehaviour
                 UIManager.Instance.PrintMessage("text Speed: " + UIManager.Instance.textSpeed);
                 break;
             case "actions":
-                UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromActions(Actions.Instance.ProcessPossibleActions()));
+                UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromProcessedActions());
                 break;
             case "restart":
                 SceneManager.LoadScene(0);
@@ -281,7 +280,7 @@ public class InputManager : MonoBehaviour
                 break;
 
             default:
-                    Debug.LogWarning(input + "should not have passed as valid input");
+                    Debug.LogWarning(input + " should not have passed as valid input");
                 return;
         }
     }

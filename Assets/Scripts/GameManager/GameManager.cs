@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int GlobalZombieDensity = 1;
-    public List<Location> Locations = new List<Location>();
     public int time = 8;
 
     #region Time
@@ -30,6 +29,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        UIManager.Instance.PrintMessage(UIManager.Instance.startMessage);
+        UIManager.Instance.PrintMessage("IF LOST TYPE help. TO SKIP TEXT YOU CAN PRESS DOWN-ARROW");
         UIManager.Instance.InputQueue(Actions.Instance.CreateQueueFromProcessedActions());
     }
+
+    
 }

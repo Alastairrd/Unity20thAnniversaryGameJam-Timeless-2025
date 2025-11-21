@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using UnityEditor.Sprites;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEditor.IMGUI.Controls.PrimitiveBoundsHandle;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class InventoryItems
 {
@@ -27,7 +30,7 @@ public class InventoryItems
         vegetables, //heals 5
         meat,       //heals 5 but takes time
         fish,       //but catches plenty and takes time
-        //you have to find these
+
         medicine, //heals compeletly
         bandade, //changes maz health
     }
@@ -62,6 +65,18 @@ public class InventoryItems
         Items.fish,       //but catches plenty and takes time
         Items.medicine, //heals compeletly
         Items.bandade, //changes maz health
+    };
+
+    public static readonly HashSet<Items> CraftableItems = new HashSet<Items>()
+    {
+        Items.axe,        //wood
+        Items.gloves,     //scrap
+        Items.knife,      //leather
+        Items.picker,     //vegtebale
+        Items.rod,        //fish
+        Items.wrench,     //metal
+        Items.gun,       //the more better hit accuracy, and meat
+        Items.bullet,
     };
 
     // one compact struct for your 4 materials
