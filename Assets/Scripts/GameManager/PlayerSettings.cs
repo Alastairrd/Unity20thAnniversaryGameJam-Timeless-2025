@@ -9,7 +9,7 @@ public class PlayerSettings : ScriptableObject
     public float maxHealth = 100;
     public float maxHealthIncrements = 10;
     public int numberOfWounds = 0;
-    public float insanity = 0;
+    public float tiredness = 0;
     public float weight = 0;
     public Player.PlayerStates playerState = Player.PlayerStates.idle;
     public LocationList.Locations location = LocationList.Locations.bunker;

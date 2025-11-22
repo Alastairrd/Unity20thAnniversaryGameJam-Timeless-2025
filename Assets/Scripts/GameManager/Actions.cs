@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,70 +19,90 @@ public class Actions : MonoBehaviour
     }
     #endregion
 
-    //Turn into a function that returns the hash set of an enum
-    public HashSet<string> AllPossibleActions = new HashSet<string>()
+    public enum AllPossibleActionsEnum
     {
-            "bunker",
-            "sleep",
-            "upgrade", //same as craft, but of things you already have
-            "craft",
-                "axe",
-                "gloves",
-                "knife",
-                "picker",
-                "rod",
-                "wrench",
-                "gun",
-                "bullet",
-            "build",
-                "walls",
-                "reinforcement",
-                "traps",
-                "bed",
-            "consume",
-                "medicine",
-                "bandade",
-                "sushi",
-                "meat",
-                "vegetable",
-                "water",
-            "scavange",
-                "yard",
-                "building",
-                "city",
-                "river",
-                "forest",
-                "desert",
-            "get",
-                "wood",
-                "metal",
-                "scraps",
-                "fish",
-                "hunt",
-                "pick",
-            "fight",
-                "dash",
-                "shoot",
-                "attack",
-            "flee", //goes to bunker
-            "talk", //human interaction
-                "buy",   //will offer a random item at a random cost dependant on sanity
-                "sell",  //will offer a random price at a random 
-                "trade", //will offer a random item for another random item
-            "exit"
+        bunker,
+            sleep,
+            upgrade, //same as craft, but of things you already have
+            craft,
+                axe,
+                gloves,
+                knife,
+                picker,
+                rod,
+                wrench,
+                gun,
+                bullet,
+            build,
+                walls,
+                reinforcement,
+                traps,
+                bed,
+            consume,
+                medicine,
+                bandade,
+                sushi,
+                meat,
+                vegetable,
+                water,
+            scavange,
+                yard,
+                building,
+                city,
+                river,
+                forest,
+                desert,
+            get,
+                wood,
+                metal,
+                scraps,
+                fish,
+                hunt,
+                pick,
+            fight,
+                dash,
+                shoot,
+                attack,
+            flee, //goes to bunker
+            talk, //human interaction
+                buy,   //will offer a random item at a random cost dependant on sanity
+                sell,  //will offer a random price at a random 
+                trade, //will offer a random item for another random item
+            exit
     };
+    public HashSet<string> AllPossibleActions()
+    {
+        HashSet<string> actionsHash = new HashSet<string>();
 
-    public HashSet<string> ConstantActions = new HashSet<string>
+        foreach (string action in Enum.GetNames(typeof(AllPossibleActionsEnum))) 
+        {
+            actionsHash.Add(action);
+        }
+
+        return actionsHash;
+    }
+    public enum ConstantActionsEnum
     {
-        "help",    //prints all constant actions
-        "settings",
-        "up",
-        "down",
-        "faster",
-        "slower",
-        "actions", //possible actions
-        "restart"
-    };
+        help,    //prints all constant actions
+        settings,
+        up,   
+        down,
+        faster,
+        slower,
+        actions, //possible actions
+        restart
+    }
+    public HashSet<string> AllConstantActions()
+    {
+        HashSet<string> actionsHash = new HashSet<string>();
+
+        foreach (string action in Enum.GetNames(typeof(ConstantActionsEnum)))
+        {
+            actionsHash.Add(action);
+        }
+
+        return actionsHash;
+    }
 
 
     #region Transforming Actions
@@ -128,7 +149,7 @@ public class Actions : MonoBehaviour
         {
             if (Player.Instance.currentLocation == LocationList.Locations.bunker)
             {
-                if ((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.insanity > 16)
+                if ((GameManager.Instance.time > 19 && GameManager.Instance.time < 4) || Player.Instance.tiredness > 16)
                     list.Add("sleep");
                 if (Player.Instance.canCraftAnyItem())
                     list.Add("craft");
@@ -137,12 +158,8 @@ public class Actions : MonoBehaviour
                 if (Player.Instance.canBuildAnyItem())
                     list.Add("build");
             }
-            else
-            {
-               list.Add("bunker");
-            }
                 
-            list.Add("scavenge");
+            list.Add("travel");
 
             if(Player.Instance.canCraftAnyItem())
                 list.Add("consume");
@@ -176,7 +193,7 @@ public class Actions : MonoBehaviour
                 list.Add("knife");
             if (Player.Instance.canUpgradeItem(InventoryItems.Items.gloves))
                 list.Add("gloves");
-            if (Player.Instance.canUpgradeItem(InventoryItems.Items.gloves))
+            if (Player.Instance.canUpgradeItem(InventoryItems.Items.rod))
                 list.Add("rod");
         }
 
@@ -197,7 +214,7 @@ public class Actions : MonoBehaviour
 
         }
 
-        if (Player.Instance.currentState == Player.PlayerStates.scavenging)
+        if (Player.Instance.currentState == Player.PlayerStates.travelling)
         {
             foreach (Location location in LocationManager.Instance.Locations)
             {
@@ -210,7 +227,7 @@ public class Actions : MonoBehaviour
         {
             foreach (string gettable in LocationManager.Instance.possibleThingsToGetHere()) 
             {
-                list.Add("gettable");
+                list.Add("get");
             }
         }
 
@@ -237,208 +254,93 @@ public class Actions : MonoBehaviour
     }
     #endregion
 
+    #region Action Functions
 
-    #region Action Function
-    public void Bunker() // GO to bunker if not in it
-    {
-    
-    }
-
+        #region Sleep
     public void Sleep() //Sleep if in bunker
     {
     
     }
+    #endregion
 
+        #region Upgrading
     public void Upgrade() //if in bunker, has materials for at least one item upgrade
     {
         Player.Instance.currentState = Player.PlayerStates.upgrading;
     }
 
+        public void UpgradeItem(InventoryItems.Items item) 
+        {
+
+        }
+        #endregion
+
+        #region Crafting
     public void Craft() //if in bunker has materials for at least one item upgrade
     {
         Player.Instance.currentState = Player.PlayerStates.crafting;
     }
-
-        public void Axe() //has materials for at least one item upgrade
+        public void CraftItem(InventoryItems.Items item)
         {
 
         }
+    #endregion
 
-        public void Gloves() //
-        {
-
-        }
-
-        public void Knife()
-        {
-
-        }
-
-        public void Picker()
-        {
-
-        }
-
-        public void Rod()
-        {
-
-        }
-
-        public void Wrench()
-        {
-
-        }
-
-        public void Gun()
-        {
-
-        }
-
-        public void Bullet()
-        {
-
-        }
-
+        #region Build
     public void Build()
     {
         Player.Instance.currentState = Player.PlayerStates.building;
     }
 
-        public void Walls()
+        public void BuildItem(InventoryItems.BunkerItems item)
         {
 
         }
+    #endregion
 
-        public void Reinforcement()
-        {
-
-        }
-
-        public void Traps()
-        {
-
-        }
-
-        public void Bed()
-        {
-
-        }
-
+        #region Consume
     public void Consume()
     {
         Player.Instance.currentState = Player.PlayerStates.consuming;
     }
 
-        public void Medicine()
+        public void ConsumeItem(InventoryItems.Items item)
         {
 
         }
+    #endregion
 
-        public void Bandade()
-        {
-
-        }
-
-        public void Sushi()
-        {
-
-        }
-
-        public void Meat()
-        {
-
-        }
-
-        public void Vegetable()
-        {
-
-        }
-
-        public void Water()
-        {
-
-        }
-
-    public void Scavange()
+        #region Travelling
+    public void Travel()
     {
-        Player.Instance.currentState = Player.PlayerStates.scavenging;
+        Player.Instance.currentState = Player.PlayerStates.travelling;
     }
 
-        public void Yard()
+        public void TravelTo(LocationList.Locations location)
         {
-
+            Player.Instance.currentState = Player.PlayerStates.travelling;
         }
+        #endregion
 
-        public void Building()
-        {
-
-        }
-
-        public void City()
-        {
-
-        }
-
-        public void River()
-        {
-
-        }
-        public void Forest()
-        {
-
-        }
-
-        public void Desert()
-        {
-
-        }
-
+        #region Get
     public void Get()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.getting;
     }
 
-        public void Wood()
+        public void GetItem(InventoryItems.Items item)
         {
 
         }
+        #endregion
 
-        public void Metal()
-        {
-
-        }
-
-        public void Scraps()
-        {
-
-        }
-
-        public void Fish()
-        {
-
-        }
-
-        public void Hunt()
-        {
-
-        }
-
-        public void Pick()
-        {
-
-        }
-
+        #region Figthing
     public void Fight()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.talking;
     }
 
         public void Shoot()
-        {
-
-        }
-
-        public void Attack()
         {
 
         }
@@ -448,22 +350,24 @@ public class Actions : MonoBehaviour
 
         }
 
+        public void Attack()
+        {
+
+        }
+    #endregion
+
     public void Flee()
     {
 
     }
 
+    #region Talkgin
     public void Talk()
     {
-
+        Player.Instance.currentState = Player.PlayerStates.talking;
     }
 
-        public void Buy()
-        {
-
-        }
-
-        public void Sell()
+        public void Buy() 
         {
 
         }
@@ -473,11 +377,14 @@ public class Actions : MonoBehaviour
 
         }
 
+        public void Sell()
+        {
+
+        }
+
+    #endregion
     public void Exit()
     {
-        if(Player.Instance.currentState != Player.PlayerStates.getting)
-            Player.Instance.currentState = Player.PlayerStates.idle;
-        else
             Player.Instance.currentState = Player.PlayerStates.idle;
     }
 #endregion

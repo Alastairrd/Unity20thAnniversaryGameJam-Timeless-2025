@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +23,7 @@ public class InputManager : MonoBehaviour
 
     public void HandleInputLogic(string input) 
     {
-        if (Actions.Instance.ConstantActions.Contains(input))
+        if (Actions.Instance.AllConstantActions().Contains(input))
             ValidConstantAction(input);
         else if (Actions.Instance.HashFromListOfPossibleActions(Actions.Instance.ProcessPossibleActions()).Contains(input))
             ValidPossibleAction(input);
@@ -87,54 +88,51 @@ public class InputManager : MonoBehaviour
     #region Valid Input
     public void ValidPossibleAction(string input)
     {
+
+        //if (Enum.TryParse(input, true, out Actions.AllPossibleActionsEnum action)) 
+
         switch (input)
         {
-            case "bunker":
-                Actions.Instance.Bunker();
-                break;
-
             case "sleep":
                 Actions.Instance.Sleep();
                 break;
-
             case "upgrade":
                 Actions.Instance.Upgrade();
                 break;
-
             case "craft":
                 Actions.Instance.Craft();
                 break;
 
                 case "axe":
-                    Actions.Instance.Axe();
+                    Actions.Instance.CraftItem(InventoryItems.Items.axe);
                     break;
 
                 case "gloves":
-                    Actions.Instance.Gloves();
+                    Actions.Instance.CraftItem(InventoryItems.Items.gloves);
                     break;
 
                 case "knife":
-                    Actions.Instance.Knife();
+                    Actions.Instance.CraftItem(InventoryItems.Items.knife);
                     break;
 
                 case "picker":
-                    Actions.Instance.Picker();
+                    Actions.Instance.CraftItem(InventoryItems.Items.knife);
                     break;
 
                 case "rod":
-                    Actions.Instance.Rod();
+                    Actions.Instance.CraftItem(InventoryItems.Items.knife);
                     break;
 
                 case "wrench":
-                    Actions.Instance.Wrench();
+                    Actions.Instance.CraftItem(InventoryItems.Items.wrench);
                     break;
 
                 case "gun":
-                    Actions.Instance.Gun();
+                    Actions.Instance.CraftItem(InventoryItems.Items.wrench);
                     break;
 
                 case "bullet":
-                    Actions.Instance.Bullet();
+                    Actions.Instance.CraftItem(InventoryItems.Items.wrench);
                     break;
 
             case "build":
@@ -142,75 +140,75 @@ public class InputManager : MonoBehaviour
                 break;
 
                 case "walls":
-                    Actions.Instance.Walls();
+                    Actions.Instance.BuildItem(InventoryItems.BunkerItems.walls);
                     break;
 
                 case "reinforcement":
-                    Actions.Instance.Reinforcement();
+                    Actions.Instance.BuildItem(InventoryItems.BunkerItems.reinforcement);
                     break;
 
                 case "traps":
-                    Actions.Instance.Traps();
+                    Actions.Instance.BuildItem(InventoryItems.BunkerItems.traps);
                     break;
 
                 case "bed":
-                    Actions.Instance.Bed();
+                Actions.Instance.BuildItem(InventoryItems.BunkerItems.bed);
                     break;
 
                 case "consume":
                     Actions.Instance.Consume();
                     break;
 
-                case "medicine":
-                    Actions.Instance.Medicine();
-                    break;
+                    case "medicine":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.medicine);
+                        break;
 
-                case "bandade":
-                    Actions.Instance.Bandade();
-                    break;
+                    case "bandade":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.bandade);
+                        break;
 
-                case "sushi":
-                    Actions.Instance.Sushi();
-                    break;
+                    case "sushi":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.fish);
+                        break;
 
-                case "meat":
-                    Actions.Instance.Meat();
-                    break;
+                    case "meat":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.meat);
+                        break;
 
-                case "vegetable":
-                    Actions.Instance.Vegetable();
-                    break;
+                    case "vegetable":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.meat);
+                        break;
 
-            case "water":
-                Actions.Instance.Water();
-                break;
+                    case "water":
+                        Actions.Instance.ConsumeItem(InventoryItems.Items.medicine);
+                        break;
 
-            case "scavange":
-                Actions.Instance.Scavange();
+            case "travel":
+                Actions.Instance.Travel();
                 break;
 
                 case "yard":
-                    Actions.Instance.Yard();
+                    Actions.Instance.TravelTo(LocationList.Locations.yard);
                     break;
 
                 case "building":
-                    Actions.Instance.Building();
+                    Actions.Instance.TravelTo(LocationList.Locations.bulding);
                     break;
 
                 case "city":
-                    Actions.Instance.City();
+                    Actions.Instance.TravelTo(LocationList.Locations.city);
                     break;
 
                 case "river":
-                    Actions.Instance.River();
+                    Actions.Instance.TravelTo(LocationList.Locations.river);
                     break;
 
-                case "forest":
-                    Actions.Instance.Forest();
+            case "forest":
+                    Actions.Instance.TravelTo(LocationList.Locations.forest);
                     break;
 
                 case "desert":
-                    Actions.Instance.Desert();
+                    Actions.Instance.TravelTo(LocationList.Locations.desert);
                     break;
 
             case "get":
@@ -218,27 +216,27 @@ public class InputManager : MonoBehaviour
                 break;
 
                 case "wood":
-                    Actions.Instance.Wood();
+                    Actions.Instance.GetItem(InventoryItems.Items.wood);
                     break;
 
                 case "metal":
-                    Actions.Instance.Metal();
+                    Actions.Instance.GetItem(InventoryItems.Items.metal);
                     break;
 
                 case "scraps":
-                    Actions.Instance.Scraps();
+                    Actions.Instance.GetItem(InventoryItems.Items.scraps);
                     break;
 
                 case "fish":
-                    Actions.Instance.Fish();
+                    Actions.Instance.GetItem(InventoryItems.Items.fish);
                     break;
 
                 case "hunt":
-                    Actions.Instance.Hunt();
+                    Actions.Instance.GetItem(InventoryItems.Items.meat);
                     break;
 
                 case "pick":
-                    Actions.Instance.Pick();
+                    Actions.Instance.GetItem(InventoryItems.Items.picker);
                     break;
 
             case "fight":

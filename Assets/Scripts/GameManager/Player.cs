@@ -144,30 +144,30 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Miscelanious
-    public float insanity = 0;
+    public float tiredness = 0;
     public float weight = 0;
     public LocationList.Locations currentLocation = LocationList.Locations.bunker;
 
-        #region Insanity
+        #region tiredness
     //Instanity is practically unlock
     public void IncreaseInsanity(float amount) 
     {
-        insanity += amount;
+        tiredness += amount;
     }
 
     public void DecreaseInsanity(float amount)
     {
-        Mathf.Clamp(insanity, 0, insanity -= amount);
+        Mathf.Clamp(tiredness, 0, tiredness -= amount);
     }
 
     public void ResetInsanity()  //when sleep
     {
-        insanity = 0;
+        tiredness = 0;
     }
 
     public void SetInsanity(float amount)
     {
-        insanity = amount;
+        tiredness = amount;
     }
         #endregion
 
@@ -493,7 +493,7 @@ public class Player : MonoBehaviour
 
         consuming,
 
-        scavenging,
+        travelling,
             getting,
 
         figthing, //if we wanna add dodge and slash actions
