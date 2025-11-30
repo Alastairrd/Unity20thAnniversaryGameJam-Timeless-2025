@@ -73,6 +73,16 @@ public class UIManager : MonoBehaviour
         {"skip"             ,"PassTime"},
     };
 
+    [SerializeField] GameObject typingSoundPrefab;
+    [SerializeField] GameObject typingSoundInstance;
+    float lastTimeTyped = 0;
+    float cooldown = .5f;
+
+    [SerializeField] GameObject printingSoundPrefab;
+    [SerializeField] GameObject printingSoundInstance;
+
+    [SerializeField] GameObject beepUISound;
+
 
     bool pressingSkip = false;
     private Coroutine printRoutine;
@@ -122,12 +132,27 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2)) 
             InputText.ActivateInputField();
-        
 
-        if (CanEnterText())
-            UpdateResourceUI();
-        else
+
+        if (!CanEnterText())
             BlinkPlaceHolder();
+
+        if(lastTimeTyped + cooldown < Time.time && typingSoundInstance) 
+        {
+            Destroy(typingSoundInstance);
+        }
+
+        if (!NoMessagesQueued()) 
+        {
+            if(!printingSoundInstance)
+                printingSoundInstance = Instantiate(printingSoundPrefab);
+        }
+        else 
+        {
+            if (printingSoundInstance)
+                Destroy(printingSoundInstance);
+        }
+
     }
 
     void BlinkPlaceHolder()
@@ -148,7 +173,12 @@ public class UIManager : MonoBehaviour
     //------------------------- Input Handling ----------------------------//
     bool CanEnterText()
     {
-        return newMessage.Length == 0 && currentQueue.Count == 0 && InputText.text.Length != 0;
+        return NoMessagesQueued() && InputText.text.Length != 0;
+    }
+
+    bool NoMessagesQueued() 
+    {
+        return newMessage.Length == 0 && currentQueue.Count == 0;
     }
 
     public void ReadInput()
@@ -218,12 +248,12 @@ public class UIManager : MonoBehaviour
     public void UpdateResourceUI() 
     {
         
-            HealthBar.fillAmount = GameController.Instance.playerHealth / 100;
-            BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 10;
+            HealthBar.fillAmount = GameController.Instance.playerHealth / 100f;
+            BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 250f;
             Metal.text = GameController.Instance.metal.ToString();
             Medicine.text = GameController.Instance.medicine.ToString();
             Wood.text = GameController.Instance.wood.ToString();
-        TimeText.text = (24 - GameController.Instance.hoursLeftToday).ToString() + ":00";
+            TimeText.text = (24 - GameController.Instance.hoursLeftToday).ToString() + ":00";
 
         //Debug.Log("Updated UI");
     }
@@ -237,6 +267,7 @@ public class UIManager : MonoBehaviour
 
     public void TakePossibleActions(List<string> possibleActions)
     {
+        UpdateResourceUI();
         PossibleOutcomes = possibleActions;
         InputQueue(CreateQueueFromActions(PossibleOutcomes));
     }
@@ -350,11 +381,23 @@ public class UIManager : MonoBehaviour
     public void CloseResourceUI() 
     {
         ResourceUI.SetActive(false);
+        Destroy(Instantiate(beepUISound), 1f);
     }
 
     public void OpenResourceUI()
     {
         ResourceUI.SetActive(true);
+        Destroy(Instantiate(beepUISound), 1f);
+    }
+
+
+    public void PlayerTyping() 
+    {
+        lastTimeTyped = Time.time;
+        if (!typingSoundInstance)
+        {
+            typingSoundInstance = Instantiate(typingSoundPrefab);
+        }
     }
 
 }

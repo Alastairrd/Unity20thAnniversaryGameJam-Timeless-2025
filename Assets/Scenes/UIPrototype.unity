@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 284214712}
   - component: {fileID: 284214713}
   m_Layer: 5
-  m_Name: HP Image
+  m_Name: Base HP Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1890,15 +1890,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMessage: "<color=green> You\u2019ve forgotten what year it is at this point.
-    It\u2019s been several winters since you last remembered your apartment, your
-    family, your old life before this city went to the dogs. \\n \\n There was a
-    viral outbreak of some sort of rabies all those years ago, and within 48 hours
-    the situation was deemed uncontrollable by your local provincial administration.
-    Things became a hectic blur and now the only survivors that remain are those
-    who are either naturally immune or very careful. There is no government presence,
-    no military, no hope. \\n \\n Every day might be your last, every hour you spend
-    determines your fate. All you have is your base, your life, and time. \\n \\n"
+  startMessage: "<color=green> TILL NIGHTFAL \\n \\n\r\nTip: Press down arrow to
+    skip, and type the action\u2019s number for quicker input.\\n \\n\r\n\r\nYou\u2019ve
+    forgotten what year it is at this point. It\u2019s been several winters since
+    you last remembered your apartment, your family, your old life before this city
+    went to the dogs. \\n \\n\r\n There was a viral outbreak of some sort of rabies
+    all those years ago, and within 48 hours the situation was deemed uncontrollable
+    by your local provincial administration. Things became a hectic blur and now
+    the only survivors that remain are those who are either naturally immune or very
+    careful. There is no government presence, no military, no hope. \\n \\n\r\n Every
+    day might be your last, every hour you spend determines your fate. All you have
+    is your base, your life, and time. \\n \\n"
   currentText: 
   newMessage: 
   ConsoleText: {fileID: 1922068083}
@@ -1915,6 +1917,11 @@ MonoBehaviour:
   textSpeed: 0.75
   textSpeedMultiplier: 10
   enterInputSound: {fileID: 8286339686561626741, guid: 1f4b738664c2a304880377292d394ed8, type: 3}
+  typingSoundPrefab: {fileID: 8142087093706257023, guid: 0a3bcac25e865a94c8fc3476127f702f, type: 3}
+  typingSoundInstance: {fileID: 0}
+  printingSoundPrefab: {fileID: 7159567839921865398, guid: 81852c3f63c744b4880b626895d7cea5, type: 3}
+  printingSoundInstance: {fileID: 0}
+  beepUISound: {fileID: 2165158020505699466, guid: 2b6415bcd45991c43b2d10b73a824d26, type: 3}
   blinkerCooldown: 0.85
 --- !u!1 &877648322
 GameObject:
@@ -4093,7 +4100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green> Base HP:'
+  m_text: '<color=green> Defences:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
   m_sharedMaterial: {fileID: 4609090534259949680, guid: c5b1a4be8f2a2fb4cb06299aa8fb5740, type: 2}
@@ -4455,6 +4462,151 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2058866991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058866994}
+  - component: {fileID: 2058866993}
+  - component: {fileID: 2058866992}
+  m_Layer: 0
+  m_Name: Music Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2058866992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058866991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f7f9b225f664e469402d6f7e42f1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PitchRandomizerOffset: 0.1
+  AudioClips:
+  - {fileID: 8300000, guid: 5f8da8d0cb92c1c478665a9a625cc13f, type: 3}
+--- !u!82 &2058866993
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058866991}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 5f8da8d0cb92c1c478665a9a625cc13f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2058866994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058866991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.383426, y: -1.7257135, z: 0.90549695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129283114
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,6 +4720,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 835569151}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: PlayerNotTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -4576,7 +4740,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnDeselect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 835569151}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: PlayerNotTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -4585,7 +4761,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 835569151}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: PlayerTyping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4930,3 +5118,4 @@ SceneRoots:
   - {fileID: 1499646347}
   - {fileID: 750848567}
   - {fileID: 4904248296816986139}
+  - {fileID: 2058866994}

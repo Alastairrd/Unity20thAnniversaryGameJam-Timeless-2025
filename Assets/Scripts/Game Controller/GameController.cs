@@ -269,7 +269,7 @@ public class GameController : MonoBehaviour
 
         if(checkHealth())
         {
-            UIManager.Instance.PrintMessage($"You have {hoursLeftToday} hours until the horde approaches.");
+            UIManager.Instance.PrintMessage($"\nYou have {hoursLeftToday} hours TILL NIGHTFALL.");
             UIManager.Instance.TakePossibleActions(DecideActionsToDisplay());
         }
     }
