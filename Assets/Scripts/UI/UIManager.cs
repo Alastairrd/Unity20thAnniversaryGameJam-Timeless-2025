@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2)) 
             InputText.ActivateInputField();
-        UpdateResourceUI();
+        
 
         if (CanEnterText())
             UpdateResourceUI();
@@ -217,15 +217,12 @@ public class UIManager : MonoBehaviour
 
     public void UpdateResourceUI() 
     {
-        if (HealthBar)
-        {
+        
             HealthBar.fillAmount = GameController.Instance.playerHealth / 100;
             BaseHealthBar.fillAmount = GameController.Instance.baseHealth / 10;
             Metal.text = GameController.Instance.metal.ToString();
             Medicine.text = GameController.Instance.medicine.ToString();
             Wood.text = GameController.Instance.wood.ToString();
-        }
-
         TimeText.text = (24 - GameController.Instance.hoursLeftToday).ToString() + ":00";
 
         //Debug.Log("Updated UI");
