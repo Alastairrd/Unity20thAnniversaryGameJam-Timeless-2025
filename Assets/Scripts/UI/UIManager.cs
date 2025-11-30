@@ -74,12 +74,12 @@ public class UIManager : MonoBehaviour
     };
 
     [SerializeField] GameObject typingSoundPrefab;
-    [SerializeField] GameObject typingSoundInstance;
+    GameObject typingSoundInstance;
     float lastTimeTyped = 0;
     float cooldown = .5f;
 
     [SerializeField] GameObject printingSoundPrefab;
-    [SerializeField] GameObject printingSoundInstance;
+    GameObject printingSoundInstance;
 
     [SerializeField] GameObject beepUISound;
 
@@ -236,12 +236,12 @@ public class UIManager : MonoBehaviour
                     return;
                 }
             }
-            PrintMessage("You find yourself unable to " + GetActionFromDictionary(MappedInput));
+            PrintMessage("\nYou find yourself unable to \n" + GetActionFromDictionary(MappedInput));
             TakePossibleActions(PossibleOutcomes);
             return;
         }
 
-        PrintMessage("You are unable to perfom that action");
+        PrintMessage("\nYou are unable to perfom that action\n");
         //TakePossibleActions(PossibleOutcomes);
     }
 
@@ -276,7 +276,7 @@ public class UIManager : MonoBehaviour
     {
         Queue<string> actionQueue = new Queue<string>();
 
-        actionQueue.Enqueue("\n Please choose one of the following actions: \n");
+        actionQueue.Enqueue("\nPlease choose one of the following actions: \n");
         for (int i = 0; i < possibleActions.Count; i++)
         {
             actionQueue.Enqueue((i + 1).ToString() + ". " + GetActionFromDictionary(possibleActions[i]));

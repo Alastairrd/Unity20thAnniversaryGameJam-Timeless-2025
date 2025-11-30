@@ -1890,17 +1890,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fee121d6ab23844b3c3cea092777d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMessage: "<color=green> TILL NIGHTFAL \\n \\n\r\nTip: Press down arrow to
-    skip, and type the action\u2019s number for quicker input.\\n \\n\r\n\r\nYou\u2019ve
-    forgotten what year it is at this point. It\u2019s been several winters since
-    you last remembered your apartment, your family, your old life before this city
-    went to the dogs. \\n \\n\r\n There was a viral outbreak of some sort of rabies
-    all those years ago, and within 48 hours the situation was deemed uncontrollable
-    by your local provincial administration. Things became a hectic blur and now
-    the only survivors that remain are those who are either naturally immune or very
-    careful. There is no government presence, no military, no hope. \\n \\n\r\n Every
-    day might be your last, every hour you spend determines your fate. All you have
-    is your base, your life, and time. \\n \\n"
+  startMessage: "<color=green>     |-------- TILL NIGHTFAL ---------| \\n \\n\r\nTip:
+    Press down arrow to skip, and type the action\u2019s number for quicker input.\\n
+    \\n\r\n\r\nYou\u2019ve forgotten what year it is at this point. It\u2019s been
+    several winters since you last remembered your apartment, your family, your old
+    life before this city went to the dogs. \\n \\n\r\n There was a viral outbreak
+    of some sort of rabies all those years ago, and within 48 hours the situation
+    was deemed uncontrollable by your local provincial administration. Things became
+    a hectic blur and now the only survivors that remain are those who are either
+    naturally immune or very careful. There is no government presence, no military,
+    no hope. \\n \\n\r\n Every day might be your last, every hour you spend determines
+    your fate. All you have is your base, your life, and time. \\n \\n"
   currentText: 
   newMessage: 
   ConsoleText: {fileID: 1922068083}
@@ -1918,9 +1918,7 @@ MonoBehaviour:
   textSpeedMultiplier: 10
   enterInputSound: {fileID: 8286339686561626741, guid: 1f4b738664c2a304880377292d394ed8, type: 3}
   typingSoundPrefab: {fileID: 8142087093706257023, guid: 0a3bcac25e865a94c8fc3476127f702f, type: 3}
-  typingSoundInstance: {fileID: 0}
   printingSoundPrefab: {fileID: 7159567839921865398, guid: 81852c3f63c744b4880b626895d7cea5, type: 3}
-  printingSoundInstance: {fileID: 0}
   beepUISound: {fileID: 2165158020505699466, guid: 2b6415bcd45991c43b2d10b73a824d26, type: 3}
   blinkerCooldown: 0.85
 --- !u!1 &877648322
@@ -4494,7 +4492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PitchRandomizerOffset: 0.1
   AudioClips:
-  - {fileID: 8300000, guid: 5f8da8d0cb92c1c478665a9a625cc13f, type: 3}
+  - {fileID: 8300000, guid: 453e172b8551c5f4cbdd0fc9595758e5, type: 3}
 --- !u!82 &2058866993
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4506,7 +4504,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5f8da8d0cb92c1c478665a9a625cc13f, type: 3}
+  m_Resource: {fileID: 8300000, guid: 453e172b8551c5f4cbdd0fc9595758e5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
